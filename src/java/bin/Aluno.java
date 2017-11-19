@@ -138,4 +138,5 @@ public class Aluno {
                 + "\n plano=" + plano
                 + "\n senha=" + senha + '}';
     }
+    //testes
 }
