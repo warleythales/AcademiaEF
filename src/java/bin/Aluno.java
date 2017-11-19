@@ -139,7 +139,5 @@ public class Aluno {
                 + "\n senha=" + senha + '}';
     }
     //testes
-
     //testes 3
-    //testes 2
 }
