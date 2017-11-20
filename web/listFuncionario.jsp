@@ -56,14 +56,14 @@
                       <th></th>
                       <th> Id </th>
                       <th> Matrícula </th>
-                      <th> CPF </th>
+                     
                       <th> Nome </th>
-                      <th> Data de nascimento </th>
-                      <th> Sexo </th>
+                     
+                      
                       <th> Turno </th>
-                      <th> Endereço </th>
-                      <th> Email </th>
-                      <th> Telefone </th>
+                      
+                      
+                      
                       <th> Cargo </th>
                       <th> Academia </th>
                       
@@ -75,24 +75,24 @@
            <c:forEach var="func" items="${fdao.lista}">           
         <tr>
         <td>
-            <a class="btn btn-primary" href="FuncionarioController?acao=alterar&id=${func.id}">
+            <a class="btn btn-primary btn-fill" href="FuncionarioController?acao=alterar&id=${func.id}">
             <i class="glyphicon glyphicon-pencil"></i></a>
             
-            <button class="btn btn-danger" onclick="confirmarExclusao(${func.id}, '${func.nome}')">
+            <button class="btn btn-danger btn-fill" onclick="confirmarExclusao(${func.id}, '${func.nome}')">
             <i class="glyphicon glyphicon-trash"></i> </button>
                        
           </td>
         
           <td>${func.id}</td>
           <td>${func.matricula}</td>
-          <td>${func.cpf}</td>
+          
           <td>${func.nome}</td>
-          <td>${func.data_nasc}</td>
-          <td>${func.sexo}</td>
+    
+         
           <td>${func.turno}</td>
-          <td>${func.endereco}</td>
-          <td>${func.email}</td>
-          <td>${func.telefone}</td>
+
+
+          
           <td>${func.cargo.tipo}</td>
           <td>${func.academia.nome}</td>
    
