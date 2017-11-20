@@ -32,7 +32,7 @@ public class CargoController extends HttpServlet {
     case "excluir":
      if ( dao.excluir(idCargo) ) {
      resposta.print("alert('Cargo excluído com sucesso!');");
-     resposta.print("location.href='listar_cargo.jsp';");
+     resposta.print("location.href='listCargo.jsp';");
      
       }
   break;
@@ -43,7 +43,7 @@ public class CargoController extends HttpServlet {
       resposta.print("history.back();");
     } else {
        request.setAttribute("c", cargo);
-       request.getRequestDispatcher("/cadastrar_cargo.jsp").forward(request, response);
+       request.getRequestDispatcher("/cadCargo.jsp").forward(request, response);
        
          }break;
                 }
