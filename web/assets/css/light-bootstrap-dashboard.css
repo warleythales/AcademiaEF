@@ -1735,7 +1735,7 @@ fieldset[disabled] .btn-neutral.active {
 }
 
 .navbar.fixed {
-    width: calc(100% - $sidebar-width);
+    width: 100px;
     right: 0;
     left: auto;
     border-radius: 0;
@@ -3867,3 +3867,19 @@ fieldset[disabled] .btn-neutral.active {
         -webkit-overflow-scrolling: touch;
     }
 }
+.banner{
+	background:url(../img/faces/banner.jpg) no-repeat 0px 0px;
+	background-size:cover;
+	width:100%;
+	min-height:700px;
+        data-color:azure;
+        
+	}
+.banner2{
+	background:url(../img/faces/banner2.jpg) no-repeat 0px 0px;
+	background-size:cover;
+	width:100%;
+	min-height:700px;
+        data-color:azure;
+        
+	}

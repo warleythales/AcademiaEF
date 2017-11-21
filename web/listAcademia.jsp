@@ -54,31 +54,32 @@
                                                 <table class="table table-hover table-striped">
                                                     <thead>
                                                         <tr>
-                                                            <th></th>
                                                             <th>Id</th>
                                                             <th>CNPJ</th>
                                                             <th>Nome</th>
                                                             <th>Endereço</th>
                                                             <th>Telefone</th>
+                                                            <th></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>                                        
                                                         <jsp:useBean id="dao" class="model.AcademiaDAO"></jsp:useBean>
                                                         <c:forEach var="academia" items="${dao.lista}">
                                                             <tr>
-                                                                <td>
-                                                                    <a class="btn btn-primary btn-fill" href="AcademiaControle?acao=alterar&id=${academia.id}">
-                                                                        <i class="glyphicon glyphicon-pencil"></i>
-                                                                    </a>
-                                                                    <button class="btn btn-danger btn-fill" onclick="confirmarExclusao(${academia.id}, '${academia.cnpj}')">
-                                                                        <i class="pe-7s-trash"></i>
-                                                                    </button>
-                                                                </td>
+                                                               
                                                                 <td>${academia.id}</td>
                                                                 <td>${academia.cnpj}</td>
                                                                 <td>${academia.nome}</td>
                                                                 <td>${academia.endereco}</td>
                                                                 <td>${academia.telefone}</td>
+                                                                 <td>
+                                                                    <a class="btn btn-primary btn-fill" href="AcademiaControle?acao=alterar&id=${academia.id}">
+                                                                        <i class="pe-7s-pen"></i>
+                                                                    </a>
+                                                                    <button class="btn btn-danger btn-fill" onclick="confirmarExclusao(${academia.id}, '${academia.cnpj}')">
+                                                                        <i class="pe-7s-trash"></i>
+                                                                    </button>
+                                                                </td>
                                                             </tr>
                                                         </c:forEach>
                                                     </tbody>

@@ -43,7 +43,7 @@
                     </div>
 
 
-                    <a class="btn btn-info btn-fill pull-right" href=cadExercicio.jsp>Novo Treino</a>
+                    
                 </div>
             </nav>
 

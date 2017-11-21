@@ -4,9 +4,9 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@include file="cabecalho.jsp" %>
 <script>
-    function confirmarExclusao(id, cpf) {
-        if (confirm('Deseja realmente excluir o aluno ' + cpf + '?')) {
-            location.href = 'AcademiaController?acao=excluir&id=' + id;
+    function confirmarExclusao(id,) {
+        if (confirm('Deseja realmente excluir Exercício ' + id + '?')) {
+            location.href = 'XXXXXXXXXXXXXXXXController?acao=excluir&id=' + id;
         }
     }
 </script>
@@ -86,9 +86,9 @@
                                                         <td>${treino.XXXXXXX}</td>
                                                         
                                                         <td>
-                                                            <a class="btn btn-primary btn-fill" href="xxxxxxxxxxxxxxx.jsp">
-                                                                <i class="pe-7s-search"></i>
-                                                            </a> 
+                                                            <button class="btn btn-danger btn-fill" onclick="confirmarExclusao(${academia.id}, '${academia.cnpj}')">
+                                                                        <i class="pe-7s-trash"></i>
+                                                            </button> 
                                                         </td>
                                                        
                                                        

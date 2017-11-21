@@ -53,7 +53,7 @@
                                         <table class="table table-hover table-striped">
                                             <thead>
                                                 <tr>
-                                                    
+
                                                     <th> Id </th>
                                                     <th> CPF </th>
                                                     <th> Nome </th>
@@ -74,7 +74,7 @@
                                                         <td>${alu.status}</td>
                                                         <td>
                                                             <a class="btn btn-primary btn-fill" href="AlunoController?acao=alterar&id=${alu.id}">
-                                                                <i class="glyphicon glyphicon-pencil"></i>
+                                                                <i class="pe-7s-pen"></i>
                                                             </a>
                                                             <button class="btn btn-danger btn-fill" onclick="confirmarExclusao(${alu.id}, '${alu.nome}')">
                                                                 <i class="pe-7s-trash"></i>
@@ -82,17 +82,17 @@
                                                             <a class="btn btn-warning btn-fill" href="listMensalidade.jsp">
                                                                 <i class="pe-7s-piggy"></i>
                                                             </a> 
-                                                           
+
                                                             <a class="btn btn-info btn-fill" href="gerenciamentoTreinoAluno.jsp">
                                                                 <i class="pe-7s-gym"></i>
                                                             </a>    
                                                             <a class="btn btn-success btn-fill" href="listAvaliacao.jsp">
                                                                 <i class="pe-7s-note2"></i>
                                                             </a>    
-                                                                    
+
                                                         </td>
-                                                       
-                                                       
+
+
 
                                                     </tr>
                                                 </c:forEach>
