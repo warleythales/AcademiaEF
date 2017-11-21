@@ -66,7 +66,7 @@
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover">
-                                    <thead>
+                                    
                                         <th>Aparelho</th>
                                     	<th>Nome</th>
                                     	<th>Peso</th>
@@ -74,7 +74,7 @@
                                     	<th>Repetição</th>
                                         <th></th>
                                     	
-                                    </thead>
+                                    
                                     <tbody>                                        
                                                 <jsp:useBean id="dao" class="model.AlunoDAO"></jsp:useBean>
                                                 <c:forEach var="alu" items="${dao.lista}">

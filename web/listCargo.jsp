@@ -50,14 +50,14 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <table class="table table-hover table-striped">
-                                            <thead>
+                                           
                                                 <tr>
 
-                                                    <th>Id</th>
+                                                    <th>ID</th>
                                                     <th>Tipo</th>
                                                     <th></th>
                                                 </tr>
-                                            </thead>
+                                            
                                             <tbody>                                        
                                                 <jsp:useBean id="cDAO" class="model.CargoDAO"></jsp:useBean>
                                                 <c:forEach var="cargo" items="${cDAO.lista}">

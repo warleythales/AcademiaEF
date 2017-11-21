@@ -26,7 +26,6 @@
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <%@include file="menuCelular.jsp" %>
-
                         <h2 class="title">Aluno</h2>
                     </div>
                     <div class="navbar-default">
@@ -50,11 +49,11 @@
 
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <table class="table table-hover table-striped">
-                                            <thead>
+                                        <table class="table">
+                                            
                                                 <tr>
 
-                                                    <th> Id </th>
+                                                    <th> ID </th>
                                                     <th> CPF </th>
                                                     <th> Nome </th>
                                                     <th> Status </th>
@@ -63,7 +62,7 @@
 
 
                                                 </tr>
-                                            </thead>
+                                            
                                             <tbody>                                        
                                                 <jsp:useBean id="dao" class="model.AlunoDAO"></jsp:useBean>
                                                 <c:forEach var="alu" items="${dao.lista}">

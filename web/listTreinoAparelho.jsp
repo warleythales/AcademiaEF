@@ -53,7 +53,7 @@
                                                     <thead>
                                                         <tr>
                                                             <th></th>
-                                                            <th>Id</th>
+                                                            <th>ID</th>
                                                             <th>CNPJ</th>
                                                             <th>Nome</th>
                                                             <th>Endereço</th>

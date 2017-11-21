@@ -51,10 +51,10 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <table class="table table-hover table-striped">
-                                            <thead>
+                                            
                                                 <tr>
 
-                                                    <th> Id </th>
+                                                    <th> ID </th>
                                                     <th> Matrícula </th>
                                                     <th> Nome </th>
                                                     <th> Turno </th>
@@ -63,7 +63,7 @@
                                                     <th></th>
                                                 </tr>
 
-                                            </thead>
+                                            
                                             <tbody>                                        
                                                 <jsp:useBean id="fdao" class="model.FuncionarioDAO"/>
                                                 <c:forEach var="func" items="${fdao.lista}">           

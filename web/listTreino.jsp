@@ -50,17 +50,17 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <table class="table table-hover table-striped">
-                                                    <thead>
+                                                    
                                                         <tr>
                                                             
-                                                            <th>Id</th>
+                                                            <th>ID</th>
                                                             <th>CNPJ</th>
                                                             <th>Nome</th>
                                                             <th>Endereço</th>
                                                             <th>Telefone</th>
                                                             <th></th>
                                                         </tr>
-                                                    </thead>
+                                                    
                                                     <tbody>                                        
                                                         <jsp:useBean id="dao" class="model.AcademiaDAO"></jsp:useBean>
                                                         <c:forEach var="academia" items="${dao.lista}">

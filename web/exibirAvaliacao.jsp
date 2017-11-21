@@ -25,7 +25,7 @@
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <%@include file="menuCelular.jsp" %>
-                        <h2 class="title">Cadastro Avaliação</h2>
+                        <h2 class="title">Avaliação</h2>
                     </div>
                 </div>
             </nav>
@@ -51,7 +51,7 @@
                                             <div class="col-md-5">
                                                 <div class="form-group">
                                                     <label> Data da Avaliação </label>
-                                                    <input type="text" class="form-control" id="data_ava" name="data_ava" placeholder="00/00/0000" required value="${a.data_ava}">
+                                                    <input type="text" class="form-control" id="data_ava" name="data_ava" placeholder="data da avaliação" required value="${a.data_ava}">
                                                 </div>
                                             </div>
                                         </div>
@@ -163,7 +163,7 @@
                                             <div class="col-md-5">
                                                 <div class="form-group">
                                                     <label for="validade_ava" class="control-label"> Validade da Avaliação Física </label>
-                                                    <input type="text" class="form-control" id="validade_ava" name="validade_ava" placeholder="00/00/0000" required value="${a.validade_ava}"/>
+                                                    <input type="text" class="form-control" id="validade_ava" name="validade_ava" placeholder="validade da avaliação" required value="${a.validade_ava}"/>
                                                 </div>
                                             </div>
 
@@ -185,18 +185,10 @@
                                                 </select>
                                             </div>
 
-
-
-
-
                                         </div>
 
-
-
-
-
-                                        <button class="btn btn-success btn-fill">Gravar</button>  
-                                        <a href="listAluno.jsp" class="btn btn-warning btn-fill ">Voltar</a>
+                                          
+                                        <a href="listAvaliacao.jsp" class="btn btn-warning btn-fill ">Voltar</a>
                                     </form>
 
                                 </div>
