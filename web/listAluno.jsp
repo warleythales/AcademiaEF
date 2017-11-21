@@ -73,7 +73,7 @@
                                                         <td>${alu.nome}</td>
                                                         <td>${alu.status}</td>
                                                         <td>
-                                                            <a class="btn btn-primary btn-fill" href="AlunoControle?acao=alterar&id=${alu.id}">
+                                                            <a class="btn btn-primary btn-fill" href="AlunoController?acao=alterar&id=${alu.id}">
                                                                 <i class="glyphicon glyphicon-pencil"></i>
                                                             </a>
                                                             <button class="btn btn-danger btn-fill" onclick="confirmarExclusao(${alu.id}, '${alu.nome}')">
