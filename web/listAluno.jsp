@@ -3,7 +3,7 @@
 <script>
     function confirmarExclusao(id, cpf) {
         if (confirm('Deseja realmente excluir o aluno ' + cpf + '?')) {
-            location.href = 'AcademiaControle?acao=excluir&id=' + id;
+            location.href = 'AlunoController?acao=excluir&id=' + id;
         }
     }
 </script>
