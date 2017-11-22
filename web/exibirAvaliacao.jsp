@@ -35,7 +35,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="header">
-                                    <h4 class="title"> Dados da Avaliação </h4>
+                                    <h4 class="title"> Dados de Consulta </h4>
                                 </div>
                                 <div class="content">
                                     <form action="AvaliacaoController" method="POST">

@@ -69,6 +69,7 @@ public class CargoController extends HttpServlet {
         
         String id = request.getParameter("id");
         String tipo = request.getParameter("tipo");
+        
         Cargo cargo = new Cargo();
         cargo.setTipo(tipo);
 

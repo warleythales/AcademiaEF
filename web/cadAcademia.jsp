@@ -38,7 +38,7 @@
                             </div>
 
                             <div class="content">
-                                <form action="AcademiaControle" method="POST">
+                                <form action="AcademiaController" method="POST">
 
 
                                     <input type="hidden" name="id" value="${a.id}" />

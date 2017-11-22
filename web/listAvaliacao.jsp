@@ -1,9 +1,12 @@
+<%@page import="bin.Avaliacao"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="model.AvaliacaoDAO"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@include file="cabecalho.jsp" %>
 <script>
     function confirmarExclusao(id, data_ava) {
         if (confirm('Deseja realmente excluir o avaliação ' + data_ava + '?')) {
-            location.href = 'AvalicaoController?acao=excluir&id=' + id;
+            location.href = 'AvalicaoController?funcionalidade=excluir&id=' + id;
         }
     }
 </script>
@@ -74,13 +77,13 @@
                                                         
                                                         <td>${a.validade_ava}</td>
                                                         <td>
-                                                            <a class="btn btn-primary btn-fill" href="AvaliacaoController?acao=alterar&id=${a.id}">
+                                                            <a class="btn btn-primary btn-fill" href="AvaliacaoController?funcionalidade=alterar&id=${a.id}">
                                                                 <i class="pe-7s-pen"></i>
                                                             </a>
                                                             <button class="btn btn-danger btn-fill" onclick="confirmarExclusao(${a.id}, '${a.data_ava}')">
                                                                 <i class="pe-7s-trash"></i>
                                                             </button>
-                                                            <a class="btn btn-primary btn-fill" href="AvaliacaoController?acao=exibir&id=${a.id}">
+                                                            <a class="btn btn-primary btn-fill" href="AvaliacaoController?funcionalidade=exibir&id=${a.id}">
                                                                 <i class="pe-7s-search"></i>
                                                             </a>    
                                                         </td>

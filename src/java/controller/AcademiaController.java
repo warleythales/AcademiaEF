@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package controller;
 
 import java.io.IOException;
@@ -19,7 +15,7 @@ import model.AcademiaDAO;
  *
  * @author Apolo
  */
-@WebServlet(name = "AcademiaControle", urlPatterns = {"/AcademiaControle"})
+@WebServlet(name = "AcademiaController", urlPatterns = {"/AcademiaController"})
 
 public class AcademiaController extends HttpServlet {
 
@@ -42,7 +38,7 @@ public class AcademiaController extends HttpServlet {
                     case "excluir":
                         if (dao.excluir(idAcademia)) {
                             resposta.print("alert('Academia excluído com sucesso!');");
-                            resposta.print("location.href='listaacademia.jsp';");
+                            resposta.print("location.href='listAcademia.jsp';");
 
                         }
                         break;
@@ -53,7 +49,7 @@ public class AcademiaController extends HttpServlet {
                             resposta.print("history.back();");
                         } else {
                             request.setAttribute("a", academia);
-                            request.getRequestDispatcher("/academia.jsp").forward(request, response);
+                            request.getRequestDispatcher("/cadAcademia.jsp").forward(request, response);
 
                         }
                         break;
@@ -107,7 +103,7 @@ public class AcademiaController extends HttpServlet {
 
         if (sucesso == true) {
             resposta.print("<h1>" + mensagem + "</h1>");
-            resposta.print("<a href='listaacademia.jsp'>voltar</a>");
+            resposta.print("<a href='listAcademia.jsp'>voltar</a>");
 
         } else {
 
