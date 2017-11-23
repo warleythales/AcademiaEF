@@ -1,3 +1,6 @@
+<%@page import="bin.Cargo"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="model.CargoDAO"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@include file="cabecalho.jsp" %>
 <script>

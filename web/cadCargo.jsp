@@ -39,7 +39,7 @@
                 </div>
                 <div class="content">
                     <form action="CargoController" method="POST">
-                    <input type="hidden" name="id" value="${a.id}" />
+                    <input type="hidden" name="id" value="${c.id}" />
 
 
                 <div class="row">

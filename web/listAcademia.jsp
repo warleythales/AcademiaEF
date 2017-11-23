@@ -2,8 +2,8 @@
 <%@include file="cabecalho.jsp" %>
 <script>
     function confirmarExclusao(id, cnpj) {
-        if (confirm('Deseja realmente excluir o academia ' + cnpj + '?')) {
-            location.href = 'AcademiaController?acao=excluir&id=' + id;
+        if ( confirm('Deseja realmente excluir o academia ' + cnpj + '?')) {
+            location.href='AcademiaController?acao=excluir&id=' + id;
         }
     }
 </script>
@@ -46,7 +46,7 @@
                             <div class="card">
 
                                 <div class="content">
-                                    <form>
+                                    
 
 
                                         <div class="row">
@@ -87,7 +87,7 @@
                                             </div>
                                         </div>
 
-                                    </form>
+                                    
                                 </div>     
                                 <div class="clearfix"></div>
 
