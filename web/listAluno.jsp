@@ -1,12 +1,12 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@include file="cabecalho.jsp" %>
-<script>
-    function confirmarExclusao(id, cpf) {
-        if (confirm('Deseja realmente excluir o aluno ' + cpf + '?')) {
-            location.href = 'AlunoController?acao=excluir&id=' + id;
-        }
-    }
-</script>
+  <script>
+          function confirmarExclusao(id, cpf) {
+              if ( confirm('Deseja realmente excluir o Aluno ' + cpf + '?') ) {
+                  location.href='AlunoController?acao=excluir&id=' + id;
+              }
+          }
+      </script>
 </head>
 <body>
 

@@ -1,4 +1,5 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@include file="cabecalho.jsp" %>
 </head>
 
@@ -51,7 +52,7 @@
                                             <div class="col-md-5">
                                                 <div class="form-group">
                                                     <label> Data da Avaliação </label>
-                                                    <input type="text" class="form-control" id="data_ava" name="data_ava" placeholder="00/00/0000" required value="${a.data_ava}">
+                                                    <input type="text" class="form-control" id="data_ava" name="data_ava" placeholder="00/00/0000" required value="<fmt:formatDate value="${a.data_ava}" pattern="dd/MM/yyyy"></fmt:formatDate>">
                                                 </div>
                                             </div>
                                         </div>
@@ -163,7 +164,7 @@
                                             <div class="col-md-5">
                                                 <div class="form-group">
                                                     <label for="validade_ava" class="control-label"> Validade da Avaliação Física </label>
-                                                    <input type="text" class="form-control" id="validade_ava" name="validade_ava" placeholder="00/00/0000" required value="${a.validade_ava}"/>
+                                                    <input type="text" class="form-control" id="validade_ava" name="validade_ava" placeholder="00/00/0000" required value="<fmt:formatDate value="${a.validade_ava}" pattern="dd/MM/yyyy"></fmt:formatDate>">
                                                 </div>
                                             </div>
 

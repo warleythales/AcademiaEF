@@ -1,4 +1,5 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@include file="cabecalho.jsp" %>
 </head>
 
@@ -65,7 +66,7 @@
                                             <div class="col-md-5">
                                                 <div class="form-group">
                                                     <label for="data_nasc" class="control-label"> Data de Nascimento </label>
-                                                    <input type="text" class="form-control" id="data_nasc" name="data_nasc" placeholder="00/00/0000" required value="${alu.data_nasc}"/>
+                                                    <input type="text" class="form-control" id="data_nasc" name="data_nasc" placeholder="00/00/0000" required value="<fmt:formatDate value="${alu.data_nasc}" pattern="dd/MM/yyyy"></fmt:formatDate>">
                                                 </div>
                                             </div>
 
@@ -140,10 +141,10 @@
                                                     <select id="academia" name="academia" class="form-control" required>
                                                         <option></option>
                                                     <c:forEach var="academia" items="${AcademiaDAO.lista}">
-                                                        <c:if test="${f.academia.id == academia.id}">
+                                                        <c:if test="${alu.academia.id == academia.id}">
                                                             <option value="${academia.id}" selected>${academia.nome}</option>
                                                         </c:if>
-                                                        <c:if test="${f.academia.id != academia.id}">
+                                                        <c:if test="${alu.academia.id != academia.id}">
                                                             <option value="${academia.id}">${academia.nome}</option>                                
                                                         </c:if>
                                                     </c:forEach>

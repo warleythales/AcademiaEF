@@ -1,4 +1,5 @@
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>]
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@include file="cabecalho.jsp" %>
 </head>
 
@@ -47,7 +48,7 @@
                 <div class="col-md-6">
                 <div class="form-group">
                    <label for="data_pag" class="control-label"> Data de Pagamento </label>
-                    <input type="text" class="form-control" id="data_pag" name="data_pag" placeholder="00/00/0000" required value="${m.data_pag}">
+                    <input type="text" class="form-control" id="data_pag" name="data_pag" placeholder="00/00/0000" required value="<fmt:formatDate value="${m.data_pag}" pattern="dd/MM/yyyy"></fmt:formatDate>">
                 </div>
                 </div>
                 </div>
@@ -56,7 +57,7 @@
                 <div class="col-md-6">
                 <div class="form-group">
                     <label for="data_venc" class="control-label"> Data de Vencimento </label>
-                    <input type="text" class="form-control" id="data_venc" name="data_venc" placeholder="00/00/0000" required value="${m.data_venc}">
+                    <input type="text" class="form-control" id="data_venc" name="data_venc" placeholder="00/00/0000" required value="<fmt:formatDate value="${m.data_venc}" pattern="dd/MM/yyyy"></fmt:formatDate>">
                 </div>
                 </div>
                
