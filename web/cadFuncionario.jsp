@@ -1,4 +1,5 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@include file="cabecalho.jsp" %>
 </head>
 
@@ -70,7 +71,7 @@
                         <div class="col-md-5">
                         <div class="form-group">
                             <label> Data de Nascimento </label>
-                            <input type="text" class="form-control" id="data_nasc" name="data_nasc" placeholder="00/00/0000" required value="${f.data_nasc}">
+                            <input type="text" class="form-control" id="data_nasc" name="data_nasc" placeholder="00/00/0000" required value="<fmt:formatDate value="${f.data_nasc}" pattern="dd/MM/yyyy"></fmt:formatDate>">
                         </div>
                         </div>
 

@@ -51,7 +51,7 @@
                                     <div class="col-md-12">
                                         <table class="table">
                                             <tr>
-                                                
+
                                                 <th>ID</th>
                                                 <th>Valor Pago </th>
                                                 <th>Data de Pagamento </th>
@@ -94,6 +94,10 @@
                             </div>
                         </div>
                     </div>
+                    <div class="container-fluid">
+                        <a class="btn btn-warning btn-fill" href=listAluno.jsp>Voltar</a>
+                    </div>  
+
 
                 </div>
             </div>

@@ -39,7 +39,7 @@
                 </div>
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <h3 class="title">Treino</h3>
+                        <h3 class="title">Novo Exercício</h3>
                     </div>
 
 

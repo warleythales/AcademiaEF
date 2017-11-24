@@ -103,7 +103,14 @@
                     </div>
 
                 </div>
+               <div class="container-fluid">
+                <a class="btn btn-warning btn-fill" href=listAluno.jsp>Voltar</a>
+            </div>                                   
+                                                
             </div>
+                                                
+                                                
+                                                
         </div>
     </div>
 
