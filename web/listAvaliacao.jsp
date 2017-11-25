@@ -30,12 +30,10 @@
                     <div class="navbar-header">
                         <%@include file="menuCelular.jsp" %>
 
-                        <h2 class="title">Avaliação</h2>
+                        <h3 class="title">Avaliação</h3>
                     </div>
-                    <div class="navbar-default">
+                        <%@include file="menuGlobal.jsp" %>
 
-                        <a class="btn btn-info btn-fill pull-right" href=cadAvaliacao.jsp>Novo Cadastro</a>
-                    </div>
 
                 </div>
             </nav>
@@ -46,13 +44,16 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card">
+                                <div class="content">
 
-
-
-
+                                    <a class="btn btn-info btn-fill pull-right" href=cadAvaliacao.jsp>Novo Cadastro</a>
+                                    <br>
+                                    <br>
+                                    <br>
 
                                 <div class="row">
                                     <div class="col-md-12">
+                                        <div class="content table-responsive table-full-width">
                                         <table class="table table-hover table-striped">
                                             
                                                 <tr>
@@ -73,9 +74,9 @@
 
                                                         <td>${a.id}</td>
                                                         
-                                                        <td>${a.data_ava}</td>
+                                                        <td><fmt:formatDate value="${a.data_ava}" pattern="dd/MM/yyyy"></fmt:formatDate></td>
                                                         
-                                                        <td>${a.validade_ava}</td>
+                                                        <td><fmt:formatDate value="${a.validade_ava}" pattern="dd/MM/yyyy"></fmt:formatDate></td>
                                                         <td>
                                                             <a class="btn btn-primary btn-fill" href="AvaliacaoController?funcionalidade=alterar&id=${a.id}">
                                                                 <i class="pe-7s-pen"></i>
@@ -91,14 +92,17 @@
                                                 </c:forEach>
                                             </tbody>
                                         </table>
+                                       </div>         
                                     </div>
                                 </div>
 
 
 
-                                <div class="clearfix"></div>
+                               
 
                             </div>
+                                                 <div class="clearfix"></div>
+                           </div>
                         </div>
                     </div>
 

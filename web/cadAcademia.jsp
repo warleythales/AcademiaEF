@@ -21,12 +21,14 @@
         <div class="main-panel">
             <nav class="navbar navbar-default navbar-fixed">
                 <div class="container-fluid">
-                    <div class="col-md-12">
+                    
                         <div class="navbar-header">
                             <%@include file="menuCelular.jsp" %>
                             <h2 class="title">Cadastrar Academia</h2>
                         </div>
-                    </div>
+                    
+                            <%@include file="menuGlobal.jsp" %>
+                </div>            
             </nav>        
             <div class="content">
                 <div class="container-fluid">

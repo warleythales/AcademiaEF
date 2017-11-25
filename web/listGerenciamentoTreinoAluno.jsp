@@ -30,11 +30,12 @@
                         <%@include file="menuCelular.jsp" %>
 
 
-                        <h2 class="title">Aluno:</h2> 
+                        <h3 class="title">Aluno:</h3>
+                        <h4 class="title">CPF:</h4>
 
 
                     </div>
-
+                        <%@include file="menuGlobal.jsp" %>
 
                 </div>
                 <div class="container-fluid">
@@ -43,7 +44,7 @@
                     </div>
 
 
-                    <a class="btn btn-info btn-fill pull-right" href=cadExercicio.jsp>Novo Treino</a>
+                    <a class="btn btn-info btn-fill pull-right" href=cadTreino.jsp>Novo Treino</a>
                 </div>
             </nav>
 
@@ -51,9 +52,7 @@
 
             <div class="col-md-12">
                 <div class="card card-plain">
-                    <div class="header">
-
-                    </div>
+                    
                     <div class="content table-responsive table-full-width">
                         <table class="table table-hover">
                             <thead>
@@ -71,7 +70,7 @@
                                         <td>${treino.dataXXXXXXXXX}</td>
                                         <td>${treino.XXXXXXX}</td>
                                         <td>
-                                            <a class="btn btn-primary btn-fill" href="verTreino.jsp">
+                                            <a class="btn btn-primary btn-fill" href="listVerTreino.jsp">
                                                 <i class="pe-7s-search"></i>
                                             </a> 
                                         </td>

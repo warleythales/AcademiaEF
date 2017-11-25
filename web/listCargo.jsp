@@ -29,12 +29,10 @@
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <%@include file="menuCelular.jsp" %>
-                        <h2 class="title">Cargo</h2>
+                        <h3 class="title">Cargo</h3>
                     </div>
-                    <div class="navbar-default">
-
-                        <a class="btn btn-info btn-fill pull-right" href=cadCargo.jsp>Novo Cadastro</a>
-                    </div>
+                    
+                    <%@include file="menuGlobal.jsp" %>
 
                 </div>
             </nav>
@@ -45,13 +43,19 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card">
-
+                                <div class="content">
+                                    
+                                    <a class="btn btn-info btn-fill pull-right" href=cadCargo.jsp>Novo Cadastro</a>
+                                    <br>
+                                    <br>
+                                    <br>
 
 
 
 
                                 <div class="row">
                                     <div class="col-md-12">
+                                        <div class="content table-responsive table-full-width">
                                         <table class="table table-hover table-striped">
                                            
                                                 <tr>
@@ -81,6 +85,7 @@
                                             </tbody>
                                         </table>
                                     </div>
+                                   </div>             
                                 </div>
 
 
@@ -90,7 +95,7 @@
                             </div>
                         </div>
                     </div>
-
+                    </div>
                 </div>
             </div>
         </div>
