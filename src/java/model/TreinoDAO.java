@@ -1,14 +1,138 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
-/**
- *
- * @author wtsl_
- */
+import bin.Aluno;
+import bin.Treino;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+
 public class TreinoDAO {
 
+    public boolean inserir(Treino t) {
+        try {
+            String sql = "INSERT INTO treino (descricao, data_inicio, data_fim, id_aluno) "
+                    + "VALUES (?,?,?,?)";
+            Connection con = Conexao.conectar();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, t.getDescricao());
+            ps.setDate(2, new Date(t.getData_inicio().getTime()));
+            ps.setDate(3, new Date(t.getData_fim().getTime()));
+            ps.setInt(4, t.getAluno().getId());
+
+            ps.execute();
+            ps.close();
+            con.close();
+            return true;
+        } catch (Exception e) {
+            System.out.println("TreinoDAO::inserir");
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+
+    public boolean alterar(Treino t) {
+        try {
+            String sql = "UPDATE treino SET descricao=?, data_inicio=?, data_fim=?, id_aluno=? WHERE id=?";
+            Connection con = Conexao.conectar();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, t.getDescricao());
+            ps.setDate(2, new Date(t.getData_inicio().getTime()));
+            ps.setDate(3, new Date(t.getData_fim().getTime()));
+            ps.setInt(4, t.getAluno().getId());
+            ps.setInt(5, t.getId());
+            ps.execute();
+            ps.close();
+            con.close();
+            return true;
+        } catch (Exception e) {
+            System.out.println("TreinoDAO::alterar");
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+
+    public boolean excluir(int id) {
+        try {
+            String sql = "DELETE FROM treino WHERE id=?";
+            Connection con = Conexao.conectar();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ps.execute();
+            ps.close();
+            con.close();
+            return true;
+        } catch (Exception e) {
+            System.out.println("TreinoDAO::excluir");
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+
+    public Treino recuperarPorId(int id) {
+        try {
+
+            String sql = "SELECT id, descricao, data_inicio, data_fim, id_aluno"
+                    + "FROM treino WHERE id=?";
+
+            Connection con = Conexao.conectar();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            Treino t = null;
+            if (rs.next()) {
+                t = new Treino();
+                t.setId(rs.getInt("id"));
+                t.setDescricao(rs.getString("descricao"));
+                t.setData_inicio(rs.getDate("data_inicio"));
+                t.setData_fim(rs.getDate("data_fim"));
+
+                AlunoDAO adao = new AlunoDAO();
+                Aluno aluno = adao.recuperarPorId(rs.getInt("id_aluno"));
+                t.setAluno(aluno);
+            }
+            ps.close();
+            con.close();
+            return t;
+        } catch (Exception e) {
+            System.out.println("AlunoDAO::recuperarPorId");
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+    public ArrayList<Treino> getLista() {
+        ArrayList<Treino> lista = new ArrayList<Treino>();
+        try {
+            String sql = "SELECT id, descricao, data_inicio, data_fim, id_aluno FROM treino";
+            Connection con = Conexao.conectar();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+
+            AlunoDAO aDAO = new AlunoDAO();
+            while (rs.next()) {
+                Treino t = new Treino();
+                t.setId(rs.getInt("id"));
+                t.setDescricao(rs.getString("descricao"));
+                t.setData_inicio(rs.getDate("data_inicio"));
+                t.setData_fim(rs.getDate("data_fim"));
+
+                Aluno aluno = aDAO.recuperarPorId(rs.getInt("id_aluno"));
+                t.setAluno(aluno);
+
+                lista.add(t);
+
+            }
+
+            System.out.println("TreinoDAO::getLista");
+            rs.close();
+            con.close();
+        } catch (Exception e) {
+            System.out.println("TreinoDAO::getLista");
+            System.out.println(e.getMessage());
+        }
+        return lista;
+    }
 }

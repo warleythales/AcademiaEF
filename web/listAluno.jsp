@@ -1,12 +1,12 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@include file="cabecalho.jsp" %>
-  <script>
-          function confirmarExclusao(id, cpf) {
-              if ( confirm('Deseja realmente excluir o Aluno ' + cpf + '?') ) {
-                  location.href='AlunoController?acao=excluir&id=' + id;
-              }
-          }
-      </script>
+<script>
+    function confirmarExclusao(id, cpf) {
+        if (confirm('Deseja realmente excluir o aluno ' + cpf + '?')) {
+            location.href = 'AcademiaControle?acao=excluir&id=' + id;
+        }
+    }
+</script>
 </head>
 <body>
 
@@ -26,6 +26,7 @@
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <%@include file="menuCelular.jsp" %>
+
                         <h2 class="title">Aluno</h2>
                     </div>
                     <div class="navbar-default">
@@ -49,11 +50,11 @@
 
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <table class="table">
-                                            
+                                        <table class="table table-hover table-striped">
+                                            <thead>
                                                 <tr>
 
-                                                    <th> ID </th>
+                                                    <th> Id </th>
                                                     <th> CPF </th>
                                                     <th> Nome </th>
                                                     <th> Status </th>
@@ -62,8 +63,8 @@
 
 
                                                 </tr>
-                                            
-                                            <tbody>                                        
+                                            </thead>
+                                            <tbody>
                                                 <jsp:useBean id="dao" class="model.AlunoDAO"></jsp:useBean>
                                                 <c:forEach var="alu" items="${dao.lista}">
                                                     <tr>
@@ -78,16 +79,16 @@
                                                             <button class="btn btn-danger btn-fill" onclick="confirmarExclusao(${alu.id}, '${alu.nome}')">
                                                                 <i class="pe-7s-trash"></i>
                                                             </button>
-                                                            <a class="btn btn-warning btn-fill" href="listMensalidade.jsp">
+                                                            <a class="btn btn-warning btn-fill" href="MensalidadeController?acao=listar-aluno&id_aluno==${alu.id}">
                                                                 <i class="pe-7s-piggy"></i>
-                                                            </a> 
+                                                            </a>
 
                                                             <a class="btn btn-info btn-fill" href="gerenciamentoTreinoAluno.jsp">
                                                                 <i class="pe-7s-gym"></i>
-                                                            </a>    
+                                                            </a>
                                                             <a class="btn btn-success btn-fill" href="listAvaliacao.jsp">
                                                                 <i class="pe-7s-note2"></i>
-                                                            </a>    
+                                                            </a>
 
                                                         </td>
 

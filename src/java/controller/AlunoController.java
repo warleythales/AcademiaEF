@@ -21,7 +21,7 @@ public class AlunoController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String funcionalidade = request.getParameter("acao");
+        String funcionalidade = request.getParameter("funcionalidade");
         PrintWriter resposta = response.getWriter();
         resposta.write("<script>");
 
@@ -42,7 +42,7 @@ public class AlunoController extends HttpServlet {
                         break;
 
                     case "alterar":
-                        Aluno alu = dao.carregarPorId(idAluno);
+                        Aluno alu = dao.recuperarPorId(idAluno);
                         if (alu == null) {
                             resposta.print("alert('Aluno não encontrado!');");
                             resposta.print("history.back();");

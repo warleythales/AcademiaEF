@@ -2,6 +2,9 @@ package model;
 
 import bin.Academia;
 import bin.Aluno;
+import bin.Avaliacao;
+import bin.Funcionario;
+import bin.Mensalidade;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -90,10 +93,11 @@ public class AlunoDAO {
         }
     }
 
-    public Aluno carregarPorId(Integer id) {
+    public Aluno recuperarPorId(int id) {
         try {
             String sql = "SELECT id, cpf, nome, email, data_nasc, sexo, endereco, telefone,"
                     + "status, valor_mensalidade, plano, senha, id_academia FROM aluno WHERE id=?";
+
             Connection con = Conexao.conectar();
             PreparedStatement pstm = con.prepareStatement(sql);
             pstm.setInt(1, id);
@@ -113,17 +117,32 @@ public class AlunoDAO {
                 alu.setValor_mensalidade(rs.getDouble("valor_mensalidade"));
                 alu.setPlano(rs.getString("plano"));
                 alu.setSenha(rs.getString("senha"));
-                
+
                 AcademiaDAO daoAcademia = new AcademiaDAO();
                 Academia academia = daoAcademia.buscarPorId(rs.getInt("id_academia"));
                 alu.setAcademia(academia);
 
+                //alu.setMeusTreino();
             }
             pstm.close();
             con.close();
             return alu;
         } catch (Exception e) {
-            System.out.println("AlunoDAO::carregarPorId");
+            System.out.println("AlunoDAO::recuperarPorId");
+            System.out.println(e.getMessage());
+            return null;
+        }
+
+    }
+
+    public Aluno recuperarPorIdMenslidade(int id) {
+        try {
+            Aluno alu = recuperarPorId(id);
+            MensalidadeDAO mDAO = new MensalidadeDAO();
+            alu.setMinhasMensalidade(mDAO.getListaAluno(id));
+            return alu;
+        } catch (Exception e) {
+            System.out.println("AlunoDAO::recuperarPorIdMensalidade");
             System.out.println(e.getMessage());
             return null;
         }
@@ -139,7 +158,7 @@ public class AlunoDAO {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
             AcademiaDAO daoAcademia = new AcademiaDAO();
-            
+
             while (rs.next()) {
                 Aluno alu = new Aluno();
                 alu.setId(rs.getInt("id"));
@@ -154,7 +173,7 @@ public class AlunoDAO {
                 alu.setValor_mensalidade(rs.getDouble("valor_mensalidade"));
                 alu.setPlano(rs.getString("plano"));
                 alu.setSenha(rs.getString("senha"));
-                
+
                 Academia academia = daoAcademia.buscarPorId(rs.getInt("id_academia"));
                 alu.setAcademia(academia);
 

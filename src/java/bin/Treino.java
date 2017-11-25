@@ -4,27 +4,18 @@ import java.util.Date;
 
 public class Treino {
 
-    private int id_treino;
-    private int id_aparelho;
+    private int id;
     private String descricao;
     private Date data_inicio;
     private Date data_fim;
     private Aluno aluno;
 
-    public int getId_treino() {
-        return id_treino;
+    public int getId() {
+        return id;
     }
 
-    public void setId_treino(int id_treino) {
-        this.id_treino = id_treino;
-    }
-
-    public int getId_aparelho() {
-        return id_aparelho;
-    }
-
-    public void setId_aparelho(int id_aparelho) {
-        this.id_aparelho = id_aparelho;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDescricao() {
