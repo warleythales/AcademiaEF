@@ -21,7 +21,7 @@ public class AlunoController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String funcionalidade = request.getParameter("funcionalidade");
+        String funcionalidade = request.getParameter("acao");
         PrintWriter resposta = response.getWriter();
         resposta.write("<script>");
 

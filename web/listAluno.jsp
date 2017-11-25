@@ -2,8 +2,8 @@
 <%@include file="cabecalho.jsp" %>
 <script>
     function confirmarExclusao(id, cpf) {
-        if (confirm('Deseja realmente excluir o aluno ' + cpf + '?')) {
-            location.href = 'AcademiaControle?acao=excluir&id=' + id;
+        if (confirm('Deseja realmente excluir o Aluno ' + cpf + '?')) {
+            location.href = 'AlunoController?acao=excluir&id=' + id;
         }
     }
 </script>
