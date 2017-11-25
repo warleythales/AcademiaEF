@@ -1,13 +1,7 @@
 package bin;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
-import model.AlunoDAO;
-import model.Conexao;
-import model.FuncionarioDAO;
 
 public class Aluno {
 
@@ -24,6 +18,9 @@ public class Aluno {
     private String plano;
     private String senha;
     private Academia academia;
+    private ArrayList<Treino> meusTreinos;
+    private ArrayList<Mensalidade> minhasMensalidade;
+    private ArrayList<Avaliacao> minhasAvaliacoes;
 
     public int getId() {
         return id;
@@ -129,87 +126,28 @@ public class Aluno {
         this.academia = academia;
     }
 
-    public ArrayList<Avaliacao> getListarAvaliacao() {
-        ArrayList<Avaliacao> listaA = new ArrayList<Avaliacao>();
-        try {
-            String sql = "SELECT id, biotipo, data_ava, idade, peso, ombro, braco_relaxado, braco_contraido, "
-                    + "antebraco, torax, panturrilha, cintura, abdomen, quadril, coxa, "
-                    + "validade_ava, id_aluno FROM avaliacao_fisica ";
-            Connection con = Conexao.conectar();
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            AlunoDAO daoAluno = new AlunoDAO();
-
-            while (rs.next()) {
-                Avaliacao a = new Avaliacao();
-                a.setId(rs.getInt("id"));
-                a.setBiotipo(rs.getString("biotipo"));
-                a.setData_ava(rs.getDate("data_ava"));
-                a.setIdade(rs.getInt("idade"));
-                a.setPeso(rs.getDouble("peso"));
-                a.setOmbro(rs.getDouble("ombro"));
-                a.setBraco_relaxado(rs.getDouble("braco_relaxado"));
-                a.setBraco_contraido(rs.getDouble("braco_contraido"));
-                a.setAntebraco(rs.getDouble("antebraco"));
-                a.setTorax(rs.getDouble("torax"));
-                a.setPanturrilha(rs.getDouble("panturrilha"));
-                a.setQuadril(rs.getDouble("quadril"));
-                a.setCoxa(rs.getDouble("coxa"));
-                a.setValidade_ava(rs.getDate("validade_ava"));
-
-                Aluno aluno = daoAluno.carregarPorId(rs.getInt("id_aluno"));
-                a.setAluno(aluno);
-
-                listaA.add(a);
-
-            }
-            System.out.println("Listar executado");
-            rs.close();
-            con.close();
-        } catch (Exception e) {
-            System.out.println("AvaliacaoDAO::listar");
-            System.out.println(e.getMessage());
-        }
-        return listaA;
+    public ArrayList<Treino> getMeusTreinos() {
+        return meusTreinos;
     }
 
-    public ArrayList<Mensalidade> getListarMensalidade() {
-        ArrayList<Mensalidade> listaM = new ArrayList<Mensalidade>();
-        try {
-            String sql = "SELECT id, valor_pago, data_pag, data_venc, status,"
-                    + " id_aluno, id_funcionario FROM mensalidades";
-            Connection con = Conexao.conectar();
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery(sql);
+    public void setMeusTreinos(ArrayList<Treino> meusTreinos) {
+        this.meusTreinos = meusTreinos;
+    }
 
-            AlunoDAO daoAluno = new AlunoDAO();
-            FuncionarioDAO fdao = new FuncionarioDAO();
-            while (rs.next()) {
-                Mensalidade m = new Mensalidade();
-                m.setId(rs.getInt("id"));
-                m.setValor_pago(rs.getDouble("valor_pago"));
-                m.setData_pag(rs.getDate("data_pag"));
-                m.setData_venc(rs.getDate("data_venc"));
-                m.setStatus(rs.getString("status"));
+    public ArrayList<Mensalidade> getMinhasMensalidade() {
+        return minhasMensalidade;
+    }
 
-                Aluno aluno = daoAluno.carregarPorId(rs.getInt("id_aluno"));
-                m.setAluno(aluno);
+    public void setMinhasMensalidade(ArrayList<Mensalidade> minhasMensalidade) {
+        this.minhasMensalidade = minhasMensalidade;
+    }
 
-                Funcionario f = fdao.recuperarPorId(rs.getInt("id_funcionario"));
-                m.setFuncionario(f);
+    public ArrayList<Avaliacao> getMinhasAvaliacoes() {
+        return minhasAvaliacoes;
+    }
 
-                listaM.add(m);
-
-            }
-
-            System.out.println("MensalidadeDAO::getLista");
-            rs.close();
-            con.close();
-        } catch (Exception e) {
-            System.out.println("MensalidadeDAO::getLista");
-            System.out.println(e.getMessage());
-        }
-        return listaM;
+    public void setMinhasAvaliacoes(ArrayList<Avaliacao> minhasAvaliacoes) {
+        this.minhasAvaliacoes = minhasAvaliacoes;
     }
 
 }

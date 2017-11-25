@@ -52,13 +52,13 @@
                                         <table class="table">
                                             <tr>
 
-                                                <th>ID</th>
+                                                <th>Id</th>
                                                 <th>Valor Pago </th>
                                                 <th>Data de Pagamento </th>
                                                 <th>Data de Vencimento </th>
                                                 <th>Status</th>
                                                 <th>Aluno </th>
-                                                <th>Funcionário</th>                                                
+                                                <th>Funcionário</th>
                                                 <th></th>
                                             </tr>
                                             <jsp:useBean id="mdao" class="model.MensalidadeDAO"></jsp:useBean>
@@ -95,10 +95,6 @@
                         </div>
                        </div>                     
                     </div>
-                    <div class="container-fluid">
-                        <a class="btn btn-warning btn-fill" href=listAluno.jsp>Voltar</a>
-                    </div>  
-
 
                 </div>
             </div>

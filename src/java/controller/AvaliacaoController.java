@@ -16,7 +16,7 @@ import javax.servlet.annotation.WebServlet;
 import bin.Aluno;
 import model.AlunoDAO;
 
-
+@WebServlet(name = "AvaliacaoController", urlPatterns = {"/AvaliacaoController"})
 public class AvaliacaoController extends HttpServlet {
 
     @Override
@@ -44,24 +44,13 @@ public class AvaliacaoController extends HttpServlet {
                         break;
 
                     case "alterar":
-                        Avaliacao a = dao.carregarPorId(idAvaliacao);
+                        Avaliacao a = dao.recuperarPorId(idAvaliacao);
                         if (a == null) {
                             resposta.print("alert('Avaliação Física não encontrada!');");
                             resposta.print("history.back();");
                         } else {
                             request.setAttribute("a", a);
                             request.getRequestDispatcher("/cadAvaliacao.jsp").forward(request, response);
-                        }
-                        break;
-                        
-                        case "exibir":
-                        Avaliacao ae = dao.carregarPorId(idAvaliacao);
-                        if (ae == null) {
-                            resposta.print("alert('Avaliação Física não encontrada!');");
-                            resposta.print("history.back();");
-                        } else {
-                            request.setAttribute("a", ae);
-                            request.getRequestDispatcher("/exibirAvaliacao.jsp").forward(request, response);
                         }
                         break;
                 }
@@ -126,18 +115,18 @@ public class AvaliacaoController extends HttpServlet {
             a.setQuadril(Double.parseDouble(quadril));
             a.setCoxa(Double.parseDouble(coxa));
             a.setValidade_ava(sdf.parse(request.getParameter("validade_ava")));
-            
-             String alunoId = request.getParameter("aluno");
-        
-        if ( alunoId != null && !alunoId.isEmpty() ) {
-            Aluno aluno = new Aluno();
-            aluno.setId( Integer.parseInt(request.getParameter("aluno")) );
-        
-            a.setAluno(aluno);
-        } else {
-            resposta.write("<script>alert('Selecione o aluno!');history.back();</script>");
-            return;
-        }
+
+            String alunoId = request.getParameter("aluno");
+
+            if (alunoId != null && !alunoId.isEmpty()) {
+                Aluno aluno = new Aluno();
+                aluno.setId(Integer.parseInt(request.getParameter("aluno")));
+
+                a.setAluno(aluno);
+            } else {
+                resposta.write("<script>alert('Selecione o aluno!');history.back();</script>");
+                return;
+            }
 
             AvaliacaoDAO dao = new AvaliacaoDAO();
             boolean sucesso = false;

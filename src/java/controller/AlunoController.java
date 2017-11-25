@@ -42,7 +42,7 @@ public class AlunoController extends HttpServlet {
                         break;
 
                     case "alterar":
-                        Aluno alu = dao.carregarPorId(idAluno);
+                        Aluno alu = dao.recuperarPorId(idAluno);
                         if (alu == null) {
                             resposta.print("alert('Aluno não encontrado!');");
                             resposta.print("history.back();");

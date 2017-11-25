@@ -99,7 +99,7 @@ public class AvaliacaoDAO {
         }
     }
 
-    public Avaliacao carregarPorId(Integer id) {
+    public Avaliacao recuperarPorId(Integer id) {
         try {
             String sql = "SELECT id, biotipo, data_ava, idade, peso, ombro, braco_relaxado, braco_contraido, "
                     + "antebraco, torax, panturrilha, cintura, abdomen, quadril, coxa, "
@@ -127,7 +127,7 @@ public class AvaliacaoDAO {
                 a.setValidade_ava(rs.getDate("validade_ava"));
 
                 AlunoDAO daoAluno = new AlunoDAO();
-                Aluno aluno = daoAluno.carregarPorId(rs.getInt("id_aluno"));
+                Aluno aluno = daoAluno.recuperarPorId(rs.getInt("id_aluno"));
                 a.setAluno(aluno);
             }
             pstm.close();
@@ -168,7 +168,7 @@ public class AvaliacaoDAO {
                 a.setCoxa(rs.getDouble("coxa"));
                 a.setValidade_ava(rs.getDate("validade_ava"));
 
-                Aluno aluno = daoAluno.carregarPorId(rs.getInt("id_aluno"));
+                Aluno aluno = daoAluno.recuperarPorId(rs.getInt("id_aluno"));
                 a.setAluno(aluno);
 
                 lista.add(a);
