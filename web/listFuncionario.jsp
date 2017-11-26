@@ -11,47 +11,46 @@
 <body>
 
     <div class="wrapper">
-        <div class="sidebar" data-color="azure" data-image="assets/img/sidebar-6.jpg">
+        <%@include file="designermenuesquerdo.jsp" %>
+        <div class="sidebar-wrapper">
+            <%@include file="nomeAcademia.jsp" %>
 
-            <div class="sidebar-wrapper">
-                <%@include file="nomeAcademia.jsp" %>
+            <%@include file="menuesquerdo.jsp" %>
 
-                <%@include file="menuesquerdo.jsp" %>
-
-            </div>
         </div>
+    </div>
 
-        <div class="main-panel">
-            <nav class="navbar navbar-default navbar-fixed">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <%@include file="menuCelular.jsp" %>
+    <div class="main-panel">
+        <nav class="navbar navbar-default navbar-fixed">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <%@include file="menuCelular.jsp" %>
 
-                        <h3 class="title">Funcionário</h3>
-                    </div>
-                    
-                         <%@include file="menuGlobal.jsp" %>
+                    <h3 class="title">Funcionário</h3>
                 </div>
-            </nav>
+
+                <%@include file="menuGlobal.jsp" %>
+            </div>
+        </nav>
 
 
-            <div class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-15">
-                            <div class="card">
-                                <div class="content">
-                                    <a class="btn btn-info btn-fill pull-right" href=cadFuncionario.jsp>Novo Cadastro</a>
-                                    <br>
-                                    <br>
-                                    <br>
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-15">
+                        <div class="card">
+                            <div class="content">
+                                <a class="btn btn-info btn-fill pull-right" href=cadFuncionario.jsp>Novo Cadastro</a>
+                                <br>
+                                <br>
+                                <br>
 
 
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="content table-responsive table-full-width">
-                                        <table class="table table-hover table-striped">
-                                            
+                                            <table class="table table-hover table-striped">
+
                                                 <tr>
 
                                                     <th> ID </th>
@@ -63,44 +62,44 @@
                                                     <th></th>
                                                 </tr>
 
-                                            
-                                            <tbody>                                        
-                                                <jsp:useBean id="fdao" class="model.FuncionarioDAO"/>
-                                                <c:forEach var="func" items="${fdao.lista}">           
-                                                    <tr>
+
+                                                <tbody>
+                                                    <jsp:useBean id="fdao" class="model.FuncionarioDAO"/>
+                                                    <c:forEach var="func" items="${fdao.lista}">
+                                                        <tr>
 
 
-                                                        <td>${func.id}</td>
-                                                        <td>${func.matricula}</td>
-                                                        <td>${func.nome}</td>
-                                                        <td>${func.turno}</td>
-                                                        <td>${func.cargo.tipo}</td>
-                                                        <td>${func.academia.nome}</td>
-                                                        <td>
-                                                            <a class="btn btn-primary btn-fill" href="FuncionarioController?acao=alterar&id=${func.id}">
-                                                                <i class="pe-7s-pen"></i></a>
+                                                            <td>${func.id}</td>
+                                                            <td>${func.matricula}</td>
+                                                            <td>${func.nome}</td>
+                                                            <td>${func.turno}</td>
+                                                            <td>${func.cargo.tipo}</td>
+                                                            <td>${func.academia.nome}</td>
+                                                            <td>
+                                                                <a class="btn btn-primary btn-fill" href="FuncionarioController?acao=alterar&id=${func.id}">
+                                                                    <i class="pe-7s-pen"></i></a>
 
-                                                            <button class="btn btn-danger btn-fill" onclick="confirmarExclusao(${func.id}, '${func.nome}')">
-                                                                <i class="pe-7s-trash"></i> </button>
+                                                                <button class="btn btn-danger btn-fill" onclick="confirmarExclusao(${func.id}, '${func.nome}')">
+                                                                    <i class="pe-7s-trash"></i> </button>
 
-                                                        </td>
+                                                            </td>
 
-                                                    </tr>
-                                                </c:forEach> 
-                                        </table>
+                                                        </tr>
+                                                    </c:forEach>
+                                            </table>
+                                        </div>
                                     </div>
-                                   </div>             
                                 </div>
                                 <div class="clearfix"></div>
 
                             </div>
-                          </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 </body>
 

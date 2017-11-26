@@ -1,0 +1,1 @@
+<div class="sidebar" data-color="red" data-image="assets/img/sidebar-4.jpg">

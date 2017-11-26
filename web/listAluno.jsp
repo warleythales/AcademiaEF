@@ -11,52 +11,52 @@
 <body>
 
     <div class="wrapper">
-        <div class="sidebar" data-color="azure" data-image="assets/img/sidebar-6.jpg">
+        <%@include file="designermenuesquerdo.jsp" %>
 
-            <div class="sidebar-wrapper">
-                <%@include file="nomeAcademia.jsp" %>
+        <div class="sidebar-wrapper">
+            <%@include file="nomeAcademia.jsp" %>
 
-                <%@include file="menuesquerdo.jsp" %>
+            <%@include file="menuesquerdo.jsp" %>
 
-            </div>
         </div>
+    </div>
 
-       <div class="main-panel">
-            <nav class="navbar navbar-default navbar-fixed">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <%@include file="menuCelular.jsp" %>
+    <div class="main-panel">
+        <nav class="navbar navbar-default navbar-fixed">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <%@include file="menuCelular.jsp" %>
 
-                        <h3 class="title">Aluno</h3>
+                    <h3 class="title">Aluno</h3>
 
-                       
-                    </div>
 
-                    <%@include file="menuGlobal.jsp" %>
                 </div>
-            </nav>
+
+                <%@include file="menuGlobal.jsp" %>
+            </div>
+        </nav>
 
 
-            <div class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div class="content">
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="content">
 
 
 
 
-                                    <a class="btn btn-info btn-fill pull-right" href=cadAluno.jsp>Novo Cadastro</a>
-                                    <br>
-                                    <br>
-                                    <br>
+                                <a class="btn btn-info btn-fill pull-right" href=cadAluno.jsp>Novo Cadastro</a>
+                                <br>
+                                <br>
+                                <br>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <table class="table table-hover table-striped">
                                             <thead>
                                                 <tr>
-                                                    
+
                                                     <th> Id </th>
                                                     <th> CPF </th>
                                                     <th> Nome </th>

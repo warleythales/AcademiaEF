@@ -11,44 +11,43 @@
 <body>
 
     <div class="wrapper">
-        <div class="sidebar" data-color="azure" data-image="assets/img/sidebar-6.jpg">
+        <%@include file="designermenuesquerdo.jsp" %>
+        <div class="sidebar-wrapper">
+            <%@include file="nomeAcademia.jsp" %>
 
-            <div class="sidebar-wrapper">
-                <%@include file="nomeAcademia.jsp" %>
+            <%@include file="menuesquerdo.jsp" %>
 
-                <%@include file="menuesquerdo.jsp" %>
+        </div>
+    </div>
+
+    <div class="main-panel">
+        <nav class="navbar navbar-default navbar-fixed">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <%@include file="menuCelular.jsp" %>
+                    <h2 class="title">Treino com Aparelho</h2>
+                </div>
+                <%@include file="menuGlobal.jsp" %>
 
             </div>
-        </div>
-
-        <div class="main-panel">
-            <nav class="navbar navbar-default navbar-fixed">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <%@include file="menuCelular.jsp" %>
-                        <h2 class="title">Treino com Aparelho</h2>
-                    </div>
-                        <%@include file="menuGlobal.jsp" %>
-
-                </div>
-            </nav>
+        </nav>
 
 
-            <div class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div class="content">
-                                    <a class="btn btn-info btn-fill pull-right" href=cadTreinoAparelho.jsp>Novo Cadastro</a>
-                                    <br>
-                                    <br> 
-                                    <br>
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="content">
+                                <a class="btn btn-info btn-fill pull-right" href=cadTreinoAparelho.jsp>Novo Cadastro</a>
+                                <br>
+                                <br>
+                                <br>
 
 
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="content table-responsive table-full-width">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="content table-responsive table-full-width">
                                             <table class="table table-hover table-striped">
                                                 <thead>
                                                     <tr>
@@ -60,7 +59,7 @@
                                                         <th>Telefone</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>                                        
+                                                <tbody>
                                                     <jsp:useBean id="dao" class="model.AcademiaDAO"></jsp:useBean>
                                                     <c:forEach var="academia" items="${dao.lista}">
                                                         <tr>
@@ -81,23 +80,23 @@
                                                     </c:forEach>
                                                 </tbody>
                                             </table>
-                                          </div>          
                                         </div>
                                     </div>
-
-
-
-                                    <div class="clearfix"></div>
-
                                 </div>
+
+
+
+                                <div class="clearfix"></div>
+
                             </div>
                         </div>
                     </div>
-
                 </div>
+
             </div>
         </div>
     </div>
+</div>
 
 </body>
 
