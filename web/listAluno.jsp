@@ -92,6 +92,9 @@
                                                             <a class="btn btn-success btn-fill" href="listAvaliacao.jsp">
                                                                 <i class="pe-7s-note2"></i>
                                                             </a>
+                                                            <a class="btn btn-primary btn-fill" href="AlunoController?acao=exibir&id=${alu.id}">
+                                                                <i class="pe-7s-pen"></i>
+                                                            </a>    
 
                                                         </td>
 

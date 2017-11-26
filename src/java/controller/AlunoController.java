@@ -40,6 +40,18 @@ public class AlunoController extends HttpServlet {
                             resposta.print("location.href='listAluno.jsp';");
                         }
                         break;
+                        
+                        
+                         case "exibir":
+                        Aluno aluno = dao.recuperarPorId(idAluno);
+                        if (aluno == null) {
+                            resposta.print("alert('Aluno não encontrado!');");
+                            resposta.print("history.back();");
+                        } else {
+                            request.setAttribute("alu", aluno);
+                            request.getRequestDispatcher("/exibirAluno.jsp").forward(request, response);
+                        }
+                        break;
 
                     case "alterar":
                         Aluno alu = dao.recuperarPorId(idAluno);
@@ -51,6 +63,7 @@ public class AlunoController extends HttpServlet {
                             request.getRequestDispatcher("/cadAluno.jsp").forward(request, response);
                         }
                         break;
+                        
                 }
 
             } else {
