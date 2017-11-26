@@ -93,7 +93,7 @@
                                                                 <i class="pe-7s-note2"></i>
                                                             </a>
                                                             <a class="btn btn-primary btn-fill" href="AlunoController?acao=exibir&id=${alu.id}">
-                                                                <i class="pe-7s-pen"></i>
+                                                                <i class="pe-7s-search"></i>
                                                             </a>    
 
                                                         </td>

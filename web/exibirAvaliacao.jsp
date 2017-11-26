@@ -41,13 +41,13 @@
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label> Biotipo </label>
-                                                <input type="text" class="form-control" id="biotipo" name="biotipo"  placeholder="biotipo"  required value="${a.biotipo}">
+                                                <input type="text" class="form-control" id="biotipo" disabled="disabled"  name="biotipo"  placeholder="biotipo"  required value="${a.biotipo}">
                                             </div>
                                         </div>
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label> Data da Avaliação </label>
-                                                <input type="text" class="form-control" id="data_ava" name="data_ava" placeholder="data da avaliação" required value="<fmt:formatDate value="${a.data_ava}" pattern="dd/MM/yyyy"></fmt:formatDate>">
+                                                <input type="text" class="form-control" id="data_ava" disabled="disabled"  name="data_ava" placeholder="data da avaliação" required value="<fmt:formatDate value="${a.data_ava}" pattern="dd/MM/yyyy"></fmt:formatDate>">
                                                 </div>
                                             </div>
                                         </div>
@@ -56,7 +56,7 @@
                                             <div class="col-md-10">
                                                 <div class="form-group">
                                                     <label>Idade</label>
-                                                    <input type="text" class="form-control" id="idade" name="idade" placeholder="idade" required value="${a.idade}">
+                                                    <input type="text" class="form-control" id="idade" disabled="disabled" name="idade" placeholder="idade" required value="${a.idade}">
                                             </div>
                                         </div>
                                     </div>
@@ -65,14 +65,14 @@
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label for="peso" class="control-label"> Peso </label>
-                                                <input type="text" class="form-control" id="peso" name="peso" placeholder="peso" required value="${a.peso}"/>
+                                                <input type="text" class="form-control" id="peso" disabled="disabled" name="peso" placeholder="peso" required value="${a.peso}"/>
                                             </div>
                                         </div>
 
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label>Ombro</label>
-                                                <input type="text" class="form-control" id="ombro" name="ombro" placeholder="ombro" required value="${a.ombro}">
+                                                <input type="text" class="form-control" id="ombro" disabled="disabled" name="ombro" placeholder="ombro" required value="${a.ombro}">
                                             </div>
                                         </div>
                                     </div>
@@ -81,7 +81,7 @@
                                         <div class="col-md-10">
                                             <div class="form-group">
                                                 <label> Braço Relaxado </label>
-                                                <input type="text" class="form-control" id="braco_relaxado" name="braco_relaxado" placeholder="braco relaxado" required value="${a.braco_relaxado}">
+                                                <input type="text" class="form-control" id="braco_relaxado" disabled="disabled" name="braco_relaxado" placeholder="braco relaxado" required value="${a.braco_relaxado}">
                                             </div>
                                         </div>
                                     </div>
@@ -91,14 +91,14 @@
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label>Braço Contraído</label>
-                                                <input type="text" class="form-control" id="braco_contraido" name="braco_contraido" placeholder="braco contraído" required value="${a.braco_contraido}">
+                                                <input type="text" class="form-control" id="braco_contraido" disabled="disabled" name="braco_contraido" placeholder="braco contraído" required value="${a.braco_contraido}">
                                             </div>
                                         </div>
 
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label>Antebraço</label>
-                                                <input type="text" class="form-control" id="antebraco" name="antebraco" placeholder="antebraço" required value="${a.antebraco}">
+                                                <input type="text" class="form-control" id="antebraco" disabled="disabled"  name="antebraco" placeholder="antebraço" required value="${a.antebraco}">
                                             </div>
                                         </div>
                                     </div>
@@ -107,14 +107,14 @@
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label for="torax" class="control-label"> Tórax </label>
-                                                <input type="text" class="form-control" id="torax" name="torax" placeholder="torax" required value="${a.torax}"/>
+                                                <input type="text" class="form-control" id="torax" disabled="disabled" name="torax" placeholder="torax" required value="${a.torax}"/>
                                             </div>
                                         </div>
 
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label for="panturrilha" class="control-label"> Panturrilha </label>
-                                                <input type="text" class="form-control" id="panturrilha" name="panturrilha" placeholder="panturrilha" required value="${a.panturrilha}"/>
+                                                <input type="text" class="form-control" id="panturrilha" disabled="disabled"  name="panturrilha" placeholder="panturrilha" required value="${a.panturrilha}"/>
                                             </div>
                                         </div>
                                     </div>
@@ -126,7 +126,7 @@
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label for="cintura" class="control-label"> Cintura </label>
-                                                <input type="text" class="form-control" id="cintura" name="cintura"  placeholder="cintura" required value="${a.cintura}"/>
+                                                <input type="text" class="form-control" id="cintura" disabled="disabled" name="cintura"  placeholder="cintura" required value="${a.cintura}"/>
                                             </div>
                                         </div>
 
@@ -135,7 +135,7 @@
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label>Abdomen</label>
-                                                <input type="text" class="form-control" id="abdomen" name="abdomen" placeholder="abdomen" required value="${a.abdomen}">
+                                                <input type="text" class="form-control" id="abdomen" disabled="disabled" name="abdomen" placeholder="abdomen" required value="${a.abdomen}">
                                             </div>
                                         </div>
                                     </div>
@@ -144,14 +144,14 @@
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label for="quadril" class="control-label"> Quadril </label>
-                                                <input type="text" class="form-control" id="quadril" name="quadril" placeholder="quadril" required value="${a.quadril}"/>
+                                                <input type="text" class="form-control" id="quadril" disabled="disabled" name="quadril" placeholder="quadril" required value="${a.quadril}"/>
                                             </div>
                                         </div>
 
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label for="coxa" class="control-label"> Coxa </label>
-                                                <input type="text" class="form-control" id="coxa" name="coxa" placeholder="coxa" required value="${a.coxa}"/>
+                                                <input type="text" class="form-control" id="coxa" disabled="disabled" name="coxa" placeholder="coxa" required value="${a.coxa}"/>
                                             </div>
                                         </div>
                                     </div>
@@ -159,7 +159,7 @@
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label for="validade_ava" class="control-label"> Validade da Avaliação Física </label>
-                                                <input type="text" class="form-control" id="validade_ava" name="validade_ava" placeholder="validade da avaliação" required value="<fmt:formatDate value="${a.validade_ava}" pattern="dd/MM/yyyy"></fmt:formatDate>"/>
+                                                <input type="text" class="form-control" id="validade_ava" disabled="disabled" name="validade_ava" placeholder="validade da avaliação" required value="<fmt:formatDate value="${a.validade_ava}" pattern="dd/MM/yyyy"></fmt:formatDate>"/>
                                                 </div>
                                             </div>
 
@@ -168,7 +168,7 @@
                                             <div class="form-group col-sm-5">
                                                 <label for="aluno" class="control-label"> Aluno </label>
                                             <jsp:useBean id="daoAluno" class="model.AlunoDAO"></jsp:useBean>
-                                                <select id="aluno" name="aluno" class="form-control" required>
+                                                <select id="aluno" disabled="disabled" name="aluno" class="form-control" required>
                                                     <option></option>
                                                 <c:forEach var="aluno" items="${daoAluno.lista}">
                                                     <c:if test="${a.aluno.id == aluno.id}">

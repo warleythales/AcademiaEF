@@ -42,7 +42,16 @@ public class AvaliacaoController extends HttpServlet {
                             resposta.print("location.href='listAvaliacao.jsp';");
                         }
                         break;
-
+   
+                         case "exibir":
+                        Avaliacao ava = dao.recuperarPorId(idAvaliacao);
+                        if (ava == null) {
+                            resposta.print("alert('Avaliação Física não encontrado!');");
+                            resposta.print("history.back();");
+                        } else {
+                            request.setAttribute("a", ava);
+                            request.getRequestDispatcher("/exibirAvaliacao.jsp").forward(request, response);
+                        }
                     case "alterar":
                         Avaliacao a = dao.recuperarPorId(idAvaliacao);
                         if (a == null) {
