@@ -15,7 +15,7 @@ public class FuncionarioDAO {
 
     public boolean inserir(Funcionario f) {
         try {
-            String sql = "INSERT INTO funcionario (matricula, cpf, nome, data_nasc, sexo, turno, endereco, email, telefone, senha, id_cargo, id_academia) "
+            String sql = "INSERT INTO funcionario (matricula, cpf, nome, data_nasc, sexo, turno, endereco, email, telefone, senha, status, id_cargo, id_academia) "
                     + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
             Connection con = Conexao.conectar();
             PreparedStatement ps = con.prepareStatement(sql);
@@ -29,8 +29,9 @@ public class FuncionarioDAO {
             ps.setString(8, f.getEmail());
             ps.setString(9, f.getTelefone());
             ps.setString(10, f.getSenha());
-            ps.setInt(11, f.getCargo().getId());
-            ps.setInt(12, f.getAcademia().getId());
+            ps.setBoolean(11, f.getAtivo());
+            ps.setInt(12, f.getCargo().getId());
+            ps.setInt(13, f.getAcademia().getId());
 
             ps.execute();
             ps.close();
@@ -45,7 +46,7 @@ public class FuncionarioDAO {
 
     public boolean alterar(Funcionario func) {
         try {
-            String sql = "UPDATE funcionario SET matricula=?, cpf=?, nome=?, data_nasc=?, sexo=?, turno=?, endereco=?, email=?, telefone=?, senha=?, id_cargo=?, id_academia=? WHERE id=?";
+            String sql = "UPDATE funcionario SET matricula=?, cpf=?, nome=?, data_nasc=?, sexo=?, turno=?, endereco=?, email=?, telefone=?, senha=?, status=? id_cargo=?, id_academia=? WHERE id=?";
             Connection con = Conexao.conectar();
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, func.getMatricula());
@@ -58,9 +59,10 @@ public class FuncionarioDAO {
             ps.setString(8, func.getEmail());
             ps.setString(9, func.getTelefone());
             ps.setString(10, func.getSenha());
-            ps.setInt(11, func.getCargo().getId());
-            ps.setInt(12, func.getAcademia().getId());
-            ps.setInt(13, func.getId());
+            ps.setBoolean(11, func.getAtivo());
+            ps.setInt(12, func.getCargo().getId());
+            ps.setInt(13, func.getAcademia().getId());
+            ps.setInt(14, func.getId());
             ps.execute();
             ps.close();
             con.close();
@@ -92,7 +94,7 @@ public class FuncionarioDAO {
     public Funcionario recuperarPorId(int id) {
         try {
 
-            String sql = "SELECT id, matricula, cpf, nome, data_nasc, sexo,turno, endereco, email, telefone, senha, id_cargo, id_academia "
+            String sql = "SELECT id, matricula, cpf, nome, data_nasc, sexo,turno, endereco, email, telefone, senha, status, id_cargo, id_academia "
                     + "FROM funcionario WHERE id=?";
 
             Connection con = Conexao.conectar();
@@ -113,6 +115,7 @@ public class FuncionarioDAO {
                 func.setEmail(rs.getString("email"));
                 func.setTelefone(rs.getString("telefone"));
                 func.setSenha(rs.getString("senha"));
+                func.setAtivo(rs.getBoolean("status"));
 
                 CargoDAO cdao = new CargoDAO();
                 Cargo cargo = cdao.recuperarPorId(rs.getInt("id_cargo"));
@@ -138,7 +141,7 @@ public class FuncionarioDAO {
         ArrayList<Funcionario> lista = new ArrayList<Funcionario>();
         try {
             String sql = "SELECT id, matricula, cpf, nome, data_nasc, sexo, turno, "
-                    + "endereco, email, telefone, senha, id_cargo, id_academia FROM funcionario";
+                    + "endereco, email, telefone, senha, status, id_cargo, id_academia FROM funcionario";
             Connection con = Conexao.conectar();
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -158,6 +161,7 @@ public class FuncionarioDAO {
                 func.setEmail(rs.getString("email"));
                 func.setTelefone(rs.getString("telefone"));
                 func.setSenha(rs.getString("senha"));
+                func.setAtivo(rs.getBoolean("status"));
 
                 Cargo cargo = cDAO.recuperarPorId(rs.getInt("id_cargo"));
                 func.setCargo(cargo);
@@ -177,5 +181,44 @@ public class FuncionarioDAO {
             System.out.println(e.getMessage());
         }
         return lista;
+    }
+    
+    public Funcionario pegaUm(String cpf) {
+        Funcionario funcionario = null;
+        try {
+            Connection con = Conexao.conectar();
+            String sql = "SELECT * FROM funcionario WHERE cpf=? ";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, cpf);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                CargoDAO cDAO = new CargoDAO();
+            AcademiaDAO aDAO = new AcademiaDAO();
+                funcionario = new Funcionario();
+                funcionario.setId(rs.getInt("id"));
+                funcionario.setMatricula(rs.getInt("matricula"));
+                funcionario.setCpf(rs.getString("cpf"));
+                funcionario.setNome(rs.getString("nome"));
+                funcionario.setData_nasc(rs.getDate("data_nasc"));
+                funcionario.setSexo(rs.getString("sexo"));
+                funcionario.setTurno(rs.getString("turno"));
+                funcionario.setEndereco(rs.getString("endereco"));
+                funcionario.setEmail(rs.getString("email"));
+                funcionario.setTelefone(rs.getString("telefone"));
+                funcionario.setSenha(rs.getString("senha"));
+                funcionario.setAtivo(rs.getBoolean("status"));
+                
+                Cargo cargo = cDAO.recuperarPorId(rs.getInt("id_cargo"));
+                funcionario.setCargo(cargo);
+
+                Academia academia = aDAO.buscarPorId(rs.getInt("id_academia"));
+                funcionario.setAcademia(academia);
+            }
+            rs.close();
+            ps.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return funcionario;
     }
 }

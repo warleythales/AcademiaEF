@@ -26,7 +26,7 @@
             </ul>
         </li>
         <li>
-            <a href="index.jsp">
+            <a href="SegurancaController?logout=SIM">
                 <p>Sair</p>
             </a>
         </li>
