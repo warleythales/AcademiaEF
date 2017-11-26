@@ -27,13 +27,10 @@
                     <div class="navbar-header">
                         <%@include file="menuCelular.jsp" %>
 
-                        <h2 class="title">Funcionário</h2>
+                        <h3 class="title">Funcionário</h3>
                     </div>
-                    <div class="navbar-default">
-
-                        <a class="btn btn-info btn-fill pull-right" href=cadFuncionario.jsp>Novo Cadastro</a>
-                    </div>
-
+                    
+                         <%@include file="menuGlobal.jsp" %>
                 </div>
             </nav>
 
@@ -43,13 +40,16 @@
                     <div class="row">
                         <div class="col-md-15">
                             <div class="card">
-
-
-
+                                <div class="content">
+                                    <a class="btn btn-info btn-fill pull-right" href=cadFuncionario.jsp>Novo Cadastro</a>
+                                    <br>
+                                    <br>
+                                    <br>
 
 
                                 <div class="row">
                                     <div class="col-md-12">
+                                        <div class="content table-responsive table-full-width">
                                         <table class="table table-hover table-striped">
                                             
                                                 <tr>
@@ -89,10 +89,12 @@
                                                 </c:forEach> 
                                         </table>
                                     </div>
+                                   </div>             
                                 </div>
                                 <div class="clearfix"></div>
 
                             </div>
+                          </div>
                         </div>
                     </div>
                 </div>

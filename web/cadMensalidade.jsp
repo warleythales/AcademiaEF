@@ -1,4 +1,4 @@
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>]
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@include file="cabecalho.jsp" %>
 </head>
@@ -24,6 +24,7 @@
                      <%@include file="menuCelular.jsp" %>
                     <h2 class="title">Cadastrar Mensalidade</h2>
                 </div>
+                    <%@include file="menuGlobal.jsp" %>
             </div>
             </nav>
             <div class="content">

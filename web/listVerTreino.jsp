@@ -31,11 +31,12 @@
                         <%@include file="menuCelular.jsp" %>
                        
                         
-                        <h2 class="title">Aluno:</h2> 
+                        <h3 class="title">Aluno:</h3>
+                        <h4 class="title">CPF:</h4>
                         
                                            
                     </div>
-                   
+                   <%@include file="menuGlobal.jsp" %>
                        
                 </div>
                     <div class="container-fluid">
@@ -61,9 +62,7 @@
            
             <div class="col-md-12">
                         <div class="card card-plain">
-                            <div class="header">
-                                
-                            </div>
+                            
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover">
                                     
@@ -101,7 +100,7 @@
                         </div>
                     </div>
                                                  <div class="container-fluid">
-                                                <a class="btn btn-warning btn-fill" href=gerenciamentoTreinoAluno.jsp>Voltar</a>
+                                                <a class="btn btn-warning btn-fill" href=listGerenciamentoTreinoAluno.jsp>Voltar</a>
                                                  </div>
         </div>
     </div>

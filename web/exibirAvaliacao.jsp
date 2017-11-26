@@ -51,7 +51,7 @@
                                             <div class="col-md-5">
                                                 <div class="form-group">
                                                     <label> Data da Avaliação </label>
-                                                    <input type="text" class="form-control" id="data_ava" name="data_ava" placeholder="data da avaliação" required value="${a.data_ava}">
+                                                    <input type="text" class="form-control" id="data_ava" name="data_ava" placeholder="data da avaliação" required value="<fmt:formatDate value="${a.data_ava}" pattern="dd/MM/yyyy"></fmt:formatDate>">
                                                 </div>
                                             </div>
                                         </div>
@@ -163,7 +163,7 @@
                                             <div class="col-md-5">
                                                 <div class="form-group">
                                                     <label for="validade_ava" class="control-label"> Validade da Avaliação Física </label>
-                                                    <input type="text" class="form-control" id="validade_ava" name="validade_ava" placeholder="validade da avaliação" required value="${a.validade_ava}"/>
+                                                    <input type="text" class="form-control" id="validade_ava" name="validade_ava" placeholder="validade da avaliação" required value="<fmt:formatDate value="${a.validade_ava}" pattern="dd/MM/yyyy"></fmt:formatDate>"/>
                                                 </div>
                                             </div>
 

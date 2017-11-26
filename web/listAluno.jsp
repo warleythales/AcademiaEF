@@ -21,19 +21,18 @@
             </div>
         </div>
 
-        <div class="main-panel">
+       <div class="main-panel">
             <nav class="navbar navbar-default navbar-fixed">
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <%@include file="menuCelular.jsp" %>
 
-                        <h2 class="title">Aluno</h2>
-                    </div>
-                    <div class="navbar-default">
+                        <h3 class="title">Aluno</h3>
 
-                        <a class="btn btn-info btn-fill pull-right" href=cadAluno.jsp>Novo Cadastro</a>
+                       
                     </div>
 
+                    <%@include file="menuGlobal.jsp" %>
                 </div>
             </nav>
 
@@ -43,17 +42,21 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card">
+                                <div class="content">
 
 
 
 
-
+                                    <a class="btn btn-info btn-fill pull-right" href=cadAluno.jsp>Novo Cadastro</a>
+                                    <br>
+                                    <br>
+                                    <br>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <table class="table table-hover table-striped">
                                             <thead>
                                                 <tr>
-
+                                                    
                                                     <th> Id </th>
                                                     <th> CPF </th>
                                                     <th> Nome </th>

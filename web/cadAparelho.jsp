@@ -27,6 +27,7 @@
                      <%@include file="menuCelular.jsp" %>
                     <h2 class="title"> Cadastrar Aparelho </h2>
                 </div>
+                    <%@include file="menuGlobal.jsp" %>
             </div>
             </nav>
             <div class="content">
