@@ -72,7 +72,7 @@
                                                 <div class="form-group">
                                                     <label>Sexo</label>
                                                     <select class="form-control" id="sexo" name="sexo" required value="${alu.sexo}" size=1> -
-                                                    +                                                        <option value="">Selecione</option>
+                                                    <option value="">Selecione</option>
                                                     <option>Masculino</option>
                                                     <option>Feminino</option>
                                                 </select>

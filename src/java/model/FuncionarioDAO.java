@@ -16,7 +16,7 @@ public class FuncionarioDAO {
     public boolean inserir(Funcionario f) {
         try {
             String sql = "INSERT INTO funcionario (matricula, cpf, nome, data_nasc, sexo, turno, endereco, email, telefone, senha, status, id_cargo, id_academia) "
-                    + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+                    + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
             Connection con = Conexao.conectar();
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, f.getMatricula());
@@ -46,7 +46,7 @@ public class FuncionarioDAO {
 
     public boolean alterar(Funcionario func) {
         try {
-            String sql = "UPDATE funcionario SET matricula=?, cpf=?, nome=?, data_nasc=?, sexo=?, turno=?, endereco=?, email=?, telefone=?, senha=?, status=? id_cargo=?, id_academia=? WHERE id=?";
+            String sql = "UPDATE funcionario SET matricula=?, cpf=?, nome=?, data_nasc=?, sexo=?, turno=?, endereco=?, email=?, telefone=?, senha=?, status=?, id_cargo=?, id_academia=? WHERE id=?";
             Connection con = Conexao.conectar();
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, func.getMatricula());
@@ -182,7 +182,7 @@ public class FuncionarioDAO {
         }
         return lista;
     }
-    
+
     public Funcionario pegaUm(String cpf) {
         Funcionario funcionario = null;
         try {
@@ -193,7 +193,7 @@ public class FuncionarioDAO {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 CargoDAO cDAO = new CargoDAO();
-            AcademiaDAO aDAO = new AcademiaDAO();
+                AcademiaDAO aDAO = new AcademiaDAO();
                 funcionario = new Funcionario();
                 funcionario.setId(rs.getInt("id"));
                 funcionario.setMatricula(rs.getInt("matricula"));
@@ -207,7 +207,7 @@ public class FuncionarioDAO {
                 funcionario.setTelefone(rs.getString("telefone"));
                 funcionario.setSenha(rs.getString("senha"));
                 funcionario.setAtivo(rs.getBoolean("status"));
-                
+
                 Cargo cargo = cDAO.recuperarPorId(rs.getInt("id_cargo"));
                 funcionario.setCargo(cargo);
 
