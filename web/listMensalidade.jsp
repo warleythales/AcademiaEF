@@ -55,9 +55,7 @@
                                                     <th>Valor Pago </th>
                                                     <th>Data de Pagamento </th>
                                                     <th>Data de Vencimento </th>
-                                                    <th>Status</th>
-                                                    <th>Aluno </th>
-                                                    <th>Funcionário</th>
+                                               
                                                     <th></th>
                                                 </tr>
                                                 <jsp:useBean id="mdao" class="model.MensalidadeDAO"></jsp:useBean>
@@ -68,9 +66,7 @@
                                                         <td>${m.valor_pago}</td>
                                                         <td><fmt:formatDate value="${m.data_pag}" pattern="dd/MM/yyyy"></fmt:formatDate></td>
                                                         <td><fmt:formatDate value="${m.data_venc}" pattern="dd/MM/yyyy"></fmt:formatDate></td>
-                                                        <td>${m.status}</td>
-                                                        <td>${m.aluno.nome}</td>
-                                                        <td>${m.funcionario.matricula}</td>
+                                                       
                                                         <td>
                                                             <a class="btn btn-primary btn-fill" href="MensalidadeController?acao=alterar&id=${m.id}">
                                                                 <i class="pe-7s-pen"></i>
@@ -78,6 +74,9 @@
                                                             <button class="btn btn-danger btn-fill" onclick="confirmarExclusao(${m.id}, '${m.id}')">
                                                                 <i class="pe-7s-trash "></i>
                                                             </button>
+                                                            <a class="btn btn-primary btn-fill" href="MensalidadeController?acao=exibir&id=${m.id}">
+                                                                <i class="pe-7s-search"></i>
+                                                            </a>
                                                         </td>
                                                     </tr>
                                                 </c:forEach>

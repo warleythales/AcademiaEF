@@ -21,7 +21,7 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <%@include file="menuCelular.jsp" %>
-                    <h2 class="title">Avaliação</h2>
+                    <h2 class="title"> Avaliação Física - <td>${a.aluno.nome}</td> </h2>
                 </div>
             </div>
         </nav>
@@ -185,6 +185,11 @@
 
 
                                     <a href="listAvaliacao.jsp" class="btn btn-warning btn-fill ">Voltar</a>
+                                    
+                                    <a class="btn btn-primary btn-fill" href="AvaliacaoController?funcionalidade=alterar&id=${a.id}">
+                                                                    <i class="pe-7s-pen"></i>
+                                                                </a>
+                                    
                                 </form>
 
                             </div>

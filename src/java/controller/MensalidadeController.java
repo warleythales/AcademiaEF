@@ -47,13 +47,14 @@ public class MensalidadeController extends HttpServlet {
 
                         }
                         break;
-                    case "listar-aluno":
+                         case "listar-aluno":
 
                         String id_aluno = request.getParameter("id_aluno");
                         if (id_aluno != null && !id_aluno.isEmpty() && !id_aluno.equals("0")) {
                             AlunoDAO aDAO = new AlunoDAO();
                             Aluno alu = aDAO.recuperarPorIdMenslidade(Integer.parseInt(id_aluno));
 
+                            
                         }
                         break;
                     case "alterar":
@@ -66,8 +67,18 @@ public class MensalidadeController extends HttpServlet {
                             request.getRequestDispatcher("/cadMensalidade.jsp").forward(request, response);
                         }
                         break;
+                        
+                          case "exibir":
+                        Mensalidade mensalidade = mdao.recuperarPorId(idMensalidade);
+                        if (mensalidade == null) {
+                            resposta.print("alert('Mensalidade não encontrada!');");
+                            resposta.print("history.back();");
+                        } else {
+                            request.setAttribute("m", mensalidade);
+                            request.getRequestDispatcher("/exibirMensalidade.jsp").forward(request, response);
+                        }
+                        break;
                 }
-            } else {
                 resposta.write("alert('Id inválido!');");
                 resposta.write("history.back();");
             }
