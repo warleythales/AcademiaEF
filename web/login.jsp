@@ -32,12 +32,12 @@
 
                                 <form action="SegurancaController" method="POST" >
                                     <div class="form-group">
-                                        <label for="cpf" class="control-label">Usuário</label>
-                                        <input type="text" id="cpf" name="cpf" class="form-control" required>
+                                        <label for="cpf" class="control-label">CPF</label>
+                                        <input type="text" id="cpf" name="cpf" class="form-control" required autoclomplete="off">
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="senha" class="control-label">Senha</label>
+                                        <label for="senha"  class="control-label">Senha</label>
                                         <input type="password" id="senha" name="senha" class="form-control" required>
                                     </div>
 

@@ -39,14 +39,14 @@
                                     <div class="row">
                                         <div class="col-md-5">
                                             <div class="form-group">
-                                                <label> CPF </label>
-                                                <input type="text" class="form-control" id="cpf" name="cpf" maxlength="14" placeholder="000.000.000-00"  required value="${alu.cpf}">
+                                                <label> CPF (Sem Pontuação) </label>
+                                                <input type="text" class="form-control" id="cpf" name="cpf" maxlength="14" placeholder="00000000000"  required value="${alu.cpf}">
                                             </div>
                                         </div>
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label> Nome </label>
-                                                <input type="text" class="form-control" id="nome" name="nome" placeholder="nome" required value="${alu.nome}">
+                                                <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required value="${alu.nome}">
                                             </div>
                                         </div>
                                     </div>
@@ -55,7 +55,7 @@
                                         <div class="col-md-10">
                                             <div class="form-group">
                                                 <label>Email</label>
-                                                <input type="text" class="form-control" id="email" name="email" placeholder="email" required value="${alu.email}">
+                                                <input type="text" class="form-control" id="email" name="email" placeholder="Email" required value="${alu.email}">
                                             </div>
                                         </div>
                                     </div>
@@ -71,7 +71,11 @@
                                             <div class="col-md-5">
                                                 <div class="form-group">
                                                     <label>Sexo</label>
-                                                    <input type="text" class="form-control" id="sexo" name="sexo" placeholder="sexo" required value="${alu.sexo}">
+                                                    <select class="form-control" id="sexo" name="sexo" required value="${alu.sexo}" size=1> -
+                                                    +                                                        <option value="">Selecione</option>
+                                                    <option>Masculino</option>
+                                                    <option>Feminino</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -80,7 +84,7 @@
                                         <div class="col-md-10">
                                             <div class="form-group">
                                                 <label>Endereço</label>
-                                                <input type="text" class="form-control" id="endereco" name="endereco" placeholder="endereço" required value="${alu.endereco}">
+                                                <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Endereço" required value="${alu.endereco}">
                                             </div>
                                         </div>
                                     </div>
@@ -90,14 +94,17 @@
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label>Telefone</label>
-                                                <input type="text" class="form-control" id="telefone" name="telefone" placeholder="telefone" required value="${alu.telefone}">
+                                                <input type="text" class="form-control" id="telefone" name="telefone" placeholder="00000000000" required value="${alu.telefone}">
                                             </div>
                                         </div>
 
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label>Status</label>
-                                                <input type="text" class="form-control" id="status" name="status" placeholder="status" required value="${alu.status}">
+                                                <select type="text" class="form-control" id="status" name="status" placeholder="status" required value="${alu.status}">
+                                                    <option value="1">Ativo</option>
+                                                    <option value="0">Inativo</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -106,14 +113,19 @@
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label for="valor_mensalidade" class="control-label"> Valor da Mensalidade do Aluno </label>
-                                                <input type="text" class="form-control" id="valor_mensalidade" name="valor_mensalidade" placeholder="valor da mensalidade" required value="${alu.valor_mensalidade}"/>
+                                                <input type="text" class="form-control" id="valor_mensalidade" name="valor_mensalidade" placeholder="000.0" required value="${alu.valor_mensalidade}"/>
                                             </div>
                                         </div>
 
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label for="plano" class="control-label"> Plano </label>
-                                                <input type="text" class="form-control" id="plano" name="plano" placeholder="plano" required value="${alu.plano}"/>
+                                                <select type="text" class="form-control" id="plano" name="plano" placeholder="plano" required value="${alu.plano}">
+                                                    <option value="">Selecione</option>
+                                                    <option>Basico</option>
+                                                    <option>Intermediário</option>
+                                                    <option>Master</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -125,7 +137,7 @@
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label for="senha" class="control-label"> Senha </label>
-                                                <input type="text" class="form-control" id="senha" name="senha"  placeholder="senha" required value="${alu.senha}"/>
+                                                <input type="password" class="form-control" id="senha" name="senha"  placeholder="Senha" required value="${alu.senha}"/>
                                             </div>
                                         </div>
 
@@ -160,8 +172,8 @@
                         </div>
                     </div>
                 </div>
-     </div>
-     </div>
+            </div>
+        </div>
     </div>
 
 </div>

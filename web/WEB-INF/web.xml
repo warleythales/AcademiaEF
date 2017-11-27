@@ -8,6 +8,10 @@
         <servlet-name>SegurancaController</servlet-name>
         <servlet-class>controller.SegurancaController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TreinoController</servlet-name>
+        <servlet-class>controller.TreinoController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AcademiaController</servlet-name>
         <url-pattern>/AcademiaController</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>SegurancaController</servlet-name>
         <url-pattern>/SegurancaController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TreinoController</servlet-name>
+        <url-pattern>/TreinoController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
