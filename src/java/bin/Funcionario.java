@@ -14,8 +14,10 @@ public class Funcionario {
     private String email;
     private String telefone;
     private String senha;
+    private boolean ativo;
     private Cargo cargo;
     private Academia academia;
+    
     
 
     public int getId() {
@@ -121,6 +123,20 @@ public class Funcionario {
     public void setAcademia(Academia academia) {
         this.academia = academia;
     }
+
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
+    }
+    
+     public boolean getAtivo() {
+        return ativo;
+    }
+
+    
 
 
 }

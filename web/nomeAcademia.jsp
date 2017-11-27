@@ -1,5 +1,5 @@
 <div class="logo">
-    <a href="http://localhost:8080/AcademiaEF" class="simple-text">
-        Academia Equilíbrio Fitness
+    <a href="index.jsp" class="simple-text">
+        Academia <br> Equilíbrio Fitness
     </a>
 </div>

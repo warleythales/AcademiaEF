@@ -89,6 +89,7 @@ public class FuncionarioController extends HttpServlet {
           String email = request.getParameter("email");
           String telefone = request.getParameter("telefone");
           String senha = request.getParameter("senha");
+          String ativo = request.getParameter("status");
           
           
           
@@ -106,6 +107,7 @@ public class FuncionarioController extends HttpServlet {
           func.setEmail(email);
           func.setTelefone(telefone);
           func.setSenha(senha);
+          func.setAtivo(Boolean.parseBoolean(request.getParameter("status")));
           func.setId(0);
         
        
