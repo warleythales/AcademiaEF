@@ -73,10 +73,23 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-5">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label> Sexo </label>
-                                                    <input type="text" class="form-control" id="sexo" name="sexo"  placeholder="sexo" required value="${f.sexo}">
+                                                    <select type="text" class="form-control" id="sexo" name="sexo"  placeholder="sexo" required value="${f.sexo}">
+                                                    <option value="">Selecione</option>
+                                                    <option>Masculino</option>
+                                                    <option>Feminino</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label> Status </label>
+                                                <select type="text" class="form-control" id="status" name="status"  placeholder="Status" required value="${f.ativo}">
+                                                    <option value="true">Ativo</option>
+                                                    <option value="false">Inativo</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -85,7 +98,12 @@
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label> Turno </label>
-                                                <input type="text" class="form-control" id="turno" name="turno" placeholder="turno" required value="${f.turno}">
+                                                <select type="text" class="form-control" id="turno" name="turno" placeholder="turno" required value="${f.turno}">
+                                                    <option value="">Selecione</option>
+                                                    <option>Matutino</option>
+                                                    <option>Vespertino</option>
+                                                    <option>Noturno</option>
+                                                </select>
                                             </div>
                                         </div>
 
@@ -118,7 +136,7 @@
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label> Senha </label>
-                                                <input type="text" class="form-control" id="senha" name="senha" placeholder="senha" required value="${f.senha}">
+                                                <input type="password" class="form-control" id="senha" name="senha" placeholder="senha" required value="${f.senha}">
                                             </div>
                                         </div>
 
