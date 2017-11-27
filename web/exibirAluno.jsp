@@ -19,7 +19,7 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <%@include file="menuCelular.jsp" %>
-                    <h2 class="title">Exibir Aluno</h2>
+                    <h2 class="title">   <td>${alu.nome}</td></h2>
                 </div>
                 <%@include file="menuGlobal.jsp" %>
             </div>
@@ -153,6 +153,28 @@
 
 
                                     <a href="listAluno.jsp" class="btn btn-warning btn-fill ">Voltar</a>
+                                    
+                                    
+                                    
+                                    
+                                     <td>
+                                                            <a class="btn btn-primary btn-fill" href="AlunoController?acao=alterar&id=${alu.id}">
+                                                                <i class="pe-7s-pen"></i>
+                                                            </a>
+                                                         
+                                                            <a class="btn btn-warning btn-fill" href="MensalidadeController?acao=listar-aluno&id_aluno==${alu.id}">
+                                                                <i class="pe-7s-piggy"></i>
+                                                            </a>
+
+                                                            <a class="btn btn-info btn-fill" href="gerenciamentoTreinoAluno.jsp">
+                                                                <i class="pe-7s-gym"></i>
+                                                            </a>
+                                                            <a class="btn btn-success btn-fill" href="listAvaliacao.jsp">
+                                                                <i class="pe-7s-note2"></i>
+                                                            </a>
+                                                           
+
+                                                        </td>
                                 </form>
 
                             </div>
