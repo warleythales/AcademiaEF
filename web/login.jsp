@@ -32,8 +32,8 @@
 
                                 <form action="SegurancaController" method="POST" >
                                     <div class="form-group">
-                                        <label for="cpf" class="control-label">Usu·rio</label>
-                                        <input type="text" id="cpf" name="cpf" class="form-control" required>
+                                        <label for="cpf" class="control-label">Usu√°rio</label>
+                                        <input type="text" id="cpf" name="cpf" class="form-control" required autoclomplete="off">
                                     </div>
 
                                     <div class="form-group">
