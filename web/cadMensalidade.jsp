@@ -40,13 +40,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label> Valor Pago </label>
-                                                <input type="text" class="form-control" id="valor_pago" name="valor_pago"  placeholder="000,00"  required value="${m.valor_pago}">
+                                                <input type="text" class="form-control" id="valor_pago" name="valor_pago"  placeholder="000.00"  required value="${m.valor_pago}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="data_pag" class="control-label"> Data de Pagamento </label>
-                                                <input type="text" class="form-control" id="data_pag" name="data_pag" placeholder="00/00/0000" required value="<fmt:formatDate value="${m.data_pag}" pattern="dd/MM/yyyy"></fmt:formatDate>">
+                                                <input type="text" class="form-control" id="data_pag" name="data_pag" placeholder="00/00/0000" value="<fmt:formatDate value="${m.data_pag}" pattern="dd/MM/yyyy"></fmt:formatDate>">
                                                 </div>
                                             </div>
                                         </div>
@@ -63,15 +63,14 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Status</label>
-                                                    <input type="text" class="form-control" id="status" name="status" placeholder="status" required value="${m.status}">
+                                                    <select class="form-control" id="status" name="status" placeholder="status" required value="${m.status}">
+                                                    <option value="Pendente"> Pendente </option>
+                                                    <option value="Pago"> Paga </option>
+                                                    <option value="Vencida"> Vencida </option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
-
-
-
-
-
 
 
                                     <div class="row">
@@ -107,15 +106,6 @@
                                             </select>
                                         </div>
                                     </div>
-
-
-
-
-
-
-
-
-
 
                                     <button class="btn btn-success btn-fill">Gravar</button>
                                     <a href="listAluno.jsp" class="btn btn-warning btn-fill ">Voltar</a>

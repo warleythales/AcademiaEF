@@ -43,7 +43,7 @@
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label> Biotipo </label>
-                                                <input type="text" class="form-control" id="biotipo" name="biotipo"  placeholder="biotipo"  required value="${a.biotipo}">
+                                                <input type="text" class="form-control" id="biotipo" name="biotipo"  placeholder="iotipo"  required value="${a.biotipo}">
                                             </div>
                                         </div>
                                         <div class="col-md-5">

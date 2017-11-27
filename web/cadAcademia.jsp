@@ -44,14 +44,14 @@
 
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <label> CNPJ </label>
+                                        <label> CNPJ (Sem Pontuação) </label>
                                         <input type="text" class="form-control" id="cnpj" name="cnpj" maxlength="14" placeholder="CNPJ"  required value="${a.cnpj}">
                                     </div>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="form-group">
                                         <label> Nome </label>
-                                        <input type="text" class="form-control" id="nome" name="nome" placeholder="nome" required value="${a.nome}">
+                                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required value="${a.nome}">
                                     </div>
                                 </div>
 
