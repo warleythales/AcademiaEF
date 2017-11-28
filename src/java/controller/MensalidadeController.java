@@ -26,38 +26,51 @@ public class MensalidadeController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        String id = null;
         String acao = request.getParameter("acao");
         PrintWriter resposta = response.getWriter();
         resposta.write("<script>");
 
         if (acao != null) {
 
-            String id = request.getParameter("id");
-            if (id != null && !id.isEmpty() && !id.equals("0")) {
-                MensalidadeDAO mdao = new MensalidadeDAO();
-                SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+            switch (acao) {
+                case "excluir":
+                    id = request.getParameter("id");
+                    if (id != null && !id.isEmpty() && !id.equals("0")) {
+                        MensalidadeDAO mdao = new MensalidadeDAO();
+                        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 
-                int idMensalidade = Integer.parseInt(id);
-
-                switch (acao) {
-                    case "excluir":
+                        int idMensalidade = Integer.parseInt(id);
                         if (mdao.excluir(idMensalidade)) {
                             resposta.print("alert('Mensalidade foi excluída com sucesso!');");
                             resposta.print("location.href='listMensalidade.jsp';");
 
                         }
-                        break;
-                         case "listar-aluno":
+                    } else {
 
-                        String id_aluno = request.getParameter("id_aluno");
-                        if (id_aluno != null && !id_aluno.isEmpty() && !id_aluno.equals("0")) {
-                            AlunoDAO aDAO = new AlunoDAO();
-                            Aluno alu = aDAO.recuperarPorIdMenslidade(Integer.parseInt(id_aluno));
+                        resposta.write("alert('Ação Inválida!');");
+                        resposta.write("history.back();");
 
-                            
-                        }
-                        break;
-                    case "alterar":
+                    }
+                    break;
+                case "listar-aluno":
+
+                    String id_aluno = request.getParameter("id_aluno");
+                    if (id_aluno != null && !id_aluno.isEmpty() && !id_aluno.equals("0")) {
+                        AlunoDAO aDAO = new AlunoDAO();
+                        Aluno alu = aDAO.recuperarPorIdMenslidade(Integer.parseInt(id_aluno));
+                        request.setAttribute("alu", alu);
+                        request.getRequestDispatcher("/listMensalidade.jsp").forward(request, response);
+
+                    }
+                    break;
+                case "alterar":
+                    id = request.getParameter("id");
+                    if (id != null && !id.isEmpty() && !id.equals("0")) {
+                        MensalidadeDAO mdao = new MensalidadeDAO();
+                        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+
+                        int idMensalidade = Integer.parseInt(id);
                         Mensalidade m = mdao.recuperarPorId(idMensalidade);
                         if (m == null) {
                             resposta.print("alert('Mensalidade não encontrada!');");
@@ -66,28 +79,38 @@ public class MensalidadeController extends HttpServlet {
                             request.setAttribute("m", m);
                             request.getRequestDispatcher("/cadMensalidade.jsp").forward(request, response);
                         }
-                        break;
-                        
-                          case "exibir":
+                    } else {
+
+                        resposta.write("alert('Ação Inválida!');");
+                        resposta.write("history.back();");
+
+                    }
+                    break;
+
+                case "exibir":
+                    id = request.getParameter("id");
+                    if (id != null && !id.isEmpty() && !id.equals("0")) {
+                        int idMensalidade = Integer.parseInt(id);
+                        MensalidadeDAO mdao = new MensalidadeDAO();
                         Mensalidade mensalidade = mdao.recuperarPorId(idMensalidade);
                         if (mensalidade == null) {
+
                             resposta.print("alert('Mensalidade não encontrada!');");
                             resposta.print("history.back();");
                         } else {
                             request.setAttribute("m", mensalidade);
                             request.getRequestDispatcher("/exibirMensalidade.jsp").forward(request, response);
                         }
-                        break;
-                }
-                resposta.write("alert('Id inválido!');");
-                resposta.write("history.back();");
+                    } else {
+
+                        resposta.write("alert('Ação Inválida!');");
+                        resposta.write("history.back();");
+
+                    }
+                    break;
             }
-
-        } else {
-
-            resposta.write("alert('Ação Inválida!');");
+            resposta.write("alert('Id inválido!');");
             resposta.write("history.back();");
-
         }
 
         resposta.write("</script>");

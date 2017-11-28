@@ -163,13 +163,16 @@ public class MensalidadeDAO {
             Connection con = Conexao.conectar();
             PreparedStatement st = con.prepareStatement(sql);
             st.setInt(1, id);
-            ResultSet rs = st.executeQuery(sql);
+            ResultSet rs = st.executeQuery();
 
             AlunoDAO daoAluno = new AlunoDAO();
-            Aluno aluno = daoAluno.recuperarPorId(rs.getInt("id_aluno"));
+            Aluno aluno = null;
 
             FuncionarioDAO fdao = new FuncionarioDAO();
             while (rs.next()) {
+                if (aluno == null) {
+                    aluno = daoAluno.recuperarPorId(rs.getInt("id_aluno"));
+                }
                 Mensalidade m = new Mensalidade();
                 m.setId(rs.getInt("id"));
                 m.setValor_pago(rs.getDouble("valor_pago"));
