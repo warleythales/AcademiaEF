@@ -52,15 +52,12 @@
                                                 <thead>
                                                     <tr>
 
-
                                                         <th>Id</th>
                                                         <th>Valor Pago </th>
                                                         <th>Data de Pagamento </th>
                                                         <th>Data de Vencimento </th>
 
                                                         <th></th>
-
-                                                        
                                                     </tr>
                                                 </thead>
                                                 <jsp:useBean id="mdao" class="model.MensalidadeDAO"></jsp:useBean>
