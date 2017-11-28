@@ -55,20 +55,19 @@
                                                     <th>Valor Pago </th>
                                                     <th>Data de Pagamento </th>
                                                     <th>Data de Vencimento </th>
-                                               
+
                                                     <th></th>
                                                 </tr>
-                                                <jsp:useBean id="mdao" class="model.MensalidadeDAO"></jsp:useBean>
-                                                <c:forEach var="m" items="${mdao.lista}">
+                                                <c:forEach var="m" items="${alu.minhasMensalidade}">
                                                     <tr>
 
                                                         <td>${m.id}</td>
                                                         <td>${m.valor_pago}</td>
                                                         <td><fmt:formatDate value="${m.data_pag}" pattern="dd/MM/yyyy"></fmt:formatDate></td>
                                                         <td><fmt:formatDate value="${m.data_venc}" pattern="dd/MM/yyyy"></fmt:formatDate></td>
-                                                       
-                                                        <td>
-                                                            <a class="btn btn-primary btn-fill" href="MensalidadeController?acao=alterar&id=${m.id}">
+
+                                                            <td>
+                                                                <a class="btn btn-primary btn-fill" href="MensalidadeController?acao=alterar&id=${m.id}">
                                                                 <i class="pe-7s-pen"></i>
                                                             </a>
                                                             <button class="btn btn-danger btn-fill" onclick="confirmarExclusao(${m.id}, '${m.id}')">

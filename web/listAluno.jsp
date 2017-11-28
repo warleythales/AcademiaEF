@@ -82,7 +82,7 @@
                                                             <button class="btn btn-danger btn-fill" onclick="confirmarExclusao(${alu.id}, '${alu.nome}')">
                                                                 <i class="pe-7s-trash"></i>
                                                             </button>
-                                                            <a class="btn btn-warning btn-fill" href="MensalidadeController?acao=listar-aluno&id_aluno==${alu.id}">
+                                                            <a class="btn btn-warning btn-fill" href="MensalidadeController?acao=listar-aluno&id_aluno=${alu.id}">
                                                                 <i class="pe-7s-piggy"></i>
                                                             </a>
 
@@ -94,7 +94,7 @@
                                                             </a>
                                                             <a class="btn btn-primary btn-fill" href="AlunoController?acao=exibir&id=${alu.id}">
                                                                 <i class="pe-7s-search"></i>
-                                                            </a>    
+                                                            </a>
 
                                                         </td>
 

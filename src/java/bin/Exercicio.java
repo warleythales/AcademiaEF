@@ -2,10 +2,8 @@ package bin;
 
 public class Exercicio {
 
-    private int id_treino;
-    private int id_aparelho;
     private Double peso;
-    private int repeticoes;
+    private int repetcoes;
     private int serie;
     private Treino treino;
     private Aparelho aparelho;
@@ -18,12 +16,12 @@ public class Exercicio {
         this.peso = peso;
     }
 
-    public int getRepeticoes() {
-        return repeticoes;
+    public int getRepetcoes() {
+        return repetcoes;
     }
 
-    public void setRepeticoes(int repeticoes) {
-        this.repeticoes = repeticoes;
+    public void setRepetcoes(int repetcoes) {
+        this.repetcoes = repetcoes;
     }
 
     public int getSerie() {
@@ -48,13 +46,5 @@ public class Exercicio {
 
     public void setAparelho(Aparelho aparelho) {
         this.aparelho = aparelho;
-    }
-
-    public int getId_treino() {
-        return id_treino;
-    }
-
-    public int getId_aparelho() {
-        return id_aparelho;
     }
 }
