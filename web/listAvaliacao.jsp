@@ -53,21 +53,22 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="content table-responsive table-full-width">
-                                            <table class="table table-hover table-striped">
+                                            <table class="table table-hover table-striped" id="listaPerfil" cellspacing="0" width="100%">
+                                                <thead>
+                                                    <tr>
 
-                                                <tr>
-
-                                                    <th> ID </th>
+                                                        <th> ID </th>
 
 
-                                                    <th> Data da Avaliação </th>
+                                                        <th> Data da Avaliação </th>
 
-                                                    <th> Validade da Avaliação </th>
-                                                    <th></th>
-                                                </tr>
+                                                        <th> Validade da Avaliação </th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
 
-                                                <tbody>
-                                                    <jsp:useBean id="dao" class="model.AvaliacaoDAO"></jsp:useBean>
+                                                <jsp:useBean id="dao" class="model.AvaliacaoDAO"></jsp:useBean>
+                                                    <tbody> 
                                                     <c:forEach var="a" items="${dao.lista}">
                                                         <tr>
 

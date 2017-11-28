@@ -53,7 +53,7 @@
             <div class="card card-plain">
 
                 <div class="content table-responsive table-full-width">
-                    <table class="table table-hover">
+                    <table class="table table-hover table-striped" id="listaPerfil" cellspacing="0" width="100%">
                         <thead>
                         <th>ID</th>
                         <th>Data de Inicio</th>
@@ -87,7 +87,7 @@
             <a class="btn btn-warning btn-fill" href=listAluno.jsp>Voltar</a>
         </div>
     </div>
-</div>
+
 
 </body>
 

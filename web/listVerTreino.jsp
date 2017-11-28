@@ -63,19 +63,20 @@
             <div class="card card-plain">
 
                 <div class="content table-responsive table-full-width">
-                    <table class="table table-hover">
-
+                    <table class="table table-hover table-striped" id="listaPerfil" cellspacing="0" width="100%">
+                        <thead>
                         <th>Aparelho</th>
                         <th>Nome</th>
                         <th>Peso</th>
                         <th>Série</th>
                         <th>Repetição</th>
                         <th></th>
-
+                        </thead>
 
                         <tbody>
                             <jsp:useBean id="dao" class="model.AlunoDAO"></jsp:useBean>
                             <c:forEach var="alu" items="${dao.lista}">
+
                                 <tr>
                                     <td>${alu.id}</td>
                                     <td>${treino.dataXXXXXXXXX}</td>
@@ -102,7 +103,7 @@
             <a class="btn btn-warning btn-fill" href=listGerenciamentoTreinoAluno.jsp>Voltar</a>
         </div>
     </div>
-</div>
+
 
 </body>
 

@@ -29,4 +29,10 @@
         <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
         <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+
+        <link href="datatables/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="datatables/css/dataTables.bootstrap4.css" rel="stylesheet" type="text/css"/>
+
+
+
         <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>

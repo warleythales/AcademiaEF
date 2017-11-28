@@ -48,38 +48,42 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="content table-responsive table-full-width">
-                                            <table class="table">
-                                                <tr>
-
-                                                    <th>Id</th>
-                                                    <th>Valor Pago </th>
-                                                    <th>Data de Pagamento </th>
-                                                    <th>Data de Vencimento </th>
-                                               
-                                                    <th></th>
-                                                </tr>
-                                                <jsp:useBean id="mdao" class="model.MensalidadeDAO"></jsp:useBean>
-                                                <c:forEach var="m" items="${mdao.lista}">
+                                            <table class="table table-hover table-striped" id="listaPerfil" cellspacing="0" width="100%">
+                                                <thead>
                                                     <tr>
 
-                                                        <td>${m.id}</td>
-                                                        <td>${m.valor_pago}</td>
-                                                        <td><fmt:formatDate value="${m.data_pag}" pattern="dd/MM/yyyy"></fmt:formatDate></td>
-                                                        <td><fmt:formatDate value="${m.data_venc}" pattern="dd/MM/yyyy"></fmt:formatDate></td>
-                                                       
-                                                        <td>
-                                                            <a class="btn btn-primary btn-fill" href="MensalidadeController?acao=alterar&id=${m.id}">
-                                                                <i class="pe-7s-pen"></i>
-                                                            </a>
-                                                            <button class="btn btn-danger btn-fill" onclick="confirmarExclusao(${m.id}, '${m.id}')">
-                                                                <i class="pe-7s-trash "></i>
-                                                            </button>
-                                                            <a class="btn btn-primary btn-fill" href="MensalidadeController?acao=exibir&id=${m.id}">
-                                                                <i class="pe-7s-search"></i>
-                                                            </a>
-                                                        </td>
+                                                        <th>Id</th>
+                                                        <th>Valor Pago </th>
+                                                        <th>Data de Pagamento </th>
+                                                        <th>Data de Vencimento </th>
+
+                                                        <th></th>
                                                     </tr>
-                                                </c:forEach>
+                                                </thead>
+                                                <jsp:useBean id="mdao" class="model.MensalidadeDAO"></jsp:useBean>
+                                                <c:forEach var="m" items="${mdao.lista}">
+                                                    <tbody>
+                                                        <tr>
+
+                                                            <td>${m.id}</td>
+                                                            <td>${m.valor_pago}</td>
+                                                            <td><fmt:formatDate value="${m.data_pag}" pattern="dd/MM/yyyy"></fmt:formatDate></td>
+                                                            <td><fmt:formatDate value="${m.data_venc}" pattern="dd/MM/yyyy"></fmt:formatDate></td>
+
+                                                                <td>
+                                                                    <a class="btn btn-primary btn-fill" href="MensalidadeController?acao=alterar&id=${m.id}">
+                                                                    <i class="pe-7s-pen"></i>
+                                                                </a>
+                                                                <button class="btn btn-danger btn-fill" onclick="confirmarExclusao(${m.id}, '${m.id}')">
+                                                                    <i class="pe-7s-trash "></i>
+                                                                </button>
+                                                                <a class="btn btn-primary btn-fill" href="MensalidadeController?acao=exibir&id=${m.id}">
+                                                                    <i class="pe-7s-search"></i>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    </c:forEach>
+                                                </tbody>
                                             </table>
                                         </div>
                                     </div>

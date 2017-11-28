@@ -48,33 +48,37 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="content table-responsive table-full-width">
-                                            <table class="table">
-                                                <tr>
-
-                                                    <th>ID</th>
-                                                    <th>Número</th>
-                                                    <th>Nome</th>
-                                                    <th>Descrição</th>
-                                                    <th></th>
-                                                </tr>
-                                                <jsp:useBean id="dao" class="model.AparelhoDAO"></jsp:useBean>
-                                                <c:forEach var="aparelho" items="${dao.lista}">
+                                            <table class="table table-hover table-striped" id="listaPerfil" cellspacing="0" width="100%">
+                                                <thead>
                                                     <tr>
 
-                                                        <td>${aparelho.id}</td>
-                                                        <td>${aparelho.numero}</td>
-                                                        <td>${aparelho.nome}</td>
-                                                        <td>${aparelho.descricao}</td>
-                                                        <td>
-                                                            <a class="btn btn-primary btn-fill" href="AparelhoController?acao=alterar&id=${aparelho.id}">
-                                                                <i class="pe-7s-pen"></i>
-                                                            </a>
-                                                            <button class="btn btn-danger btn-fill" onclick="confirmarExclusao(${aparelho.id}, '${aparelho.numero}')">
-                                                                <i class="pe-7s-trash "></i>
-                                                            </button>
-                                                        </td>
+                                                        <th>ID</th>
+                                                        <th>Número</th>
+                                                        <th>Nome</th>
+                                                        <th>Descrição</th>
+                                                        <th></th>
                                                     </tr>
-                                                </c:forEach>
+                                                </thead>
+                                                <jsp:useBean id="dao" class="model.AparelhoDAO"></jsp:useBean>
+                                                    <tbody>
+                                                    <c:forEach var="aparelho" items="${dao.lista}">
+                                                        <tr>
+
+                                                            <td>${aparelho.id}</td>
+                                                            <td>${aparelho.numero}</td>
+                                                            <td>${aparelho.nome}</td>
+                                                            <td>${aparelho.descricao}</td>
+                                                            <td>
+                                                                <a class="btn btn-primary btn-fill" href="AparelhoController?acao=alterar&id=${aparelho.id}">
+                                                                    <i class="pe-7s-pen"></i>
+                                                                </a>
+                                                                <button class="btn btn-danger btn-fill" onclick="confirmarExclusao(${aparelho.id}, '${aparelho.numero}')">
+                                                                    <i class="pe-7s-trash "></i>
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    </c:forEach>
+                                                </tbody>
                                             </table>
                                         </div>
                                     </div>

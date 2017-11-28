@@ -55,14 +55,15 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="content table-responsive table-full-width">
-                                            <table class="table table-hover table-striped">
+                                            <table class="table table-hover table-striped" id="listaPerfil" cellspacing="0" width="100%">
+                                                <thead>
+                                                    <tr>
 
-                                                <tr>
-
-                                                    <th>ID</th>
-                                                    <th>Tipo</th>
-                                                    <th></th>
-                                                </tr>
+                                                        <th>ID</th>
+                                                        <th>Tipo</th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
 
                                                 <tbody>
                                                     <jsp:useBean id="cDAO" class="model.CargoDAO"></jsp:useBean>

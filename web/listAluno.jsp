@@ -1,5 +1,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@include file="cabecalho.jsp" %>
+
+
 <script>
     function confirmarExclusao(id, cpf) {
         if (confirm('Deseja realmente excluir o Aluno ' + cpf + '?')) {
@@ -53,7 +55,7 @@
                                 <br>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <table class="table table-hover table-striped">
+                                        <table class="table table-hover table-striped" id="listaPerfil" cellspacing="0" width="100%">
                                             <thead>
                                                 <tr>
 
@@ -67,8 +69,9 @@
 
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                <jsp:useBean id="dao" class="model.AlunoDAO"></jsp:useBean>
+
+                                            <jsp:useBean id="dao" class="model.AlunoDAO"></jsp:useBean>
+                                                <tbody>
                                                 <c:forEach var="alu" items="${dao.lista}">
                                                     <tr>
                                                         <td>${alu.id}</td>
@@ -126,3 +129,4 @@
 
 
 <%@include file="rodape.jsp" %>
+
