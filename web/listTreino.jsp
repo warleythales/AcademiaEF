@@ -1,9 +1,10 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@include file="cabecalho.jsp" %>
 <script>
-    function confirmarExclusao(id, descricao) {
-        if (confirm('Deseja realmente excluir o treino ' + descricao + '?')) {
-            location.href = 'TreinoControle?acao=excluir&id=' + id;
+    function confirmarExclusao(id) {
+        if (confirm('Deseja realmente excluir o treino ' + id + '?')) {
+            location.href = 'TreinoController?acao=excluir&id=' + id;
         }
     }
 </script>
@@ -40,7 +41,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="content">
-                                <a class="btn btn-info btn-fill pull-right" href=cadTreino.jsp>Novo Cadastro</a>
+                                <a class="btn btn-info btn-fill pull-right" href=cadTreino1.jsp>Novo Cadastro</a>
                                 <br>
                                 <br>
                                 <br>
@@ -54,28 +55,26 @@
                                                     <tr>
 
                                                         <th>ID</th>
-                                                        <th>CNPJ</th>
-                                                        <th>Nome</th>
-                                                        <th>Endereço</th>
-                                                        <th>Telefone</th>
+                                                        <th>Data Inicio</th>
+                                                        <th>Data Fim</th>
+                                                        <th>Aluno</th>
                                                         <th></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <jsp:useBean id="dao" class="model.AcademiaDAO"></jsp:useBean>
-                                                    <c:forEach var="academia" items="${dao.lista}">
+                                                    <jsp:useBean id="dao" class="model.TreinoDAO"></jsp:useBean>
+                                                    <c:forEach var="treino" items="${dao.lista}">
                                                         <tr>
 
-                                                            <td>${academia.id}</td>
-                                                            <td>${academia.cnpj}</td>
-                                                            <td>${academia.nome}</td>
-                                                            <td>${academia.endereco}</td>
-                                                            <td>${academia.telefone}</td>
+                                                            <td>${treino.id}</td>
+                                                            <td><fmt:formatDate value="${treino.data_inicio}" pattern="dd/MM/yyyy"></fmt:formatDate></td>
+                                                            <td><fmt:formatDate value="${treino.data_fim}" pattern="dd/MM/yyyy"></fmt:formatDate></td>
+                                                            <td>${treino.aluno.nome}</td>
                                                             <td>
-                                                                <a class="btn btn-primary btn-fill" href="AcademiaControle?acao=alterar&id=${academia.id}">
+                                                                <a class="btn btn-primary btn-fill" href="TreinoController?acao=alterar&id=${treino.id}">
                                                                     <i class="pe-7s-pen"></i>
                                                                 </a>
-                                                                <button class="btn btn-danger btn-fill" onclick="confirmarExclusao(${academia.id}, '${academia.cnpj}')">
+                                                                <button class="btn btn-danger btn-fill" onclick="confirmarExclusao(${treino.id})">
                                                                     <i class="pe-7s-trash"></i>
                                                                 </button>
                                                             </td>

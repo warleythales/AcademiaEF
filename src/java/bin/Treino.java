@@ -1,5 +1,6 @@
 package bin;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Treino {
@@ -9,6 +10,7 @@ public class Treino {
     private Date data_inicio;
     private Date data_fim;
     private Aluno aluno;
+    private ArrayList<Exercicio> meusExercicios;
 
     public int getId() {
         return id;
@@ -48,5 +50,13 @@ public class Treino {
 
     public void setAluno(Aluno aluno) {
         this.aluno = aluno;
+    }
+
+    public ArrayList<Exercicio> getMeusExercicios() {
+        return meusExercicios;
+    }
+
+    public void setMeusExercicios(ArrayList<Exercicio> meusExercicios) {
+        this.meusExercicios = meusExercicios;
     }
 }

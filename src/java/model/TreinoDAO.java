@@ -73,34 +73,33 @@ public class TreinoDAO {
 
     public Treino recuperarPorId(int id) {
         try {
-
-            String sql = "SELECT id, descricao, data_inicio, data_fim, id_aluno"
-                    + "FROM treino WHERE id=?";
+            String sql = "SELECT id, descricao, data_inicio, data_fim, id_aluno FROM treino WHERE id=?";
 
             Connection con = Conexao.conectar();
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, id);
-            ResultSet rs = ps.executeQuery();
-            Treino t = null;
+            PreparedStatement pstm = con.prepareStatement(sql);
+            pstm.setInt(1, id);
+            ResultSet rs = pstm.executeQuery();
+            Treino trei = null;
             if (rs.next()) {
-                t = new Treino();
-                t.setId(rs.getInt("id"));
-                t.setDescricao(rs.getString("descricao"));
-                t.setData_inicio(rs.getDate("data_inicio"));
-                t.setData_fim(rs.getDate("data_fim"));
+                trei = new Treino();
+                trei.setId(rs.getInt("id"));
+                trei.setDescricao(rs.getString("descricao"));
+                trei.setData_inicio(rs.getDate("data_inicio"));
+                trei.setData_fim(rs.getDate("data_fim"));
 
-                AlunoDAO adao = new AlunoDAO();
-                Aluno aluno = adao.recuperarPorId(rs.getInt("id_aluno"));
-                t.setAluno(aluno);
+                AlunoDAO aluDAO = new AlunoDAO();
+                Aluno aluno = aluDAO.recuperarPorId(rs.getInt("id_aluno"));
+                trei.setAluno(aluno);
             }
-            ps.close();
+            pstm.close();
             con.close();
-            return t;
+            return trei;
         } catch (Exception e) {
-            System.out.println("AlunoDAO::recuperarPorId");
+            System.out.println("TreinoDAO::recuperarPorId");
             System.out.println(e.getMessage());
             return null;
         }
+
     }
 
     public ArrayList<Treino> getLista() {
