@@ -21,7 +21,7 @@
                     <%@include file="menuCelular.jsp" %>
 
                     <h2 class="title">Sistema de Controle de Dados AcademiaEF</h2>
-                    <h4 class="title">Seja Bem-vindo</h4> 
+                    <h4 class="title">Seja Bem-vindo <%= funcionario.getNome()%></h4> 
                 </div>
                 <%@include file="menuGlobal.jsp" %>
 
