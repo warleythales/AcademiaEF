@@ -43,7 +43,7 @@
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label> Matrícula </label>
-                                                <input type="text" class="form-control" id="matricula" name="matricula" maxlength="14" placeholder="matricula"  required value="${f.matricula}">
+                                                <input type="text" class="form-control" id="matricula" name="matricula" maxlength="9" placeholder="matricula"  required value="${f.matricula}">
                                             </div>
                                         </div>
                                         <div class="col-md-5">
