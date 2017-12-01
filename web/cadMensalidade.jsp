@@ -40,13 +40,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label> Valor Pago </label>
-                                                <input type="text" class="form-control" id="valor_pago" name="valor_pago"  placeholder="000.00"  required value="${m.valor_pago}">
+                                                <input type="text" class="form-control" id="valor_pago" name="valor_pago"  placeholder="000.00"  required value="<fmt:formatNumber value="${m.valor_pago}"type="currency"></fmt:formatNumber>">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="data_pag" class="control-label"> Data de Pagamento </label>
-                                                <input type="text" class="form-control" id="data_pag" name="data_pag" placeholder="00/00/0000" value="<fmt:formatDate value="${m.data_pag}" pattern="dd/MM/yyyy"></fmt:formatDate>">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="data_pag" class="control-label"> Data de Pagamento </label>
+                                                    <input type="text" class="form-control" id="data_pag" name="data_pag" placeholder="00/00/0000" value="<fmt:formatDate value="${m.data_pag}" pattern="dd/MM/yyyy"></fmt:formatDate>">
                                                 </div>
                                             </div>
                                         </div>
@@ -78,7 +78,7 @@
                                             <label for="aluno" class="control-label"> Aluno </label>
                                             <jsp:useBean id="daoAluno" class="model.AlunoDAO"></jsp:useBean>
                                                 <select id="aluno" name="aluno" class="form-control" required>
-                                                 
+
                                                 <c:forEach var="aluno" items="${daoAluno.lista}">
                                                     <c:if test="${a.aluno.id == aluno.id}">
                                                         <option value="${aluno.id}" selected>${aluno.nome}</option>
@@ -94,7 +94,7 @@
                                             <label for="funcionario" class="control-label"> Funcionário </label>
                                             <jsp:useBean id="fdao" class="model.FuncionarioDAO"></jsp:useBean>
                                                 <select id="funcionario" name="funcionario" class="form-control" required>
-                                                    
+
                                                 <c:forEach var="funcionario" items="${fdao.lista}">
                                                     <c:if test="${f.funcionario.id == funcionario.id}">
                                                         <option value="${funcionario.id}" selected>${funcionario.nome}</option>

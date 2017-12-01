@@ -40,13 +40,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label> Valor Pago </label>
-                                                <input type="text" class="form-control" id="valor_pago" disabled="disabled" name="valor_pago"  placeholder="000,00"  required value="${m.valor_pago}">
+                                                <input type="text" class="form-control" id="valor_pago" disabled="disabled" name="valor_pago"  placeholder="000,00"  required value="<fmt:formatNumber value="${m.valor_pago}"type="currency"></fmt:formatNumber>">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="data_pag" class="control-label"> Data de Pagamento </label>
-                                                <input type="text" class="form-control" id="data_pag" disabled="disabled" name="data_pag" placeholder="00/00/0000" required value="<fmt:formatDate value="${m.data_pag}" pattern="dd/MM/yyyy"></fmt:formatDate>">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="data_pag" class="control-label"> Data de Pagamento </label>
+                                                    <input type="text" class="form-control" id="data_pag" disabled="disabled" name="data_pag" placeholder="00/00/0000" required value="<fmt:formatDate value="${m.data_pag}" pattern="dd/MM/yyyy"></fmt:formatDate>">
                                                 </div>
                                             </div>
                                         </div>
@@ -61,17 +61,17 @@
 
 
                                             <div class="col-md-6">
-                                                
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>Status</label>
-                                                    <select class="form-control" id="status"  disabled="disabled" name="status" placeholder="status" required value="${m.status}">
-                                                    <option value="Pendente"> Pendente </option>
-                                                    <option value="Pago"> Paga </option>
-                                                    <option value="Vencida"> Vencida </option>
-                                                </select>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Status</label>
+                                                        <select class="form-control" id="status"  disabled="disabled" name="status" placeholder="status" required value="${m.status}">
+                                                        <option value="Pendente"> Pendente </option>
+                                                        <option value="Pago"> Paga </option>
+                                                        <option value="Vencida"> Vencida </option>
+                                                    </select>
+                                                </div>
                                             </div>
-                                        </div>
                                         </div>
                                     </div>
 
@@ -86,7 +86,7 @@
                                             <label for="aluno" class="control-label"> Aluno </label>
                                             <jsp:useBean id="daoAluno" class="model.AlunoDAO"></jsp:useBean>
                                                 <select id="aluno" disabled="disabled" name="aluno" class="form-control" required>
-                                                    
+
                                                 <c:forEach var="aluno" items="${daoAluno.lista}">
                                                     <c:if test="${m.aluno.id == aluno.id}">
                                                         <option value="${aluno.id}" selected>${aluno.nome}</option>
@@ -102,7 +102,7 @@
                                             <label for="funcionario" class="control-label"> Funcionário </label>
                                             <jsp:useBean id="fdao" class="model.FuncionarioDAO"></jsp:useBean>
                                                 <select id="funcionario" disabled="disabled" name="funcionario" class="form-control" required>
-                                                 
+
                                                 <c:forEach var="funcionario" items="${fdao.lista}">
                                                     <c:if test="${m.funcionario.id == funcionario.id}">
                                                         <option value="${funcionario.id}" selected>${funcionario.nome}</option>
@@ -124,11 +124,11 @@
 
 
 
-                                    <a href="listMensalidade.jsp" class="btn btn-warning btn-fill ">Voltar</a>
-                                    
-                                     <a class="btn btn-primary btn-fill" href="MensalidadeController?acao=alterar&id=${m.id}">
-                                                                <i class="pe-7s-pen"></i>
-                                                            </a>
+                                    <a href="MensalidadeController?acao=listar-aluno&id_aluno=${m.aluno.id}" class="btn btn-warning btn-fill ">Voltar</a>
+
+                                    <a class="btn btn-primary btn-fill" href="MensalidadeController?acao=alterar&id=${m.id}">
+                                        <i class="pe-7s-pen"></i>
+                                    </a>
                                 </form>
 
                             </div>

@@ -109,8 +109,6 @@ public class MensalidadeController extends HttpServlet {
                     }
                     break;
             }
-            resposta.write("alert('Id inválido!');");
-            resposta.write("history.back();");
         }
 
         resposta.write("</script>");
