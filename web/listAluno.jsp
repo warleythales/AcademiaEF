@@ -92,7 +92,7 @@
                                                                 <i class="pe-7s-piggy"></i>
                                                             </a>
 
-                                                            <a class="btn btn-info btn-fill" href="gerenciamentoTreinoAluno.jsp">
+                                                            <a class="btn btn-info btn-fill" href="listGerenciamentoTreinoAluno.jsp">
                                                                 <i class="pe-7s-gym"></i>
                                                             </a>
                                                             <a class="btn btn-success btn-fill" href="listAvaliacao.jsp">
@@ -126,7 +126,7 @@
                                                         <c:when test = "${funcionario.cargo.id == 3 }">
                                                         <td>
 
-                                                            <a class="btn btn-info btn-fill" href="gerenciamentoTreinoAluno.jsp">
+                                                            <a class="btn btn-info btn-fill" href="listGerenciamentoTreinoAluno.jsp">
                                                                 <i class="pe-7s-gym"></i>
                                                             </a>
                                                             <a class="btn btn-success btn-fill" href="listAvaliacao.jsp">

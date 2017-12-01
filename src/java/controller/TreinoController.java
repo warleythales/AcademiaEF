@@ -51,6 +51,16 @@ public class TreinoController extends HttpServlet {
                             request.getRequestDispatcher("/cadTreino1.jsp").forward(request, response);
                         }
                         break;
+                     case "exibir":
+                        Treino treino = treiDAO.recuperarPorId(idTreino);
+                        if (treino == null) {
+                            resposta.print("alert('Treino não encontrado!');");
+                            resposta.print("history.back();");
+                        } else {
+                            request.setAttribute("treino", treino);
+                            request.getRequestDispatcher("/exibirTreino.jsp").forward(request, response);
+                        }
+                        break;    
                 }
             } else {
                 resposta.write("alert('Id inválido!');");

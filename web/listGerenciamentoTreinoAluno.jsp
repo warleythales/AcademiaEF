@@ -43,7 +43,7 @@
                 </div>
 
 
-                <a class="btn btn-info btn-fill pull-right" href=cadTreino.jsp>Novo Treino</a>
+                <a class="btn btn-info btn-fill pull-right" href=cadTreino.jsp>Novo Exercício</a>
             </div>
         </nav>
 
@@ -62,16 +62,25 @@
 
                         </thead>
                         <tbody>
-                            <jsp:useBean id="dao" class="model.AlunoDAO"></jsp:useBean>
-                            <c:forEach var="alu" items="${dao.lista}">
+                            <jsp:useBean id="dao" class="model.TreinoDAO"></jsp:useBean>
+                            <c:forEach var="treino" items="${dao.lista}">
                                 <tr>
-                                    <td>${alu.id}</td>
-                                    <td>${treino.dataXXXXXXXXX}</td>
-                                    <td>${treino.XXXXXXX}</td>
-                                    <td>
-                                        <a class="btn btn-primary btn-fill" href="listVerTreino.jsp">
-                                            <i class="pe-7s-search"></i>
+
+                                    <td>${treino.id}</td>
+                                    <td><fmt:formatDate value="${treino.data_inicio}" pattern="dd/MM/yyyy"></fmt:formatDate></td>
+                                    <td><fmt:formatDate value="${treino.data_fim}" pattern="dd/MM/yyyy"></fmt:formatDate></td>
+
+                                        <td>
+                                            <a class="btn btn-primary btn-fill" href="TreinoController?acao=alterar&id=${treino.id}">
+                                            <i class="pe-7s-pen"></i>
                                         </a>
+                                        <a class="btn btn-danger btn-fill" href="listVerTreino.jsp">
+                                            <i class="pe-7s-gym"></i>
+                                        </a>
+                                        
+                                            <a class="btn btn-primary btn-fill" href="TreinoController?acao=exibir&id=${treino.id}">
+                                            <i class="pe-7s-search"></i>
+                                        </a>    
                                     </td>
 
 

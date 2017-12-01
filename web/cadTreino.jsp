@@ -40,7 +40,7 @@
             <div class="container-fluid">
 
                 <div class="title-container text-center">
-                    <h3 class="title">Novo Treino</h3>
+                    <h3 class="title">Novo Exercício</h3>
                 </div>
 
 
@@ -58,24 +58,9 @@
                             <form action="ExercicioControle" method="POST">
 
 
-                                <input type="hidden" name="id" value="${a.id}" />
+                                
 
-                                <div class="form-group col-sm-3">
-                                    <label for="aparelho" class="control-label"> Treino </label>
-                                    <jsp:useBean id="AcademiaDAO" class="model.AcademiaDAO"></jsp:useBean>
-                                        <select id="aparelho" name="academia" class="form-control" required>
-                                            <option></option>
-                                        <c:forEach var="academia" items="${AcademiaDAO.lista}">
-                                            <c:if test="${f.academia.id == academia.id}">
-                                                <option value="${academia.id}" selected>${academia.nome}</option>
-                                            </c:if>
-                                            <c:if test="${f.academia.id != academia.id}">
-                                                <option value="${academia.id}">${academia.nome}</option>
-                                            </c:if>
-                                        </c:forEach>
-                                    </select>
-                                </div>
-
+                                
 
                                 <input type="hidden" name="id" value="${a.id}" />
                                 <div class="form-group col-sm-3">
@@ -152,8 +137,8 @@
                                             <table class="table table-hover table-striped">
 
                                                 <tr>
-                                                    <th>ID</th>
-                                                    <th>Treino</th>
+                                                   
+                                                   
                                                     <th>Aparelho</th>
                                                     <th>Peso</th>
                                                     <th>Série</th>
@@ -166,8 +151,8 @@
                                                     <c:forEach var="academia" items="${dao.lista}">
                                                         <tr>
 
-                                                            <td>${treino.id}</td>
-                                                            <td>${treino.treino}</td>
+                                                            
+                                                            
                                                             <td>${treino.aparelho}</td>
                                                             <td>${treino.peso}</td>
                                                             <td>${treino.serie}</td>

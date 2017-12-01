@@ -54,8 +54,20 @@ public class FuncionarioController extends HttpServlet {
                         } else {
                             request.setAttribute("f", func);
                             request.getRequestDispatcher("/cadFuncionario.jsp").forward(request, response);
+                            
                         }
                         break;
+                    case "exibir":
+                        Funcionario funci = fdao.recuperarPorId(idFuncionario);
+                        if (funci == null) {
+                            resposta.print("alert('Funcionário não encontrado!');");
+                            resposta.print("history.back();");
+                        } else {
+                            request.setAttribute("f", funci);
+                            request.getRequestDispatcher("/exibirFuncionario.jsp").forward(request, response);
+                        }
+                        break;
+    
                 }
             } else {
                 resposta.write("alert('Id inválido!');");
