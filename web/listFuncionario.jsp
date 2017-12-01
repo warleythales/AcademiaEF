@@ -81,6 +81,9 @@
 
                                                                 <button class="btn btn-danger btn-fill" onclick="confirmarExclusao(${func.id}, '${func.nome}')">
                                                                     <i class="pe-7s-trash"></i> </button>
+                                                                
+                                                                <a class="btn btn-primary btn-fill" href="FuncionarioController?acao=exibir&id=${func.id}">
+                                                                    <i class="pe-7s-search"></i></a>    
 
                                                             </td>
 

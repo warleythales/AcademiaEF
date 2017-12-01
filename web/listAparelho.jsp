@@ -75,6 +75,9 @@
                                                                 <button class="btn btn-danger btn-fill" onclick="confirmarExclusao(${aparelho.id}, '${aparelho.numero}')">
                                                                     <i class="pe-7s-trash "></i>
                                                                 </button>
+                                                                <a class="btn btn-primary btn-fill" href="AparelhoController?acao=exibir&id=${aparelho.id}">
+                                                                    <i class="pe-7s-search"></i>
+                                                                </a>    
                                                             </td>
                                                         </tr>
                                                     </c:forEach>

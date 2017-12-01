@@ -48,6 +48,16 @@ public class AparelhoController extends HttpServlet {
                             request.getRequestDispatcher("/cadAparelho.jsp").forward(request, response);
                         }
                         break;
+                     case "exibir":
+                        Aparelho apa = dao.buscarPorId(idAparelho);
+                        if( apa == null ) {
+                            resposta.print("alert('Aparelho não encontrado!');");
+                            resposta.print("history.back();");
+                        } else {
+                            request.setAttribute("a", apa);
+                            request.getRequestDispatcher("/exibirAparelho.jsp").forward(request, response);
+                        }
+                        break;    
                 }
 
             } else {

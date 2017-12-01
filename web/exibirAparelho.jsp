@@ -42,13 +42,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label> Número </label>
-                                                <input type="text" class="form-control" id="numero" name="numero" maxlength="3" placeholder="Número"  required value="${a.numero}">
+                                                <input type="text" class="form-control" id="numero" name="numero" disabled="disabled" maxlength="3" placeholder="Número"  required value="${a.numero}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label> Nome </label>
-                                                <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required value="${a.nome}">
+                                                <input type="text" class="form-control" id="nome" name="nome" disabled="disabled" placeholder="Nome" required value="${a.nome}">
                                             </div>
                                         </div>
                                     </div>
@@ -57,14 +57,13 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label> Descrição </label>
-                                                <input type="text" class="form-control" id="descricao" name="descricao" placeholder="Descrição" required value="${a.descricao}">
+                                                <input type="text" class="form-control" id="descricao" name="descricao" disabled="disabled" placeholder="Descrição" required value="${a.descricao}">
                                             </div>
                                         </div>
                                     </div>
 
 
 
-                                    <button class="btn btn-success btn-fill"> Gravar </button>
                                     <a href="listAparelho.jsp" class="btn btn-warning btn-fill ">Voltar</a>
                                 </form>
                             </div>
