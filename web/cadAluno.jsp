@@ -40,7 +40,8 @@
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label> CPF (Sem Pontuação) </label>
-                                                <input type="text" class="form-control" id="cpf" name="cpf" maxlength="14" placeholder="00000000000"  required value="${alu.cpf}">
+                                                <input type="text" class="form-control" name="cpf" onkeyup="cpfCheck(this)" maxlength="11" placeholder="00000000000"  required value="${alu.cpf}">
+                                            <span id="cpfResponse"></span>
                                             </div>
                                         </div>
                                         <div class="col-md-5">
