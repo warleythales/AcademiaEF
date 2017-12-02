@@ -49,7 +49,8 @@
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label> CPF </label>
-                                                <input type="text" class="form-control" id="cpf" name="cpf" maxlength="11" placeholder="000.000.000-00" required value="${f.cpf}">
+                                                <input type="text" class="form-control" name="cpf" maxlength="11" onkeyup="cpfCheck(this)" placeholder="000.000.000-00" required value="${f.cpf}">
+                                            <span id="cpfResponse"></span>
                                             </div>
                                         </div>
                                     </div>
