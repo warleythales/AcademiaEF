@@ -13,22 +13,12 @@
         </div>
     </div>
 
-    <div class="main-panel">
-        <nav class="navbar navbar-default navbar-fixed">
-            <div class="container-fluid">
-                <div class="navbar-header">
+    <%@include file="menuSuperiorCompleto.jsp" %>
+    <h2 class="title" align="center">Sistema de Controle de Dados AcademiaEF</h2>
+    <hr>
+    <img src="assets/img/bem12.png" vspace="115px" hspace="500px" align="center"/>
 
-                    <%@include file="menuCelular.jsp" %>
-
-                    <h2 class="title">Sistema de Controle de Dados AcademiaEF</h2>
-                    <h4 class="title">Seja Bem-vindo <%= funcionario.getNome()%></h4> 
-                </div>
-                <%@include file="menuGlobal.jsp" %>
-
-
-
-            </div>
-        </nav>
+    <img src="assets/img/selo123.png" hspace="500px"/>
 </body>
 
 

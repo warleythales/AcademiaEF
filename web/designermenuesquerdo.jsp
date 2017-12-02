@@ -1,1 +1,1 @@
-<div class="sidebar" data-color="red" data-image="assets/img/sidebar-4.jpg">
+<div class="sidebar" data-color="blue" data-image="assets/img/sidebar-6.jpg">

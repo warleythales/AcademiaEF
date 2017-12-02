@@ -46,7 +46,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="data_pag" class="control-label"> Data de Pagamento </label>
-                                                    <input type="text" class="form-control" id="data_pag" name="data_pag" placeholder="00/00/0000" value="<fmt:formatDate value="${m.data_pag}" pattern="dd/MM/yyyy"></fmt:formatDate>">
+                                                    <input type="date" class="form-control" id="data_pag" name="data_pag" placeholder="00/00/0000" value="<fmt:formatDate value="${m.data_pag}" pattern="dd/MM/yyyy"></fmt:formatDate>">
                                                 </div>
                                             </div>
                                         </div>

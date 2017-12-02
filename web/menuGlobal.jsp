@@ -5,7 +5,7 @@
 
         <li>
             <a href="SegurancaController?logout=SIM">
-                <p>Sair</p>
+                <img src="assets/img/power-off.png"/>
             </a>
         </li>
         <li class="separator hidden-lg hidden-md"></li>
