@@ -2,7 +2,7 @@
 <html lang="pt-br">
     <head>
         <meta charset="utf-8" />
-        <link rel="icon" type="image/png" href="assets/img/academia-icone.png">
+        <link rel="icon" type="image/png" href="assets/img/academia-icone-azul.png">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
         <title>Equilíbrio Fitness</title>
