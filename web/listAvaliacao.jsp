@@ -65,7 +65,7 @@
 
                                             <jsp:useBean id="dao" class="model.AvaliacaoDAO"></jsp:useBean>
                                                 <tbody>
-                                                <c:forEach var="a" items="${dao.lista}">
+                                                <c:forEach var="a" items="${alu.minhasAvaliacoes}">
                                                     <tr>
 
                                                         <td>${a.id}</td>
@@ -74,10 +74,10 @@
 
                                                             <td><fmt:formatDate value="${a.validade_ava}" pattern="dd/MM/yyyy"></fmt:formatDate></td>
                                                             <td>
-                                                                <a class="btn btn-primary btn-fill" href="AvaliacaoController?funcionalidade=alterar&id=${a.id}">
+                                                                <a class="btn btn-primary btn-fill" href="AvaliacaoController?acao=alterar&id=${a.id}">
                                                                 <i class="pe-7s-pen"></i>
                                                             </a>
-                                                            <a class="btn btn-warning btn-fill" href="AvaliacaoController?funcionalidade=exibir&id=${a.id}">
+                                                            <a class="btn btn-warning btn-fill" href="AvaliacaoController?acao=exibir&id=${a.id}">
                                                                 <i class="pe-7s-search"></i>
                                                             </a>
                                                         </td>

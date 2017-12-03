@@ -184,4 +184,54 @@ public class AvaliacaoDAO {
         return lista;
     }
 
+    public ArrayList<Avaliacao> getListaAluno(int id) {
+        ArrayList<Avaliacao> lista = new ArrayList<Avaliacao>();
+        try {
+            String sql = "SELECT id, biotipo, data_ava, idade, peso, ombro, braco_relaxado, braco_contraido, "
+                    + "antebraco, torax, panturrilha, cintura, abdomen, quadril, coxa, "
+                    + "validade_ava, id_aluno FROM avaliacao_fisica WHERE id_aluno=?";
+            Connection con = Conexao.conectar();
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setInt(1, id);
+            ResultSet rs = st.executeQuery();
+
+            AlunoDAO daoAluno = new AlunoDAO();
+            Aluno aluno = null;
+
+            while (rs.next()) {
+                if (aluno == null) {
+                    aluno = daoAluno.recuperarPorId(rs.getInt("id_aluno"));
+                }
+                Avaliacao ava = new Avaliacao();
+                ava.setId(rs.getInt("id"));
+                ava.setBiotipo(rs.getString("biotipo"));
+                ava.setData_ava(rs.getDate("data_ava"));
+                ava.setIdade(rs.getInt("idade"));
+                ava.setPeso(rs.getDouble("peso"));
+                ava.setOmbro(rs.getDouble("ombro"));
+                ava.setBraco_relaxado(rs.getDouble("braco_relaxado"));
+                ava.setBraco_contraido(rs.getDouble("braco_contraido"));
+                ava.setAntebraco(rs.getDouble("antebraco"));
+                ava.setTorax(rs.getDouble("torax"));
+                ava.setPanturrilha(rs.getDouble("panturrilha"));
+                ava.setQuadril(rs.getDouble("quadril"));
+                ava.setCoxa(rs.getDouble("coxa"));
+                ava.setValidade_ava(rs.getDate("validade_ava"));
+
+                ava.setAluno(aluno);
+
+                lista.add(ava);
+
+            }
+
+            System.out.println("AvalicaoDAO::getLista");
+            rs.close();
+            con.close();
+        } catch (Exception e) {
+            System.out.println("AvalicaoDAO::getLista");
+            System.out.println(e.getMessage());
+        }
+        return lista;
+    }
+
 }

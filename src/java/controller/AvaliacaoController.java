@@ -23,57 +23,70 @@ public class AvaliacaoController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String funcionalidade = request.getParameter("funcionalidade");
+        String id = null;
+        String acao = request.getParameter("acao");
         PrintWriter resposta = response.getWriter();
         resposta.write("<script>");
 
-        if (funcionalidade != null) {
+        if (acao != null) {
 
-            String id = request.getParameter("id");
-            if (id != null && !id.isEmpty() && !id.equals("0")) {
-                AvaliacaoDAO dao = new AvaliacaoDAO();
-                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                int idAvaliacao = Integer.parseInt(id);
+            switch (acao) {
+                case "listar-aluno":
 
-                switch (funcionalidade) {
-                    case "excluir":
-                        if (dao.excluir(idAvaliacao)) {
-                            resposta.print("alert('Avaliação Física excluída com sucesso!');");
-                            resposta.print("location.href='listAvaliacao.jsp';");
-                        }
-                        break;
-   
-                         case "exibir":
-                        Avaliacao ava = dao.recuperarPorId(idAvaliacao);
+                    String id_aluno = request.getParameter("id_aluno");
+                    if (id_aluno != null && !id_aluno.isEmpty() && !id_aluno.equals("0")) {
+                        AlunoDAO aDAO = new AlunoDAO();
+                        Aluno alu = aDAO.recuperarPorIdAvaliacao(Integer.parseInt(id_aluno));
+                        request.setAttribute("alu", alu);
+                        request.getRequestDispatcher("/listAvaliacao.jsp").forward(request, response);
+
+                    }
+                    break;
+                case "alterar":
+                    id = request.getParameter("id");
+                    if (id != null && !id.isEmpty() && !id.equals("0")) {
+                        AvaliacaoDAO avadao = new AvaliacaoDAO();
+                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
+                        int idAvalicao = Integer.parseInt(id);
+                        Avaliacao ava = avadao.recuperarPorId(idAvalicao);
                         if (ava == null) {
-                            resposta.print("alert('Avaliação Física não encontrado!');");
+                            resposta.print("alert('Avaliaçao não encontrada!');");
                             resposta.print("history.back();");
                         } else {
-                            request.setAttribute("a", ava);
-                            request.getRequestDispatcher("/exibirAvaliacao.jsp").forward(request, response);
-                        }
-                    case "alterar":
-                        Avaliacao a = dao.recuperarPorId(idAvaliacao);
-                        if (a == null) {
-                            resposta.print("alert('Avaliação Física não encontrada!');");
-                            resposta.print("history.back();");
-                        } else {
-                            request.setAttribute("a", a);
+                            request.setAttribute("ava", ava);
                             request.getRequestDispatcher("/cadAvaliacao.jsp").forward(request, response);
                         }
-                        break;
-                }
+                    } else {
 
-            } else {
-                resposta.write("alert('ID Inválido!');");
-                resposta.write("history.back();");
+                        resposta.write("alert('Ação Inválida!');");
+                        resposta.write("history.back();");
+
+                    }
+                    break;
+
+                case "exibir":
+                    id = request.getParameter("id");
+                    if (id != null && !id.isEmpty() && !id.equals("0")) {
+                        int idAvalicao = Integer.parseInt(id);
+                        AvaliacaoDAO avadao = new AvaliacaoDAO();
+                        Avaliacao ava = avadao.recuperarPorId(idAvalicao);
+                        if (ava == null) {
+
+                            resposta.print("alert('Avaliaçao não encontrada!');");
+                            resposta.print("history.back();");
+                        } else {
+                            request.setAttribute("ava", ava);
+                            request.getRequestDispatcher("/exibirAvaliacao.jsp").forward(request, response);
+                        }
+                    } else {
+
+                        resposta.write("alert('Ação Inválida!');");
+                        resposta.write("history.back();");
+
+                    }
+                    break;
             }
-
-        } else {
-
-            resposta.write("alert('Ação Inválida!');");
-            resposta.write("history.back();");
-
         }
 
         resposta.write("</script>");

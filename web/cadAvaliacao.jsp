@@ -175,7 +175,7 @@
 
 
                                 <button class="btn btn-success btn-fill">Gravar</button>
-                                <a href="listAvaliacao.jsp" class="btn btn-warning btn-fill ">Voltar</a>
+                                <a href="AvaliacaoController?acao=listar-aluno&id_aluno=${a.aluno.id}" class="btn btn-warning btn-fill ">Voltar</a>
                             </form>
 
                         </div>

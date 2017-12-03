@@ -81,7 +81,7 @@
                                                                 <a class="btn btn-info btn-fill" href="listGerenciamentoTreinoAluno.jsp">
                                                                     <i class="pe-7s-gym"></i>
                                                                 </a>
-                                                                <a class="btn btn-default btn-fill" href="listAvaliacao.jsp">
+                                                                <a class="btn btn-default btn-fill" title="Avaliações" href="AvaliacaoController?acao=listar-aluno&id_aluno=${alu.id}">
                                                                     <i class="pe-7s-note2"></i>
                                                                 </a>
                                                                 <a class="btn btn-warning btn-fill" href="AlunoController?acao=exibir&id=${alu.id}">
@@ -115,7 +115,7 @@
                                                                 <a class="btn btn-info btn-fill" title="Treinos" href="listGerenciamentoTreinoAluno.jsp">
                                                                     <i class="pe-7s-gym"></i>
                                                                 </a>
-                                                                <a class="btn btn-default btn-fill" title="Avaliações" href="listAvaliacao.jsp">
+                                                                <a class="btn btn-default btn-fill" title="Avaliações" href="AvaliacaoController?acao=listar-aluno&id_aluno=${alu.id}">
                                                                     <i class="pe-7s-note2"></i>
                                                                 </a>
                                                                 <a class="btn btn-warning btn-fill" href="AlunoController?acao=exibir&id=${alu.id}">

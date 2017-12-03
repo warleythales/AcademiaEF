@@ -24,7 +24,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="header">
-                            <h2 class="title"> ${a.aluno.nome}</h2>
+                            <h2 class="title">Aluno: ${a.aluno.nome}</h2>
                             <hr>
                             <h4 class="title"> Dados da Avaliação </h4>
                         </div>
@@ -168,7 +168,7 @@
 
 
 
-                                <a href="listAvaliacao.jsp" class="btn btn-warning btn-fill ">Voltar</a>
+                                <a href="AvaliacaoController?acao=listar-aluno&id_aluno=${a.aluno.id}" class="btn btn-warning btn-fill ">Voltar</a>
                                 <a class="btn btn-primary btn-fill" href="AvaliacaoController?funcionalidade=alterar&id=${a.id}">
                                     <i class="pe-7s-pen"></i>
                                 </a>

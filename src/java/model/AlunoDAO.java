@@ -149,6 +149,20 @@ public class AlunoDAO {
 
     }
 
+    public Aluno recuperarPorIdAvaliacao(int id) {
+        try {
+            Aluno alu = recuperarPorId(id);
+            AvaliacaoDAO avaDAO = new AvaliacaoDAO();
+            alu.setMinhasAvaliacoes(avaDAO.getListaAluno(id));
+            return alu;
+        } catch (Exception e) {
+            System.out.println("AlunoDAO::recuperarPorIdAvaliacoes");
+            System.out.println(e.getMessage());
+            return null;
+        }
+
+    }
+
     public ArrayList<Aluno> getLista() {
         ArrayList<Aluno> lista = new ArrayList<Aluno>();
         try {
