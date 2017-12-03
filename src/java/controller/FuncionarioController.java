@@ -164,8 +164,8 @@ public class FuncionarioController extends HttpServlet {
                 // Conseguiu salvar
             } else {
                 // Não salvou
-                resposta.print("<h1 style='color:black'> Erro ao salvar funcionário! </h1>");
-                resposta.print("<a href='javascript:history.back()'>voltar</a>");
+                PrintWriter out = response.getWriter();
+                out.println("<script>alert('Erro ao cadastrar Funcionario');location.href='javascript:history.back()'</script>");
             }
             resposta.close();
         } catch (ParseException ex) {
