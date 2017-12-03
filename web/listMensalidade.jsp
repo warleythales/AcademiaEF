@@ -20,89 +20,80 @@
         </div>
     </div>
 
-    <div class="main-panel">
-        <nav class="navbar navbar-default navbar-fixed">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <%@include file="menuCelular.jsp" %>
-                    <h3 class="title">Mensalidade</h3>
-                </div>
-
-                <%@include file="menuGlobal.jsp" %>
-
-            </div>
-        </nav>
+    <%@include file="menuSuperiorCompleto.jsp" %>
 
 
-        <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="content">
-                                <h3 class="title">Lista de Mensalidades</h3> <br>
-                                <h4 class="title">Aluno: ${alu.nome} </h2>
-                                    <hr>
-                                    <a class="btn btn-info btn-fill pull-right" href=cadMensalidade.jsp>Novo Cadastro</a>
-                                    <br>
-                                    <br>
-                                    <br>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
 
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="content table-responsive table-full-width">
-                                                <table class="table table-hover table-striped" id="listaPerfil" cellspacing="0" width="100%">
-                                                    <thead>
-                                                        <tr>
+                    <div class="card">
 
-                                                            <th>Id</th>
-                                                            <th>Valor Pago </th>
-                                                            <th>Data de Pagamento </th>
-                                                            <th>Data de Vencimento </th>
+                        <div class="header">
+                            <h2 class="title">Lista de Mensalidades</h2>
+                            <hr>
+                            <h4 class="title">Aluno: ${alu.nome} </h4>
+                        </div>
 
-                                                            <th></th>
-                                                        </tr>
-                                                    </thead>
-                                                    <c:forEach var="m" items="${alu.minhasMensalidade}">
-                                                        <tbody>
-                                                            <tr>
+                        <div class="content">
+                            <a class="btn btn-info btn-fill pull-right" href=cadMensalidade.jsp>Novo Cadastro</a>
+                            <br>
+                            <br>
+                            <br>
 
-                                                                <td>${m.id}</td>
-                                                                <td><fmt:formatNumber value="${m.valor_pago}"type="currency"></fmt:formatNumber></td>
-                                                                <td><fmt:formatDate value="${m.data_pag}" pattern="dd/MM/yyyy"></fmt:formatDate></td>
-                                                                <td><fmt:formatDate value="${m.data_venc}" pattern="dd/MM/yyyy"></fmt:formatDate></td>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="content table-responsive table-full-width">
+                                        <table class="table table-hover table-striped" id="listaPerfil" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
 
-                                                                    <td>
-                                                                        <a class="btn btn-primary btn-fill" href="MensalidadeController?acao=alterar&id=${m.id}">
-                                                                        <i class="pe-7s-pen"></i>
-                                                                    </a>
-                                                                    <button class="btn btn-danger btn-fill" onclick="confirmarExclusao(${m.id}, '${m.id}')">
-                                                                        <i class="pe-7s-trash "></i>
-                                                                    </button>
-                                                                    <a class="btn btn-primary btn-fill" href="MensalidadeController?acao=exibir&id=${m.id}">
-                                                                        <i class="pe-7s-search"></i>
-                                                                    </a>
-                                                                </td>
-                                                            </tr>
-                                                        </c:forEach>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
+                                                    <th>Id</th>
+                                                    <th>Valor Pago </th>
+                                                    <th>Data de Pagamento </th>
+                                                    <th>Data de Vencimento </th>
+
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <c:forEach var="m" items="${alu.minhasMensalidade}">
+                                                <tbody>
+                                                    <tr>
+
+                                                        <td>${m.id}</td>
+                                                        <td><fmt:formatNumber value="${m.valor_pago}"type="currency"></fmt:formatNumber></td>
+                                                        <td><fmt:formatDate value="${m.data_pag}" pattern="dd/MM/yyyy"></fmt:formatDate></td>
+                                                        <td><fmt:formatDate value="${m.data_venc}" pattern="dd/MM/yyyy"></fmt:formatDate></td>
+
+                                                            <td>
+                                                                <a class="btn btn-primary btn-fill" href="MensalidadeController?acao=alterar&id=${m.id}">
+                                                                <i class="pe-7s-pen"></i>
+                                                            </a>
+                                                            <a class="btn btn-warning btn-fill" href="MensalidadeController?acao=exibir&id=${m.id}">
+                                                                <i class="pe-7s-search"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </c:forEach>
+                                            </tbody>
+                                        </table>
                                     </div>
-
-
-
-                                    <div class="clearfix"></div>
-                                    <a href="listAluno.jsp" class="btn btn-warning btn-fill ">Voltar</a>
+                                </div>
                             </div>
+
+
+
+                            <div class="clearfix"></div>
+                            <a href="listAluno.jsp" class="btn btn-warning btn-fill ">Voltar</a>
                         </div>
                     </div>
                 </div>
-
             </div>
+
         </div>
     </div>
+</div>
 </div>
 
 </body>

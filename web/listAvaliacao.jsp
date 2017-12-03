@@ -23,99 +23,92 @@
         </div>
     </div>
 
-    <div class="main-panel">
-        <nav class="navbar navbar-default navbar-fixed">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <%@include file="menuCelular.jsp" %>
-
-                    <h3 class="title">Avaliação</h3>
-                </div>
-                <%@include file="menuGlobal.jsp" %>
+    <%@include file="menuSuperiorCompleto.jsp" %>
 
 
-            </div>
-        </nav>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="card">
+
+                        <div class="header">
+                            <h2 class="title" align="left">Lista de Avaliações</h2>
+                            <hr>
+                            <h4 class="title">Aluno: ${alu.nome} </h4>
+                        </div>
+
+                        <div class="content">
+
+                            <a class="btn btn-info btn-fill pull-right" href=cadAvaliacao.jsp>Novo Cadastro</a>
+                            <br>
+                            <br>
+                            <br>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="content table-responsive table-full-width">
+                                        <table class="table table-hover table-striped" id="listaPerfil" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
+
+                                                    <th> ID </th>
 
 
-        <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="content">
+                                                    <th> Data da Avaliação </th>
 
-                                <a class="btn btn-info btn-fill pull-right" href=cadAvaliacao.jsp>Novo Cadastro</a>
-                                <br>
-                                <br>
-                                <br>
+                                                    <th> Validade da Avaliação </th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
 
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="content table-responsive table-full-width">
-                                            <table class="table table-hover table-striped" id="listaPerfil" cellspacing="0" width="100%">
-                                                <thead>
+                                            <jsp:useBean id="dao" class="model.AvaliacaoDAO"></jsp:useBean>
+                                                <tbody>
+                                                <c:forEach var="a" items="${dao.lista}">
                                                     <tr>
 
-                                                        <th> ID </th>
+                                                        <td>${a.id}</td>
 
+                                                        <td><fmt:formatDate value="${a.data_ava}" pattern="dd/MM/yyyy"></fmt:formatDate></td>
 
-                                                        <th> Data da Avaliação </th>
-
-                                                        <th> Validade da Avaliação </th>
-                                                        <th></th>
+                                                            <td><fmt:formatDate value="${a.validade_ava}" pattern="dd/MM/yyyy"></fmt:formatDate></td>
+                                                            <td>
+                                                                <a class="btn btn-primary btn-fill" href="AvaliacaoController?funcionalidade=alterar&id=${a.id}">
+                                                                <i class="pe-7s-pen"></i>
+                                                            </a>
+                                                            <a class="btn btn-warning btn-fill" href="AvaliacaoController?funcionalidade=exibir&id=${a.id}">
+                                                                <i class="pe-7s-search"></i>
+                                                            </a>
+                                                        </td>
                                                     </tr>
-                                                </thead>
-
-                                                <jsp:useBean id="dao" class="model.AvaliacaoDAO"></jsp:useBean>
-                                                    <tbody> 
-                                                    <c:forEach var="a" items="${dao.lista}">
-                                                        <tr>
-
-                                                            <td>${a.id}</td>
-
-                                                            <td><fmt:formatDate value="${a.data_ava}" pattern="dd/MM/yyyy"></fmt:formatDate></td>
-
-                                                                <td><fmt:formatDate value="${a.validade_ava}" pattern="dd/MM/yyyy"></fmt:formatDate></td>
-                                                                <td>
-                                                                    <a class="btn btn-primary btn-fill" href="AvaliacaoController?funcionalidade=alterar&id=${a.id}">
-                                                                    <i class="pe-7s-pen"></i>
-                                                                </a>
-                                                                <button class="btn btn-danger btn-fill" onclick="confirmarExclusao(${a.id}, '${a.data_ava}')">
-                                                                    <i class="pe-7s-trash"></i>
-                                                                </button>
-                                                                <a class="btn btn-primary btn-fill" href="AvaliacaoController?funcionalidade=exibir&id=${a.id}">
-                                                                    <i class="pe-7s-search"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                    </c:forEach>
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                                </c:forEach>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
-
-
-
-
-
                             </div>
-                            <div class="clearfix"></div>
+
+
+
+
+
                         </div>
+                        <div class="clearfix"></div>
                     </div>
                 </div>
-
-            </div>
-            <div class="container-fluid">
-                <a class="btn btn-warning btn-fill" href=listAluno.jsp>Voltar</a>
             </div>
 
         </div>
-
-
+        <div class="container-fluid">
+            <a class="btn btn-warning btn-fill" href=listAluno.jsp>Voltar</a>
+        </div>
 
     </div>
+
+
+
+</div>
 </div>
 
 </body>

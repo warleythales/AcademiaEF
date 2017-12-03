@@ -86,12 +86,7 @@
                                     <div class="col-md-5">
                                         <div class="form-group">
                                             <label> Turno </label>
-                                            <select type="text" class="form-control" id="turno" name="turno" disabled="disabled" placeholder="turno" required value="${f.turno}">
-                                                <option value="">Selecione</option>
-                                                <option>Matutino</option>
-                                                <option>Vespertino</option>
-                                                <option>Noturno</option>
-                                            </select>
+                                            <input type="text" class="form-control" id="turno" name="turno" disabled="disabled" placeholder="turno" required value="${f.turno}">
                                         </div>
                                     </div>
 

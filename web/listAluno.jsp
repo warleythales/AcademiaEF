@@ -23,146 +23,132 @@
         </div>
     </div>
 
-    <div class="main-panel">
-        <nav class="navbar navbar-default navbar-fixed">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <%@include file="menuCelular.jsp" %>
+    <%@include file="menuSuperiorCompleto.jsp" %>
 
-                    <h3 class="title">Aluno</h3>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
 
-
-                </div>
-
-                <%@include file="menuGlobal.jsp" %>
-            </div>
-        </nav>
+                        <div class="header">
+                            <h2 class="title" align="left">Alunos</h2>
+                            <hr>
+                        </div>
 
 
-        <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="content">
+                        <div class="content">
+
+                            <a class="btn btn-info btn-fill pull-right" href=cadAluno.jsp>Novo Cadastro</a>
+                            <br>
+                            <br>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <table class="table table-hover table-striped" id="listaPerfil" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+
+                                                <th> Id </th>
+                                                <th> CPF </th>
+                                                <th> Nome </th>
+                                                <th> Status </th>
+                                                <th></th>
 
 
 
+                                            </tr>
+                                        </thead>
 
-                                <a class="btn btn-info btn-fill pull-right" href=cadAluno.jsp>Novo Cadastro</a>
-                                <br>
-                                <br>
-                                <br>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <table class="table table-hover table-striped" id="listaPerfil" cellspacing="0" width="100%">
-                                            <thead>
+                                        <tbody>
+                                            <jsp:useBean id="dao" class="model.AlunoDAO"></jsp:useBean>
+                                            <c:forEach var="alu" items="${dao.lista}">
                                                 <tr>
+                                                    <td>${alu.id}</td>
+                                                    <td>${alu.cpf}</td>
+                                                    <td>${alu.nome}</td>
+                                                    <td>${alu.status}</td>
+                                                    <c:choose>
+                                                        <c:when test = "${funcionario.cargo.id == 1 }">
+                                                            <td>
+                                                                <a class="btn btn-primary btn-fill" href="AlunoController?acao=alterar&id=${alu.id}">
+                                                                    <i class="pe-7s-pen"></i>
+                                                                </a>
+                                                                <a class="btn btn-success btn-fill" href="MensalidadeController?acao=listar-aluno&id_aluno=${alu.id}">
+                                                                    <i class="pe-7s-piggy"></i>
+                                                                </a>
 
-                                                    <th> Id </th>
-                                                    <th> CPF </th>
-                                                    <th> Nome </th>
-                                                    <th> Status </th>
-                                                    <th></th>
+                                                                <a class="btn btn-info btn-fill" href="listGerenciamentoTreinoAluno.jsp">
+                                                                    <i class="pe-7s-gym"></i>
+                                                                </a>
+                                                                <a class="btn btn-default btn-fill" href="listAvaliacao.jsp">
+                                                                    <i class="pe-7s-note2"></i>
+                                                                </a>
+                                                                <a class="btn btn-warning btn-fill" href="AlunoController?acao=exibir&id=${alu.id}">
+                                                                    <i class="pe-7s-search"></i>
+                                                                </a>
+
+                                                            </td>
+                                                        </c:when>
+                                                        <c:when test = "${funcionario.cargo.id == 2 }">
+                                                            <td>
+                                                                <a class="btn btn-primary btn-fill" href="AlunoController?acao=alterar&id=${alu.id}">
+                                                                    <i class="pe-7s-pen"></i>
+                                                                </a>
+                                                                <a class="btn btn-warning btn-fill" href="MensalidadeController?acao=listar-aluno&id_aluno=${alu.id}">
+                                                                    <i class="pe-7s-piggy"></i>
+                                                                </a>
+
+                                                                <a class="btn btn-warning btn-fill" href="AlunoController?acao=exibir&id=${alu.id}">
+                                                                    <i class="pe-7s-search"></i>
+                                                                </a>
+
+                                                            </td>
+                                                        </c:when>
+                                                        <c:when test = "${funcionario.cargo.id == 3 }">
+                                                            <td>
+
+                                                                <a class="btn btn-warning btn-fill" title="Mensalidades" href="MensalidadeController?acao=listar-aluno&id_aluno=${alu.id}">
+                                                                    <i class="pe-7s-piggy"></i>
+                                                                </a>
+
+                                                                <a class="btn btn-info btn-fill" title="Treinos" href="listGerenciamentoTreinoAluno.jsp">
+                                                                    <i class="pe-7s-gym"></i>
+                                                                </a>
+                                                                <a class="btn btn-default btn-fill" title="Avaliações" href="listAvaliacao.jsp">
+                                                                    <i class="pe-7s-note2"></i>
+                                                                </a>
+                                                                <a class="btn btn-warning btn-fill" href="AlunoController?acao=exibir&id=${alu.id}">
+                                                                    <i class="pe-7s-search"></i>
+                                                                </a>
+
+                                                            </td>
+                                                        </c:when>
+                                                    </c:choose>
 
 
 
                                                 </tr>
-                                            </thead>
-                                            
-                                            <tbody>
-                                                <jsp:useBean id="dao" class="model.AlunoDAO"></jsp:useBean>
-                                                <c:forEach var="alu" items="${dao.lista}">
-                                                    <tr>
-                                                        <td>${alu.id}</td>
-                                                        <td>${alu.cpf}</td>
-                                                        <td>${alu.nome}</td>
-                                                        <td>${alu.status}</td>
-                                                        <c:choose>  
-                                                            <c:when test = "${funcionario.cargo.id == 1 }">
-                                                        <td>
-                                                            <a class="btn btn-primary btn-fill" href="AlunoController?acao=alterar&id=${alu.id}">
-                                                                <i class="pe-7s-pen"></i>
-                                                            </a>
-                                                            <button class="btn btn-danger btn-fill" onclick="confirmarExclusao(${alu.id}, '${alu.nome}')">
-                                                                <i class="pe-7s-trash"></i>
-                                                                
-                                                            </button>
-                                                            <a class="btn btn-warning btn-fill" href="MensalidadeController?acao=listar-aluno&id_aluno=${alu.id}">
-                                                                <i class="pe-7s-piggy"></i>
-                                                            </a>
-
-                                                            <a class="btn btn-info btn-fill" href="listGerenciamentoTreinoAluno.jsp">
-                                                                <i class="pe-7s-gym"></i>
-                                                            </a>
-                                                            <a class="btn btn-success btn-fill" href="listAvaliacao.jsp">
-                                                                <i class="pe-7s-note2"></i>
-                                                            </a>
-                                                            <a class="btn btn-primary btn-fill" href="AlunoController?acao=exibir&id=${alu.id}">
-                                                                <i class="pe-7s-search"></i>
-                                                            </a>
-
-                                                        </td>
-                                                        </c:when>
-                                                        <c:when test = "${funcionario.cargo.id == 2 }">
-                                                        <td>
-                                                            <a class="btn btn-primary btn-fill" href="AlunoController?acao=alterar&id=${alu.id}">
-                                                                <i class="pe-7s-pen"></i>
-                                                            </a>
-                                                            <button class="btn btn-danger btn-fill" onclick="confirmarExclusao(${alu.id}, '${alu.nome}')">
-                                                                <i class="pe-7s-trash"></i>
-                                                                
-                                                            </button>
-                                                            <a class="btn btn-warning btn-fill" href="MensalidadeController?acao=listar-aluno&id_aluno=${alu.id}">
-                                                                <i class="pe-7s-piggy"></i>
-                                                            </a>
-
-                                                            <a class="btn btn-primary btn-fill" href="AlunoController?acao=exibir&id=${alu.id}">
-                                                                <i class="pe-7s-search"></i>
-                                                            </a>
-
-                                                        </td>
-                                                        </c:when>
-                                                        <c:when test = "${funcionario.cargo.id == 3 }">
-                                                        <td>
-
-                                                            <a class="btn btn-info btn-fill" href="listGerenciamentoTreinoAluno.jsp">
-                                                                <i class="pe-7s-gym"></i>
-                                                            </a>
-                                                            <a class="btn btn-success btn-fill" href="listAvaliacao.jsp">
-                                                                <i class="pe-7s-note2"></i>
-                                                            </a>
-                                                            <a class="btn btn-primary btn-fill" href="AlunoController?acao=exibir&id=${alu.id}">
-                                                                <i class="pe-7s-search"></i>
-                                                            </a>
-
-                                                        </td>
-                                                            </c:when>
-                                                        </c:choose>
+                                            </c:forEach>
+                                        </tbody>
 
 
-
-                                                    </tr>
-                                                </c:forEach>
-                                            </tbody>
-                                           
-                                            
-                                        </table>
-                                    </div>
+                                    </table>
                                 </div>
-
-
-
-                                <div class="clearfix"></div>
-
                             </div>
+
+
+
+                            <div class="clearfix"></div>
+
                         </div>
                     </div>
-
                 </div>
+
             </div>
         </div>
     </div>
+</div>
 
 </body>
 
