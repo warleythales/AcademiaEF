@@ -100,14 +100,14 @@
                                 <div class="col-md-5">
                                     <div class="form-group">
                                         <label for="valor_mensalidade" class="control-label"> Valor da Mensalidade do Aluno </label>
-                                        <input type="text" class="form-control" id="valor_mensalidade" disabled="disabled" name="valor_mensalidade" placeholder="valor da mensalidade" required value="${alu.valor_mensalidade}"/>
+                                        <input type="text" class="form-control" id="valor_mensalidade" disabled="disabled" name="valor_mensalidade" placeholder="valor da mensalidade" required value="<fmt:formatNumber value="${alu.valor_mensalidade}"type="currency"></fmt:formatNumber>"/>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="col-md-5">
-                                    <div class="form-group">
-                                        <label for="plano" class="control-label"> Plano </label>
-                                        <input type="text" class="form-control" id="plano" disabled="disabled" name="plano" placeholder="plano" required value="${alu.plano}"/>
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <label for="plano" class="control-label"> Plano </label>
+                                            <input type="text" class="form-control" id="plano" disabled="disabled" name="plano" placeholder="plano" required value="${alu.plano}"/>
                                     </div>
                                 </div>
                             </div>
@@ -151,24 +151,52 @@
 
 
 
-                            <td>
-                                <a class="btn btn-primary btn-fill" title="Alterar" href="AlunoController?acao=alterar&id=${alu.id}">
-                                    <i class="pe-7s-pen"></i>
-                                </a>
+                            <c:choose>
+                                <c:when test = "${funcionario.cargo.id == 1 }">
+                                    <td>
+                                        <a class="btn btn-primary btn-fill" title="Alterar" href="AlunoController?acao=alterar&id=${alu.id}">
+                                            <i class="pe-7s-pen"></i>
+                                        </a>
 
-                                <a class="btn btn-warning btn-fill" title="Mensalidades" href="MensalidadeController?acao=listar-aluno&id_aluno==${alu.id}">
-                                    <i class="pe-7s-piggy"></i>
-                                </a>
+                                        <a class="btn btn-success btn-fill" title="Mensalidades" href="MensalidadeController?acao=listar-aluno&id_aluno=${alu.id}">
+                                            <i class="pe-7s-piggy"></i>
+                                        </a>
 
-                                <a class="btn btn-info btn-fill" title="Treinos" href="gerenciamentoTreinoAluno.jsp">
-                                    <i class="pe-7s-gym"></i>
-                                </a>
-                                <a class="btn btn-success btn-fill" title="Avaliações" href="listAvaliacao.jsp">
-                                    <i class="pe-7s-note2"></i>
-                                </a>
+                                        <a class="btn btn-info btn-fill" title="Treinos" href="listGerenciamentoTreinoAluno.jsp">
+                                            <i class="pe-7s-gym"></i>
+                                        </a>
+                                        <a class="btn btn-default btn-fill" title="Avaliações" href="listAvaliacao.jsp">
+                                            <i class="pe-7s-note2"></i>
+                                        </a>
+                                    </td>
+                                </c:when>
+                                <c:when test = "${funcionario.cargo.id == 2 }">
+                                    <td>
+                                        <a class="btn btn-primary btn-fill" title="Alterar" href="AlunoController?acao=alterar&id=${alu.id}">
+                                            <i class="pe-7s-pen"></i>
+                                        </a>
 
+                                        <a class="btn btn-warning btn-fill" title="Mensalidades" href="MensalidadeController?acao=listar-aluno&id_aluno=${alu.id}">
+                                            <i class="pe-7s-piggy"></i>
+                                        </a>
+                                    </td>
+                                </c:when>
+                                <c:when test = "${funcionario.cargo.id == 3 }">
+                                    <td>
 
-                            </td>
+                                        <a class="btn btn-warning btn-fill" title="Mensalidades" href="MensalidadeController?acao=listar-aluno&id_aluno=${alu.id}">
+                                            <i class="pe-7s-piggy"></i>
+                                        </a>
+
+                                        <a class="btn btn-info btn-fill" title="Treinos" href="listGerenciamentoTreinoAluno.jsp">
+                                            <i class="pe-7s-gym"></i>
+                                        </a>
+                                        <a class="btn btn-default btn-fill" title="Avaliações" href="listAvaliacao.jsp">
+                                            <i class="pe-7s-note2"></i>
+                                        </a>
+                                    </td>
+                                </c:when>
+                            </c:choose>
                             </form>
 
                         </div>

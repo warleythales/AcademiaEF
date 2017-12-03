@@ -50,18 +50,18 @@
                                     <div class="col-md-12">
                                         <div class="content table-responsive table-full-width">
                                             <table class="table table-hover table-striped" id="listaPerfil" cellspacing="0" width="100%">
-                                                 <thead>
-                                                <tr>
+                                                <thead>
+                                                    <tr>
 
-                                                    <th> ID </th>
-                                                    <th> Matrícula </th>
-                                                    <th> Nome </th>
-                                                    <th> Turno </th>
-                                                    <th> Cargo </th>
-                                                    <th> Academia </th>
-                                                    <th></th>
-                                                </tr>
-                                                 </thead>
+                                                        <th> ID </th>
+                                                        <th> Matrícula </th>
+                                                        <th> Nome </th>
+                                                        <th> Turno </th>
+                                                        <th> Cargo </th>
+                                                        <th> Academia </th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
 
                                                 <tbody>
                                                     <jsp:useBean id="fdao" class="model.FuncionarioDAO"/>
@@ -77,13 +77,15 @@
                                                             <td>${func.academia.nome}</td>
                                                             <td>
                                                                 <a class="btn btn-primary btn-fill" href="FuncionarioController?acao=alterar&id=${func.id}">
-                                                                    <i class="pe-7s-pen"></i></a>
+                                                                    <i class="pe-7s-pen"></i>
+                                                                </a>
 
                                                                 <button class="btn btn-danger btn-fill" onclick="confirmarExclusao(${func.id}, '${func.nome}')">
                                                                     <i class="pe-7s-trash"></i> </button>
-                                                                
+
                                                                 <a class="btn btn-primary btn-fill" href="FuncionarioController?acao=exibir&id=${func.id}">
-                                                                    <i class="pe-7s-search"></i></a>    
+                                                                    <i class="pe-7s-search"></i>
+                                                                </a>
 
                                                             </td>
 

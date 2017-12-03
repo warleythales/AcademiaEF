@@ -59,6 +59,9 @@
 
 
                                 <a href="listAparelho.jsp" class="btn btn-warning btn-fill ">Voltar</a>
+                                <a class="btn btn-primary btn-fill" href="AparelhoController?acao=alterar&id=${a.id}">
+                                    <i class="pe-7s-pen"></i>
+                                </a>
                             </form>
                         </div>
                     </div>
