@@ -54,7 +54,7 @@ public class FuncionarioController extends HttpServlet {
                         } else {
                             request.setAttribute("f", func);
                             request.getRequestDispatcher("/cadFuncionario.jsp").forward(request, response);
-                            
+
                         }
                         break;
                     case "exibir":
@@ -67,7 +67,7 @@ public class FuncionarioController extends HttpServlet {
                             request.getRequestDispatcher("/exibirFuncionario.jsp").forward(request, response);
                         }
                         break;
-    
+
                 }
             } else {
                 resposta.write("alert('Id inválido!');");
@@ -170,7 +170,7 @@ public class FuncionarioController extends HttpServlet {
             resposta.close();
         } catch (ParseException ex) {
             PrintWriter out = response.getWriter();
-            out.println("<script>alert('Erro ao cadastrar Funcionario');location.href='./cadFuncionario.jsp'</script>");
+            out.println("<script>alert('Erro ao cadastrar Funcionario');location.href='./listFuncionario.jsp'</script>");
             Logger.getLogger(FuncionarioController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
