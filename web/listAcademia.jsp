@@ -52,10 +52,8 @@
 
                                             <tr>
                                                 <th>ID</th>
-                                                <th>CNPJ</th>
-                                                <th>Nome</th>
-                                                <th>Endereço</th>
-                                                <th>Telefone</th>
+                                                <th>NOME</th>
+                                              
                                                 <th></th>
                                             </tr>
 
@@ -65,14 +63,15 @@
                                                     <tr>
 
                                                         <td>${academia.id}</td>
-                                                        <td>${academia.cnpj}</td>
                                                         <td>${academia.nome}</td>
-                                                        <td>${academia.endereco}</td>
-                                                        <td>${academia.telefone}</td>
+                                                       
                                                         <td>
                                                             <a class="btn btn-primary btn-fill" href="AcademiaController?acao=alterar&id=${academia.id}">
                                                                 <i class="pe-7s-pen"></i>
                                                             </a>
+                                                            <a class="btn btn-warning btn-fill" href="AcademiaController?acao=exibir&id=${academia.id}">
+                                                                    <i class="pe-7s-search"></i>
+                                                                </a>    
                                                         </td>
                                                     </tr>
                                                 </c:forEach>
