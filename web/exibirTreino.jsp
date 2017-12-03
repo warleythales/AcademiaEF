@@ -25,7 +25,7 @@
                     <div class="card">
 
                         <div class="header">
-                            <td> <h2 class="title">  Aluno: ${m.aluno.nome}</td> </h2>
+                            <td> <h2 class="title">  Aluno: ${t.aluno.nome}</td> </h2>
                             <hr>
                             <h4 class="title"> Dados do Treino: </h4>
                         </div>
@@ -37,7 +37,7 @@
 
 
                             <form action="TreinoController" method="POST">
-                                <input type="hidden" name="id" value="${trei.id}" />
+                                <input type="hidden" name="id" value="${t.id}" />
 
                                 <div class="row">
                                     <div class="col-md-8">
@@ -110,15 +110,15 @@
                                                 </tr>
 
                                                 <tbody>
-                                                    <c:forEach var="ex" items="${trei.meusExercicios}">
+                                                    <c:forEach var="ex" items="${t.meusExercicios}">
                                                         <tr>
 
 
 
-                                                            <td>${ex.aparelho}</td>
+                                                            <td>${ex.aparelho.nome}</td>
                                                             <td>${ex.peso}</td>
                                                             <td>${ex.serie}</td>
-                                                            <td>${ex.repeticoes}</td>
+                                                            <td>${ex.repetcoes}</td>
                                                             <td>
 
                                                                 <button class="btn btn-danger btn-fill pull-right" onclick="confirmarExclusao(${academia.id}, '${academia.cnpj}')">

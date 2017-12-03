@@ -68,19 +68,9 @@ public class TreinoController extends HttpServlet {
                     if (id != null && !id.isEmpty() && !id.equals("0")) {
                         int idTreino = Integer.parseInt(id);
                         TreinoDAO tdao = new TreinoDAO();
-                        Treino t = tdao.recuperarPorId(idTreino);
-                        if (t == null) {
-
-                            resposta.print("alert('Treino não encontrado!');");
-                            resposta.print("history.back();");
-                        } else {
-                            request.setAttribute("t", t);
-                            request.getRequestDispatcher("/exibirTreino.jsp").forward(request, response);
-                        }
-                    } else {
-
-                        resposta.write("alert('Ação Inválida!');");
-                        resposta.write("history.back();");
+                        Treino t = tdao.recuperarPorIdExercicio(idTreino);
+                        request.setAttribute("t", t);
+                        request.getRequestDispatcher("/exibirTreino.jsp").forward(request, response);
 
                     }
                     break;
