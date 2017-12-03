@@ -22,70 +22,50 @@
         </div>
     </div>
 
-    <div class="main-panel">
-        <nav class="navbar navbar-default navbar-fixed">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <%@include file="menuCelular.jsp" %>
+    <%@include file="menuSuperiorCompleto.jsp" %>
 
-
-                    <h3 class="title">Aluno:</h3>
-                    <h4 class="title">CPF:</h4>
-
-
-                </div>
-                <%@include file="menuGlobal.jsp" %>
-
-            </div>
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <h3 class="title">Descrição do Treino</h3>
-                </div>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
 
 
 
-            </div>
-        </nav>
 
 
 
-        <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
+                    <h3 class="title">Aluno:</h3> <br>
+
+                    <h3 class="title">Descrição do Treino:</h3>
 
 
-
-                        <div class="clearfix"></div>
-
-
-
+                    <div class="row">
                         <form action="CargoController" method="POST">
                             <input type="hidden" name="id" value="${c.id}" />
 
                             <div class="row">
-                                <div class="col-md-8">
+                                <div class="col-md-10">
                                     <div class="form-group">
                                         <div class=" text-center">
-                                            <h3>Descrição</h3>
+                                            <h3>Breve Descrição:</h3>
                                         </div>
                                     </div>
-                                    <textarea class="form-control text-capitalize" ></textarea>
+                                    <input rows="5" type="text" class="form-control" id="descricao" name="descricao" maxlength="255" placeholder="Descrição" required value="${t.descricao}">
 
                                 </div>
                             </div>
-
+                            <br>
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="form-group">
-                                        <label> Data de Início </label>
+                                        <label> Data de Início: </label>
                                         <input type="text" class="form-control" id="data_xxxxxxx" name="data_nasc" placeholder="00/00/0000" required value="<fmt:formatDate value="${f.data_xxxxxxxx}" pattern="dd/MM/yyyy"></fmt:formatDate>">
                                         </div>
                                     </div>
 
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
-                                            <label> Data de Fim </label>
+                                            <label> Data de Fim: </label>
                                             <input type="text" class="form-control" id="data_xxxxxxx" name="sexo"  placeholder="00/00/0000" required value="<fmt:formatDate value="${f.data_xxxxxxxxx}" pattern="dd/MM/yyyy"></fmt:formatDate>">
                                         </div>
                                     </div>
@@ -98,13 +78,13 @@
 
 
 
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 
 
