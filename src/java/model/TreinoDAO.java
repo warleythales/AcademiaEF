@@ -172,4 +172,18 @@ public class TreinoDAO {
         }
         return lista;
     }
+
+    public Treino recuperarPorIdExercicio(int id) {
+        try {
+            Treino t = recuperarPorId(id);
+            ExercicioDAO exDAO = new ExercicioDAO();
+            t.setMeusExercicios(exDAO.getListaTreino(id));
+            return t;
+        } catch (Exception e) {
+            System.out.println("TreinoDAO::recuperarPorIdExercicio");
+            System.out.println(e.getMessage());
+            return null;
+        }
+
+    }
 }

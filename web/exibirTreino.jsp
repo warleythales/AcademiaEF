@@ -13,97 +13,139 @@
         </div>
     </div>
 
-    <div class="main-panel">
-        <nav class="navbar navbar-default navbar-fixed">
-            <div class="container-fluid">
-                <div class="navbar-header">
-
-                    <%@include file="menuCelular.jsp" %>
-
-                    <h3 class="title">Cadastrar Treino</h3>
-                </div>
-                <%@include file="menuGlobal.jsp" %>
+    <%@include file="menuSuperiorCompleto.jsp" %>
 
 
 
-            </div>
-        </nav>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="card">
+
+                        <div class="header">
+                            <td> <h2 class="title">  Aluno: ${m.aluno.nome}</td> </h2>
+                            <hr>
+                            <h4 class="title"> Dados do Treino: </h4>
+                        </div>
 
 
 
-        <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
+                        <div class="content">
 
 
 
-                        <div class="clearfix"></div>
+                            <form action="TreinoController" method="POST">
+                                <input type="hidden" name="id" value="${trei.id}" />
 
-
-
-                        <form action="TreinoController" method="POST">
-                            <input type="hidden" name="id" value="${trei.id}" />
-
-                            <div class="row">
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <div class=" text-center">
-                                            <h3>Descrição</h3>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <div class=" text-center">
+                                                <h3>Descrição: </h3>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <textarea class="form-control text-capitalize" id="descricao" name="descricao" placeholder="Descrição do Treino"  required value="${trei.descricao}" ></textarea>
+                                        <input rows="5" type="text" class="form-control" id="descricao" disabled="disabled" name="descricao" maxlength="255" placeholder="Descrição" value="${t.descricao}">
 
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label> Data de Início </label>
-                                        <input type="text" class="form-control" id="data_inicio" name="data_inicio" placeholder="00/00/0000" required value="<fmt:formatDate value="${trei.data_inicio}" pattern="dd/MM/yyyy"></fmt:formatDate>">
-                                        </div>
-                                    </div>
-
+                                <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label> Data de Fim </label>
-                                            <input type="text" class="form-control" id="data_fim" name="data_fim"  placeholder="00/00/0000" required value="<fmt:formatDate value="${trei.data_fim}" pattern="dd/MM/yyyy"></fmt:formatDate>">
+                                            <label> Data de Início </label>
+                                            <input type="text" class="form-control" id="data_inicio" disabled="disabled" name="data_inicio" placeholder="00/00/0000" value="<fmt:formatDate value="${t.data_inicio}" pattern="dd/MM/yyyy"></fmt:formatDate>">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label> Data de Fim </label>
+                                                <input type="text" class="form-control" id="data_fim" disabled="disabled" name="data_fim"  placeholder="00/00/0000" value="<fmt:formatDate value="${t.data_fim}" pattern="dd/MM/yyyy"></fmt:formatDate>">
+                                            </div>
                                         </div>
                                     </div>
+
+
+                                    <div class="row">
+                                        <div class="form-group col-sm-6">
+                                            <label for="aluno" class="control-label"> Aluno </label>
+                                        <jsp:useBean id="daoAluno" class="model.AlunoDAO"></jsp:useBean>
+                                            <select id="aluno" disabled="disabled" name="aluno" class="form-control" required>
+
+                                            <c:forEach var="aluno" items="${daoAluno.lista}">
+                                                <c:if test="${t.aluno.id == aluno.id}">
+                                                    <option value="${aluno.id}" selected>${aluno.nome}</option>
+                                                </c:if>
+                                                <c:if test="${t.aluno.id != aluno.id}">
+                                                    <option value="${aluno.id}">${aluno.nome}</option>
+                                                </c:if>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+
                                 </div>
+
+                                <div class="title-container text-center">
+                                    <h3>Exercício</h3>
+                                </div>
+
 
 
                                 <div class="row">
-                                    <div class="form-group col-sm-6">
-                                        <label for="aluno" class="control-label"> Aluno </label>
-                                    <jsp:useBean id="daoAluno" class="model.AlunoDAO"></jsp:useBean>
-                                        <select id="aluno" name="aluno" class="form-control" required>
 
-                                        <c:forEach var="aluno" items="${daoAluno.lista}">
-                                            <c:if test="${a.aluno.id == aluno.id}">
-                                                <option value="${aluno.id}" selected>${aluno.nome}</option>
-                                            </c:if>
-                                            <c:if test="${a.aluno.id != aluno.id}">
-                                                <option value="${aluno.id}">${aluno.nome}</option>
-                                            </c:if>
-                                        </c:forEach>
-                                    </select>
+                                    <div class="col-md-12">
+                                        <div class="content table-responsive table-full-width">
+                                            <table class="table table-hover table-striped">
+
+                                                <tr>
+
+
+                                                    <th>Aparelho</th>
+                                                    <th>Peso</th>
+                                                    <th>Série</th>
+                                                    <th>Repetição</th>
+                                                    <th></th>
+                                                </tr>
+
+                                                <tbody>
+                                                    <c:forEach var="ex" items="${trei.meusExercicios}">
+                                                        <tr>
+
+
+
+                                                            <td>${ex.aparelho}</td>
+                                                            <td>${ex.peso}</td>
+                                                            <td>${ex.serie}</td>
+                                                            <td>${ex.repeticoes}</td>
+                                                            <td>
+
+                                                                <button class="btn btn-danger btn-fill pull-right" onclick="confirmarExclusao(${academia.id}, '${academia.cnpj}')">
+                                                                    <i class="pe-7s-trash"></i>
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    </c:forEach>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
 
-                            </div>
-                            <button class="btn btn-success btn-fill">Gravar</button>
-                            <a href="listGerenciamentoTreinoAluno.jsp" class="btn btn-warning btn-fill ">Voltar</a>
-                        </form>
+                                <a href="javascript:history.back()" class="btn btn-warning btn-fill ">Voltar</a>
+                            </form>
 
 
-
+                        </div>
 
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+</div>
 
 
 
