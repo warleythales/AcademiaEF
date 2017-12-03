@@ -174,16 +174,18 @@ public class MensalidadeController extends HttpServlet {
             }
 
             if (sucesso == true) {
-                resposta.print("<h1>" + mensagem + "</h1>");
-                resposta.print("<a href='listMensalidade.jsp'>voltar</a>");
+                PrintWriter out = response.getWriter();
+                out.println("<script>alert('" + mensagem + "');location.href='./listAluno.jsp'</script>");
                 // Conseguiu salvar
             } else {
                 // Não salvou
-                resposta.print("<h1 style='color:black'> Erro ao salvar mensalidade! </h1>");
-                resposta.print("<a href='javascript:history.back()'>voltar</a>");
+                PrintWriter out = response.getWriter();
+                out.println("<script>alert('Erro ao cadastrar Mensalidade');location.href='javascript:history.back()'</script>");
             }
             resposta.close();
         } catch (ParseException ex) {
+            PrintWriter out = response.getWriter();
+            out.println("<script>alert('Erro ao cadastrar Mensalidade');location.href='./listAluno.jsp'</script>");
             Logger.getLogger(FuncionarioController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

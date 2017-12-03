@@ -51,7 +51,7 @@
                                     <div class="col-md-10">
                                         <div class="form-group">
                                             <label> Nome </label>
-                                            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required value="${f.nome}">
+                                            <input type="text" class="form-control" id="nome" maxlength="100" name="nome" placeholder="Nome" required value="${f.nome}">
                                         </div>
                                     </div>
                                 </div>
@@ -62,7 +62,7 @@
                                     <div class="col-md-5">
                                         <div class="form-group">
                                             <label> Data de Nascimento </label>
-                                            <input type="text" class="form-control" id="data_nasc" name="data_nasc" placeholder="00/00/0000" required value="<fmt:formatDate value="${f.data_nasc}" pattern="dd/MM/yyyy"></fmt:formatDate>">
+                                            <input type="text" class="form-control" id="data_nasc" maxlength="10" name="data_nasc" placeholder="00/00/0000" required value="<fmt:formatDate value="${f.data_nasc}" pattern="dd/MM/yyyy"></fmt:formatDate>">
                                             </div>
                                         </div>
 
@@ -103,7 +103,7 @@
                                     <div class="col-md-5">
                                         <div class="form-group">
                                             <label> Endereço </label>
-                                            <input type="text" class="form-control" id="endereco" name="endereco"  placeholder="Endereço" required value="${f.endereco}">
+                                            <input type="text" class="form-control" id="endereco" name="endereco" maxlength="255" placeholder="Endereço" required value="${f.endereco}">
                                         </div>
                                     </div>
                                 </div>
@@ -112,14 +112,14 @@
                                     <div class="col-md-5">
                                         <div class="form-group">
                                             <label> Email </label>
-                                            <input type="text" class="form-control" id="email" name="email" placeholder="Email" required value="${f.email}">
+                                            <input type="text" class="form-control" id="email" name="email" maxlength="100" placeholder="Email" required value="${f.email}">
                                         </div>
                                     </div>
 
                                     <div class="col-md-5">
                                         <div class="form-group">
                                             <label> Telefone </label>
-                                            <input type="text" class="form-control" id="telefone" name="telefone"  placeholder="00000000000" required value="${f.telefone}">
+                                            <input type="text" class="form-control" id="telefone" name="telefone" maxlength="11" placeholder="00000000000" required value="${f.telefone}">
                                         </div>
                                     </div>
                                 </div>
