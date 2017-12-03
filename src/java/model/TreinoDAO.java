@@ -134,4 +134,42 @@ public class TreinoDAO {
         }
         return lista;
     }
+
+    public ArrayList<Treino> getListaAluno(int id) {
+        ArrayList<Treino> lista = new ArrayList<Treino>();
+        try {
+            String sql = "SELECT id, descricao, data_inicio, data_fim, id_aluno FROM treino WHERE id_aluno=?";
+            Connection con = Conexao.conectar();
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setInt(1, id);
+            ResultSet rs = st.executeQuery();
+
+            AlunoDAO daoAluno = new AlunoDAO();
+            Aluno aluno = null;
+
+            while (rs.next()) {
+                if (aluno == null) {
+                    aluno = daoAluno.recuperarPorId(rs.getInt("id_aluno"));
+                }
+                Treino t = new Treino();
+                t.setId(rs.getInt("id"));
+                t.setDescricao(rs.getString("descricao"));
+                t.setData_inicio(rs.getDate("data_inicio"));
+                t.setData_fim(rs.getDate("data_fim"));
+
+                t.setAluno(aluno);
+
+                lista.add(t);
+
+            }
+
+            System.out.println("TreinoDAO::getListaAluno");
+            rs.close();
+            con.close();
+        } catch (Exception e) {
+            System.out.println("TreinoDAO::getListaAluno");
+            System.out.println(e.getMessage());
+        }
+        return lista;
+    }
 }

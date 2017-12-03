@@ -58,8 +58,7 @@
 
                                             </thead>
                                             <tbody>
-                                                <jsp:useBean id="dao" class="model.TreinoDAO"></jsp:useBean>
-                                                <c:forEach var="treino" items="${dao.lista}">
+                                                <c:forEach var="treino" items="${alu.meusTreinos}">
                                                     <tr>
 
                                                         <td>${treino.id}</td>
@@ -85,7 +84,7 @@
                                 </div>
                             </div>
                             <div class="clearfix"></div>
-
+                            <a href="listAluno.jsp" class="btn btn-warning btn-fill ">Voltar</a>
                         </div>
                     </div>
                 </div>

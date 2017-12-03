@@ -163,6 +163,20 @@ public class AlunoDAO {
 
     }
 
+    public Aluno recuperarPorIdTreino(int id) {
+        try {
+            Aluno alu = recuperarPorId(id);
+            TreinoDAO tDAO = new TreinoDAO();
+            alu.setMeusTreinos(tDAO.getListaAluno(id));
+            return alu;
+        } catch (Exception e) {
+            System.out.println("AlunoDAO::recuperarPorIdTreino");
+            System.out.println(e.getMessage());
+            return null;
+        }
+
+    }
+
     public ArrayList<Aluno> getLista() {
         ArrayList<Aluno> lista = new ArrayList<Aluno>();
         try {

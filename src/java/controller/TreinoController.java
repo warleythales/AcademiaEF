@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.AlunoDAO;
 import model.TreinoDAO;
 
 public class TreinoController extends HttpServlet {
@@ -20,58 +21,70 @@ public class TreinoController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        String id = null;
         String acao = request.getParameter("acao");
         PrintWriter resposta = response.getWriter();
         resposta.write("<script>");
 
         if (acao != null) {
 
-            String id = request.getParameter("id");
-            if (id != null && !id.isEmpty() && !id.equals("0")) {
-                TreinoDAO treiDAO = new TreinoDAO();
-                SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+            switch (acao) {
+                case "listar-aluno":
 
-                int idTreino = Integer.parseInt(id);
+                    String id_aluno = request.getParameter("id_aluno");
+                    if (id_aluno != null && !id_aluno.isEmpty() && !id_aluno.equals("0")) {
+                        AlunoDAO aDAO = new AlunoDAO();
+                        Aluno alu = aDAO.recuperarPorIdTreino(Integer.parseInt(id_aluno));
+                        request.setAttribute("alu", alu);
+                        request.getRequestDispatcher("/listGerenciamentoTreinoAluno.jsp").forward(request, response);
 
-                switch (acao) {
-                    case "excluir":
-                        if (treiDAO.excluir(idTreino)) {
-                            resposta.print("alert('Treino excluído com sucesso!');");
-                            resposta.print("location.href='listTreino.jsp';");
+                    }
+                    break;
+                case "alterar":
+                    id = request.getParameter("id");
+                    if (id != null && !id.isEmpty() && !id.equals("0")) {
+                        TreinoDAO tdao = new TreinoDAO();
+                        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 
-                        }
-                        break;
-                    case "alterar":
-                        Treino trei = treiDAO.recuperarPorId(idTreino);
-                        if (trei == null) {
+                        int idTreino = Integer.parseInt(id);
+                        Treino t = tdao.recuperarPorId(idTreino);
+                        if (t == null) {
                             resposta.print("alert('Treino não encontrado!');");
                             resposta.print("history.back();");
                         } else {
-                            request.setAttribute("trei", trei);
-                            request.getRequestDispatcher("/cadTreino1.jsp").forward(request, response);
+                            request.setAttribute("t", t);
+                            request.getRequestDispatcher("/cadTreino.jsp").forward(request, response);
                         }
-                        break;
-                     case "exibir":
-                        Treino treino = treiDAO.recuperarPorId(idTreino);
-                        if (treino == null) {
+                    } else {
+
+                        resposta.write("alert('Ação Inválida!');");
+                        resposta.write("history.back();");
+
+                    }
+                    break;
+
+                case "exibir":
+                    id = request.getParameter("id");
+                    if (id != null && !id.isEmpty() && !id.equals("0")) {
+                        int idTreino = Integer.parseInt(id);
+                        TreinoDAO tdao = new TreinoDAO();
+                        Treino t = tdao.recuperarPorId(idTreino);
+                        if (t == null) {
+
                             resposta.print("alert('Treino não encontrado!');");
                             resposta.print("history.back();");
                         } else {
-                            request.setAttribute("treino", treino);
+                            request.setAttribute("t", t);
                             request.getRequestDispatcher("/exibirTreino.jsp").forward(request, response);
                         }
-                        break;    
-                }
-            } else {
-                resposta.write("alert('Id inválido!');");
-                resposta.write("history.back();");
+                    } else {
+
+                        resposta.write("alert('Ação Inválida!');");
+                        resposta.write("history.back();");
+
+                    }
+                    break;
             }
-
-        } else {
-
-            resposta.write("alert('Ação Inválida!');");
-            resposta.write("history.back();");
-
         }
 
         resposta.write("</script>");

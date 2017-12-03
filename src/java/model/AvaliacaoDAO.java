@@ -224,11 +224,11 @@ public class AvaliacaoDAO {
 
             }
 
-            System.out.println("AvalicaoDAO::getLista");
+            System.out.println("AvalicaoDAO::getListaAluno");
             rs.close();
             con.close();
         } catch (Exception e) {
-            System.out.println("AvalicaoDAO::getLista");
+            System.out.println("AvalicaoDAO::getListaAluno");
             System.out.println(e.getMessage());
         }
         return lista;
