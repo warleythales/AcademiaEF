@@ -11,10 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import bin.Academia;
 import model.AcademiaDAO;
 
-/**
- *
- * @author Apolo
- */
 @WebServlet(name = "AcademiaController", urlPatterns = {"/AcademiaController"})
 
 public class AcademiaController extends HttpServlet {
@@ -37,15 +33,28 @@ public class AcademiaController extends HttpServlet {
                 switch (acao) {
                     case "excluir":
                         if (dao.excluir(idAcademia)) {
-                            resposta.print("alert('Academia excluído com sucesso!');");
+                            resposta.print("alert('Academia excluída com sucesso!');");
                             resposta.print("location.href='listAcademia.jsp';");
 
                         }
                         break;
+                           case "exibir":
+                        Academia a = dao.buscarPorId(idAcademia);
+                        if (a == null) {
+                            resposta.print("alert('Academia não encontrada!');");
+                            resposta.print("history.back();");
+                        } else {
+                            request.setAttribute("academia", a);
+                            request.getRequestDispatcher("/exibirAcademia.jsp").forward(request, response);
+                        }
+                        break;
+                        
+                        
+                        
                     case "alterar":
                         Academia academia = dao.buscarPorId(idAcademia);
                         if (academia == null) {
-                            resposta.print("alert('academia não encontrado!');");
+                            resposta.print("alert('Academia não encontrada!');");
                             resposta.print("history.back();");
                         } else {
                             request.setAttribute("a", academia);
@@ -94,10 +103,10 @@ public class AcademiaController extends HttpServlet {
             int idAcademia = Integer.parseInt(id);
             academia.setId(idAcademia);
             sucesso = dao.alterar(academia);
-            mensagem = "Academia alterado com sucesso!";
+            mensagem = "Academia alterada com sucesso!";
         } else {
             sucesso = dao.inserir(academia);
-            mensagem = " A academia foi cadastrado com sucesso!";
+            mensagem = " A academia foi cadastrada com sucesso!";
 
         }
 
