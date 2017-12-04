@@ -24,6 +24,7 @@ public class TreinoController extends HttpServlet {
         String id = null;
         String acao = request.getParameter("acao");
         PrintWriter resposta = response.getWriter();
+        String id_aluno = request.getParameter("id_aluno");
         resposta.write("<script>");
 
         if (acao != null) {
@@ -31,7 +32,6 @@ public class TreinoController extends HttpServlet {
             switch (acao) {
                 case "listar-aluno":
 
-                    String id_aluno = request.getParameter("id_aluno");
                     if (id_aluno != null && !id_aluno.isEmpty() && !id_aluno.equals("0")) {
                         AlunoDAO aDAO = new AlunoDAO();
                         Aluno alu = aDAO.recuperarPorIdTreino(Integer.parseInt(id_aluno));
@@ -71,6 +71,17 @@ public class TreinoController extends HttpServlet {
                         Treino t = tdao.recuperarPorIdExercicio(idTreino);
                         request.setAttribute("t", t);
                         request.getRequestDispatcher("/exibirTreino.jsp").forward(request, response);
+
+                    }
+                    break;
+
+                case "cadastrar":
+
+                    if (id_aluno != null && !id_aluno.isEmpty() && !id_aluno.equals("0")) {
+                        AlunoDAO aDAO = new AlunoDAO();
+                        Aluno alu = aDAO.recuperarPorIdTreino(Integer.parseInt(id_aluno));
+                        request.setAttribute("alu", alu);
+                        request.getRequestDispatcher("/cadTreino.jsp").forward(request, response);
 
                     }
                     break;

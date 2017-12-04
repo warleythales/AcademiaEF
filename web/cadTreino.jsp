@@ -1,14 +1,6 @@
-
-
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@include file="cabecalho.jsp" %>
-<script>
-    function confirmarExclusao(id, cpf) {
-        if (confirm('Deseja realmente excluir o aluno ' + cpf + '?')) {
-            location.href = 'AcademiaController?acao=excluir&id=' + id;
-        }
-    }
-</script>
+
 </head>
 <body>
 
@@ -32,12 +24,12 @@
                     <div class="card">
 
                         <div class="title-container text-center">
-                            <h3 class="title">Aluno:</h3> <br>
+                            <h3 class="title">Aluno: ${alu.nome}</h3> <br>
 
                             <h3 class="title">Novo Exercício:</h3>
                         </div>
 
-                        <form action="ExercicioControle" method="POST">
+                        <form action="ExercicioController" method="POST">
 
 
 
@@ -163,7 +155,7 @@
 
 
 
-                    <a class="btn btn-warning btn-fill pull-left" href=listGerenciamentoTreinoAluno.jsp>Voltar</a>
+                    <a class="btn btn-warning btn-fill pull-left" href="javascript:history.back()">Voltar</a>
 
                     <div class="navbar-header pull-right">
                         <div class="container-fluid">
