@@ -14,11 +14,30 @@
     </div>
 
     <%@include file="menuSuperiorCompleto.jsp" %>
-    <h2 class="title" align="center">Sistema de Controle de Dados AcademiaEF</h2>
-    <hr>
-    <img src="assets/img/bem12.png" vspace="115px" hspace="500px" align="center"/>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
 
-    <img src="assets/img/selo123.png" hspace="500px"/>
+                <div class="col-md-12">
+
+                    <div class="card">
+                        <div class="header">
+                            <h2 class="title" align="center">Sistema de Controle de Dados AcademiaEF</h2>
+                            <hr>
+                        </div>
+                        <h2 class="title" align="center"><img src="assets/img/bem12.png" ></h2>
+
+
+                        <h2 class="title" align="center"><img src="assets/img/selo123.png"/></h2>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 </body>
 
 
