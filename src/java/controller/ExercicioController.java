@@ -15,6 +15,7 @@ import model.ExercicioDAO;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.text.ParseException;
+import model.TreinoDAO;
 
 public class ExercicioController extends HttpServlet {
 
@@ -62,6 +63,17 @@ public class ExercicioController extends HttpServlet {
 
                     }
                     break;
+
+                case "cadastrar":
+                    String id_treino = request.getParameter("id_treino");
+                    if (id_treino != null && !id_treino.isEmpty() && !id_treino.equals("0")) {
+                        TreinoDAO tDAO = new TreinoDAO();
+                        Treino t = tDAO.recuperarPorIdExercicio(Integer.parseInt(id_treino));
+                        request.setAttribute("t", t);
+                        request.getRequestDispatcher("/cadExercicio.jsp").forward(request, response);
+
+                    }
+                    break;
             }
         }
 
@@ -75,11 +87,11 @@ public class ExercicioController extends HttpServlet {
         PrintWriter resposta = response.getWriter();
         String id = request.getParameter("id");
         String peso = request.getParameter("peso");
-        String repeticoes = request.getParameter("repeticoes");
+        String repetcoes = request.getParameter("repetcoes");
         String serie = request.getParameter("serie");
         Exercicio ex = new Exercicio();
         ex.setPeso(Double.parseDouble(peso));
-        ex.setRepetcoes(Integer.parseInt(repeticoes));
+        ex.setRepetcoes(Integer.parseInt(repetcoes));
         ex.setSerie(Integer.parseInt(serie));
         ex.setId(0);
         String treinoId = request.getParameter("treino");
@@ -117,7 +129,7 @@ public class ExercicioController extends HttpServlet {
         }
         if (sucesso == true) {
             PrintWriter out = response.getWriter();
-            out.println("<script>alert('" + mensagem + "');location.href='javascript:history.back()'</script>");
+            out.println("<script>alert('" + mensagem + "');location.href='listAluno'</script>");
             // Conseguiu salvar
         } else {
             // Não salvou

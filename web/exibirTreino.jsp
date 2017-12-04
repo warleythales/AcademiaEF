@@ -86,6 +86,7 @@
                                     </div>
 
                                 </div>
+                                <a class="btn btn-info btn-fill pull-right" href="ExercicioController?acao=cadastrar&id_treino=${t.id}">Novo Exercicio</a>
 
                                 <div class="title-container text-center">
                                     <h3>Exercício</h3>
@@ -119,12 +120,7 @@
                                                             <td>${ex.peso}</td>
                                                             <td>${ex.serie}</td>
                                                             <td>${ex.repetcoes}</td>
-                                                            <td>
 
-                                                                <button class="btn btn-danger btn-fill pull-right" onclick="confirmarExclusao(${academia.id}, '${academia.cnpj}')">
-                                                                    <i class="pe-7s-trash"></i>
-                                                                </button>
-                                                            </td>
                                                         </tr>
                                                     </c:forEach>
                                                 </tbody>

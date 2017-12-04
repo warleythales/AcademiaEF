@@ -31,165 +31,91 @@
                 <div class="col-md-12">
                     <div class="card">
 
-                        <div class="title-container text-center">
-                            <h3 class="title">Aluno:</h3> <br>
-
-                            <h3 class="title">Novo Exercício:</h3>
-                        </div>
-
-                        <form action="ExercicioControle" method="POST">
-
-                            <input type="hidden" name="id" value="${a.id}" />
-
-                            <div class="form-group col-sm-3">
-                                <label for="aparelho" class="control-label"> Treino </label>
-                                <jsp:useBean id="AcademiaDAO" class="model.AcademiaDAO"></jsp:useBean>
-                                    <select id="aparelho" name="academia" class="form-control" required>
-                                        <option></option>
-                                    <c:forEach var="academia" items="${AcademiaDAO.lista}">
-                                        <c:if test="${f.academia.id == academia.id}">
-                                            <option value="${academia.id}" selected>${academia.nome}</option>
-                                        </c:if>
-                                        <c:if test="${f.academia.id != academia.id}">
-                                            <option value="${academia.id}">${academia.nome}</option>                                
-                                        </c:if>
-                                    </c:forEach>
-                                </select>
-                            </div>
-
-                                    
-                            <input type="hidden" name="id" value="${a.id}" />
-                            <div class="form-group col-sm-3">
-                                <label for="aparelho" class="control-label"> Aparelho </label>
-                                <jsp:useBean id="AparelhoDAO" class="model.AparelhoDAO"></jsp:useBean>
-                                    <select id="aparelho" name="aparelho" class="form-control" required>
-                                        <option></option>
-                                    <c:forEach var="aparelho" items="${AparelhoDAO.lista}">
-                                        <c:if test="${f.aparelho.id == aparelho.id}">
-                                            <option value="${aparelho.id}" selected>${aparelho.nome}</option>
-                                        </c:if>
-                                        <c:if test="${f.aparelho.id != aparelho.id}">
-                                            <option value="${aparelho.id}">${aparelho.nome}</option>
-                                        </c:if>
-                                    </c:forEach>
-                                </select>
-                            </div>
-
-
-                            <div class="for col-sm-3">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Peso</label>
-                                        <input type="text" class="form-control" id="peso" name="peso" placeholder="Peso" required value="${a.peso}">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Série</label>
-                                        <input type="text" class="form-control" id="serie" name="serie" placeholder="Série" required value="${a.serie}">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Repetição</label>
-                                        <input type="text" class="form-control" id="repeticao" name="repeticao" placeholder="Repetição" required value="${a.repeticao}">
-                                    </div>
-                                </div>
-                            </div>
-
-                        </form>
-                    </div>
-
-                </div>
-
-            </div>
-            <div class="navbar-header pull-right">
-                <div class="container-fluid">
-                    <button class="btn btn-success btn-fill">Gravar</button>
-
-                </div>
-            </div>
-            <br>
-            <br>
-            <br>
-            <div class="row">
-
-                <div class="col-md-12">
-
-                    <div class="card">
-
-                        <div class="content">
-
-                            <div class="title-container text-center">
-                                <h3>Exercício</h3>
-                            </div>
-
-
-
-                            <div class="row">
-
-                                <div class="col-md-12">
-                                    <div class="content table-responsive table-full-width">
-                                        <table class="table table-hover table-striped">
-
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Treino</th>
-                                                <th>Aparelho</th>
-                                                <th>Peso</th>
-                                                <th>Série</th>
-                                                <th>Repetição</th>
-                                                <th></th>
-                                            </tr>
-
-                                            <tbody>
-                                                <jsp:useBean id="dao" class="model.AcademiaDAO"></jsp:useBean>
-                                                <c:forEach var="academia" items="${dao.lista}">
-                                                    <tr>
-
-                                                        <td>${exercicio.id}</td>
-                                                        <td>${exercicio.treino}</td>
-                                                        <td>${exercicio.aparelho}</td>
-                                                        <td>${exercicio.peso}</td>
-                                                        <td>${exercicio.serie}</td>
-                                                        <td>${exercicio.repeticao}</td>
-                                                        <td>
-
-                                                            <button class="btn btn-danger btn-fill pull-right" onclick="confirmarExclusao(${academia.id}, '${academia.cnpj}')">
-                                                                <i class="pe-7s-trash"></i>
-                                                            </button>
-                                                        </td>
-                                                    </tr>
-                                                </c:forEach>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-                        </div>
-                        <div class="clearfix"></div>
-
-                    </div>
-
-
-
-
-                    <a class="btn btn-warning btn-fill pull-left" href=listGerenciamentoTreinoAluno.jsp>Voltar</a>
-
-                    <div class="navbar-header pull-right">
                         <div class="container-fluid">
-                            <a class="btn btn-primary pull-right " href=cadTreinoDescricao.jsp>Finalizar</a>
+                            <div class="header">
+                                <td> <h2 class="title">  Treino: ${a.trei.descricao}</td> </h2>
+                                <hr>
+                                <h4 class="title"> Novo Exercicio: </h4>
+                            </div>
+
+
+                            <form action="ExercicioController" method="POST">
+
+                                <input type="hidden" name="id" value="${a.id}" />
+
+                                <div class="form-group col-sm-3">
+                                    <label for="treino" class="control-label"> Treino </label>
+                                    <jsp:useBean id="TreinoDAO" class="model.TreinoDAO"></jsp:useBean>
+                                        <select id="treino" name="treino" class="form-control" required>
+                                            <option></option>
+                                        <c:forEach var="treino" items="${TreinoDAO.lista}">
+                                            <c:if test="${f.treino.id == treino.id}">
+                                                <option value="${treino.id}" selected>${treino.descricao}</option>
+                                            </c:if>
+                                            <c:if test="${f.treino.id != treino.id}">
+                                                <option value="${treino.id}">${treino.descricao}</option>
+                                            </c:if>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+
+
+                                <input type="hidden" name="id" value="${a.id}" />
+                                <div class="form-group col-sm-3">
+                                    <label for="aparelho" class="control-label"> Aparelho </label>
+                                    <jsp:useBean id="AparelhoDAO" class="model.AparelhoDAO"></jsp:useBean>
+                                        <select id="aparelho" name="aparelho" class="form-control" required>
+                                            <option></option>
+                                        <c:forEach var="aparelho" items="${AparelhoDAO.lista}">
+                                            <c:if test="${f.aparelho.id == aparelho.id}">
+                                                <option value="${aparelho.id}" selected>${aparelho.nome}</option>
+                                            </c:if>
+                                            <c:if test="${f.aparelho.id != aparelho.id}">
+                                                <option value="${aparelho.id}">${aparelho.nome}</option>
+                                            </c:if>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+
+
+                                <div class="for col-sm-3">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Peso</label>
+                                            <input type="text" class="form-control" id="peso" name="peso" placeholder="Peso" required value="${a.peso}">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Repetição</label>
+                                            <input type="text" class="form-control" id="repetcoes" name="repetcoes" placeholder="Repetição" required value="${a.repetcoes}">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Série</label>
+                                            <input type="text" class="form-control" id="serie" name="serie" placeholder="Série" required value="${a.serie}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="for col-sm-7">
+                                    <button class="btn btn-success btn-fill">Finalizar</button>
+
+                                </div>
+                            </form>
+
+
                         </div>
                     </div>
-
-
+                    <a class="btn btn-warning btn-fill pull-left" href="javascript:history.back()">Voltar</a>
                 </div>
             </div>
         </div>
     </div>
+</div>
+</div>
 
 
 
