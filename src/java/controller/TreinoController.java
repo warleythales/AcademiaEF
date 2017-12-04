@@ -53,7 +53,7 @@ public class TreinoController extends HttpServlet {
                             resposta.print("history.back();");
                         } else {
                             request.setAttribute("t", t);
-                            request.getRequestDispatcher("/cadTreino.jsp").forward(request, response);
+                            request.getRequestDispatcher("/cadTreinoDescricao.jsp").forward(request, response);
                         }
                     } else {
 

@@ -30,7 +30,7 @@
                     <div class="card">
 
                         <div class="header">
-                            <td> <h2 class="title">  Aluno: ${alu.nome}</td> </h2>
+                            <td> <h2 class="title">  Aluno: ${t.aluno.nome} ${alu.nome} </td> </h2>
                             <hr>
                             <h4 class="title"> Dados do Treino: </h4>
                         </div>
