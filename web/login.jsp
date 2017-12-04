@@ -33,7 +33,7 @@
                                 <form action="SegurancaController" method="POST" >
                                     <div class="form-group">
                                         <label for="cpf" class="control-label">CPF</label>
-                                        <input type="text" id="cpf" name="cpf" class="form-control" required autoclomplete="off">
+                                        <input type="text" id="cpf" name="cpf" class="form-control" maxlength="14" required autoclomplete="off">
                                     </div>
 
                                     <div class="form-group">
