@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="content">
-                            <a class="btn btn-info btn-fill pull-right" href=cadTreino.jsp>Novo Treino</a>
+                            <a class="btn btn-info btn-fill pull-right" href="TreinoController?acao=cadastrar&id_aluno=${alu.id}">Novo Treino</a>
                             <br>
                             <br>
                             <br>

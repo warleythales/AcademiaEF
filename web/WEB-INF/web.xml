@@ -12,6 +12,10 @@
         <servlet-name>TreinoController</servlet-name>
         <servlet-class>controller.TreinoController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ExercicioController</servlet-name>
+        <servlet-class>controller.ExercicioController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AcademiaController</servlet-name>
         <url-pattern>/AcademiaController</url-pattern>
@@ -71,6 +75,10 @@
     <servlet-mapping>
         <servlet-name>TreinoController</servlet-name>
         <url-pattern>/TreinoController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExercicioController</servlet-name>
+        <url-pattern>/ExercicioController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

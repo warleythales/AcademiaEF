@@ -2,11 +2,20 @@ package bin;
 
 public class Exercicio {
 
+    private int id;
     private Double peso;
     private int repetcoes;
     private int serie;
     private Treino treino;
     private Aparelho aparelho;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public Double getPeso() {
         return peso;
@@ -47,4 +56,5 @@ public class Exercicio {
     public void setAparelho(Aparelho aparelho) {
         this.aparelho = aparelho;
     }
+
 }
