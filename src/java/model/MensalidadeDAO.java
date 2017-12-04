@@ -189,11 +189,11 @@ public class MensalidadeDAO {
 
             }
 
-            System.out.println("MensalidadeDAO::getLista");
+            System.out.println("MensalidadeDAO::getListaAluno");
             rs.close();
             con.close();
         } catch (Exception e) {
-            System.out.println("MensalidadeDAO::getLista");
+            System.out.println("MensalidadeDAO::getListaAluno");
             System.out.println(e.getMessage());
         }
         return lista;
