@@ -1,5 +1,3 @@
-
-
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@include file="cabecalho.jsp" %>
 <script>
@@ -29,51 +27,73 @@
             <div class="row">
                 <div class="col-md-12">
 
+                    <div class="card">
+
+                        <div class="header">
+                            <td> <h2 class="title">  Aluno: ${alu.nome}</td> </h2>
+                            <hr>
+                            <h4 class="title"> Dados do Treino: </h4>
+                        </div>
 
 
 
+                        <div class="content">
 
 
-                    <h3 class="title">Aluno:</h3> <br>
+                            <form action="TreinoController" method="POST">
+                                <input type="hidden" name="id" value="${t.id}" />
 
-                    <h3 class="title">Descrição do Treino:</h3>
-
-
-                    <div class="row">
-                        <form action="CargoController" method="POST">
-                            <input type="hidden" name="id" value="${c.id}" />
-
-                            <div class="row">
-                                <div class="col-md-10">
-                                    <div class="form-group">
-                                        <div class=" text-center">
-                                            <h3>Breve Descrição:</h3>
-                                        </div>
-                                    </div>
-                                    <input rows="5" type="text" class="form-control" id="descricao" name="descricao" maxlength="255" placeholder="Descrição" required value="${t.descricao}">
-
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label> Data de Início: </label>
-                                        <input type="text" class="form-control" id="data_xxxxxxx" name="data_nasc" placeholder="00/00/0000" required value="<fmt:formatDate value="${f.data_xxxxxxxx}" pattern="dd/MM/yyyy"></fmt:formatDate>">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-3">
+                                <div class="row">
+                                    <div class="col-md-8">
                                         <div class="form-group">
-                                            <label> Data de Fim: </label>
-                                            <input type="text" class="form-control" id="data_xxxxxxx" name="sexo"  placeholder="00/00/0000" required value="<fmt:formatDate value="${f.data_xxxxxxxxx}" pattern="dd/MM/yyyy"></fmt:formatDate>">
+                                            <div class=" text-center">
+                                                <h3>Descrição: </h3>
+                                            </div>
+                                        </div>
+                                        <input rows="5" type="text" class="form-control" id="descricao" name="descricao" maxlength="255" placeholder="Descrição" value="${t.descricao}">
+
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label> Data de Início </label>
+                                            <input type="text" class="form-control" id="data_inicio" name="data_inicio" placeholder="00/00/0000" value="<fmt:formatDate value="${t.data_inicio}" pattern="dd/MM/yyyy"></fmt:formatDate>">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label> Data de Fim </label>
+                                                <input type="text" class="form-control" id="data_fim" name="data_fim"  placeholder="00/00/0000" value="<fmt:formatDate value="${t.data_fim}" pattern="dd/MM/yyyy"></fmt:formatDate>">
+                                            </div>
                                         </div>
                                     </div>
+
+
+                                    <div class="row">
+                                        <div class="form-group col-sm-6">
+                                            <label for="aluno" class="control-label"> Aluno </label>
+                                        <jsp:useBean id="daoAluno" class="model.AlunoDAO"></jsp:useBean>
+                                            <select id="aluno" name="aluno" class="form-control" required>
+
+                                            <c:forEach var="aluno" items="${daoAluno.lista}">
+                                                <c:if test="${t.aluno.id == aluno.id}">
+                                                    <option value="${aluno.id}" selected>${aluno.nome}</option>
+                                                </c:if>
+                                                <c:if test="${t.aluno.id != aluno.id}">
+                                                    <option value="${aluno.id}">${aluno.nome}</option>
+                                                </c:if>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+
                                 </div>
 
 
                                 <button class="btn btn-success btn-fill">Gravar</button>
-                                <a href="cadTreino.jsp" class="btn btn-warning btn-fill ">Voltar</a>
+                                <a href="javascript:history.back()" class="btn btn-warning btn-fill ">Voltar</a>
                             </form>
 
 
@@ -84,6 +104,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 
 

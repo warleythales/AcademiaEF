@@ -81,7 +81,7 @@ public class TreinoController extends HttpServlet {
                         AlunoDAO aDAO = new AlunoDAO();
                         Aluno alu = aDAO.recuperarPorIdTreino(Integer.parseInt(id_aluno));
                         request.setAttribute("alu", alu);
-                        request.getRequestDispatcher("/cadTreino.jsp").forward(request, response);
+                        request.getRequestDispatcher("/cadTreinoDescricao.jsp").forward(request, response);
 
                     }
                     break;
@@ -136,8 +136,8 @@ public class TreinoController extends HttpServlet {
             }
 
             if (sucesso == true) {
-                resposta.print("<h1>" + mensagem + "</h1>");
-                resposta.print("<a href='listTreino.jsp'>voltar</a>");
+                PrintWriter out = response.getWriter();
+                out.println("<script>alert('" + mensagem + "');location.href='./listAluno.jsp'</script>");
                 // Conseguiu salvar
             } else {
                 // Não salvou
