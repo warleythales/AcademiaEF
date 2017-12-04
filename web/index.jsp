@@ -19,7 +19,7 @@
             <div class="row">
 
                 <div class="col-md-12">
-
+                    <div class="content table-responsive table-full-width">
                     <div class="card">
                         <div class="header">
                             <h2 class="title" align="center">Sistema de Controle de Dados AcademiaEF</h2>
@@ -31,6 +31,7 @@
                         <h2 class="title" align="center"><img src="assets/img/selo123.png"/></h2>
 
                     </div>
+                   </div>     
                 </div>
             </div>
         </div>
