@@ -40,6 +40,11 @@
                         </div>
 
                         <div class="content">
+                            <a class="btn btn-primary btn-fill pull-right" href="javascript:history.go()">Atualizar</a>
+                            <br>
+                            <br>
+                            <br>
+
 
                             <a class="btn btn-info btn-fill pull-right" href=cadAvaliacao.jsp>Novo Cadastro</a>
                             <br>

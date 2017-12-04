@@ -137,7 +137,7 @@ public class TreinoController extends HttpServlet {
 
             if (sucesso == true) {
                 PrintWriter out = response.getWriter();
-                out.println("<script>alert('" + mensagem + "');location.href='./listAluno.jsp'</script>");
+                out.println("<script>alert('" + mensagem + "');location.href='javascript:history.go(-2)'</script>");
                 // Conseguiu salvar
             } else {
                 // Não salvou

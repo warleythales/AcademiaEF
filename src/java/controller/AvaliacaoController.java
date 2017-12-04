@@ -164,8 +164,8 @@ public class AvaliacaoController extends HttpServlet {
             }
 
             if (sucesso == true) {
-                resposta.print("<h1>" + mensagem + "</h1>");
-                resposta.print("<a href='listAvaliacao.jsp'> voltar </a>");
+                PrintWriter out = response.getWriter();
+                out.println("<script>alert('" + mensagem + "');location.href='javascript:history.go(-2)'</script>");
             } else {
                 resposta.print("<h1> Erro ao Gravar Avaliação Física </h1>");
                 resposta.print("<a href='javascript:history.back()'> voltar </a>");

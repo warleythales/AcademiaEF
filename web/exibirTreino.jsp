@@ -34,7 +34,7 @@
 
                         <div class="content">
 
-
+                            <a class="btn btn-primary btn-fill pull-right" href="javascript:history.go()">Atualizar</a>
 
                             <form action="TreinoController" method="POST">
                                 <input type="hidden" name="id" value="${t.id}" />
@@ -86,7 +86,7 @@
                                     </div>
 
                                 </div>
-                                <a class="btn btn-info btn-fill pull-right" href="ExercicioController?acao=cadastrar&id_treino=${t.id}">Novo Exercicio</a>
+                                <a class="btn btn-info btn-fill pull-right" href="cadExercicio.jsp">Novo Exercicio</a>
 
                                 <div class="title-container text-center">
                                     <h3>Exercício</h3>

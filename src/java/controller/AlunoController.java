@@ -40,9 +40,8 @@ public class AlunoController extends HttpServlet {
                             resposta.print("location.href='listAluno.jsp';");
                         }
                         break;
-                        
-                        
-                         case "exibir":
+
+                    case "exibir":
                         Aluno aluno = dao.recuperarPorId(idAluno);
                         if (aluno == null) {
                             resposta.print("alert('Aluno não encontrado!');");
@@ -63,7 +62,7 @@ public class AlunoController extends HttpServlet {
                             request.getRequestDispatcher("/cadAluno.jsp").forward(request, response);
                         }
                         break;
-                        
+
                 }
 
             } else {
@@ -146,8 +145,8 @@ public class AlunoController extends HttpServlet {
             }
 
             if (sucesso == true) {
-                resposta.print("<h1>" + mensagem + "</h1>");
-                resposta.print("<a href='listAluno.jsp'> voltar </a>");
+                PrintWriter out = response.getWriter();
+                out.println("<script>alert('" + mensagem + "');location.href='./listAluno.jsp'</script>");
             } else {
                 resposta.print("<h1> Erro ao Gravar Aluno </h1>");
                 resposta.print("<a href='javascript:history.back()'> voltar </a>");

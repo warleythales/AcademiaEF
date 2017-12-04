@@ -129,12 +129,12 @@ public class ExercicioController extends HttpServlet {
         }
         if (sucesso == true) {
             PrintWriter out = response.getWriter();
-            out.println("<script>alert('" + mensagem + "');location.href='listAluno'</script>");
+            out.println("<script>alert('" + mensagem + "');location.href='javascript:history.go(-2)'</script>");
             // Conseguiu salvar
         } else {
             // Não salvou
             PrintWriter out = response.getWriter();
-            out.println("<script>alert('Erro ao cadastrar Mensalidade');location.href='javascript:history.back()'</script>");
+            out.println("<script>alert('Erro ao cadastrar Exercicio');location.href='javascript:history.back()'</script>");
         }
         resposta.close();
     }
